@@ -15,6 +15,10 @@ public class FPSController : MonoBehaviour
     public float GroundDistance = 0.4f;
     public LayerMask GroundMask;
 
+    public Joystick joystickMove;
+    public Joystick joystickRotate;
+
+
     private Transform camera;
     private float xRotation;
 
@@ -22,26 +26,27 @@ public class FPSController : MonoBehaviour
 
     private Vector3 velocity;
     private bool isGrounded;
-    
 
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
+    // Debug
+    public bool mobileControll;
+
+
+    void Start() {
+        if (!mobileControll)
+            Cursor.lockState = CursorLockMode.Locked;
 
         camera = GetComponentInChildren<Camera>().transform;
         controller = GetComponent<CharacterController>();
 
-
     }
 
-    void Update()
-    {
+    void Update() {
 
         // Gravity
 
         isGrounded = Physics.CheckSphere(GroundCheck.position, GroundDistance, GroundMask);
 
-        if(isGrounded && velocity.y < 0) {
+        if (isGrounded && velocity.y < 0) {
             velocity.y = -1f;
         }
 
@@ -55,19 +60,29 @@ public class FPSController : MonoBehaviour
 
         // Rotation
 
-        float mouseX = Input.GetAxis("Mouse X") * MouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.deltaTime;
+        //float mouseX = Input.GetAxis("Mouse X") * MouseSensitivity * Time.deltaTime;
+        //float mouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        //if (mobileControll) {
+        //    mouseX = joystickRotate.Horizontal * 2;
+        //    mouseY = joystickRotate.Vertical * 2;
+        //}
 
-        camera.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        transform.Rotate(Vector3.up * mouseX);
+        //xRotation -= mouseY;
+        //xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        //camera.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        //transform.Rotate(Vector3.up * mouseX);
 
         // Movement
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+
+        if (mobileControll) {
+            x = joystickMove.Horizontal;
+            z = joystickMove.Vertical;
+        }
 
         Vector3 move = transform.right * x + transform.forward * z;
 
@@ -75,6 +90,12 @@ public class FPSController : MonoBehaviour
 
         controller.Move(move * moveSpeed * Time.deltaTime);
 
-        
+        // Mobile movement
+        #region mobile
+
+
+
+        #endregion
+
     }
 }
