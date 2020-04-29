@@ -16,8 +16,8 @@ public class FPSController : MonoBehaviour
     public LayerMask GroundMask;
 
     public Joystick joystickMove;
-    public Joystick joystickRotate;
-
+    public FixedTouchField TouchField;
+    private Vector2 LookAxis;
 
     private Transform camera;
     private float xRotation;
@@ -60,19 +60,22 @@ public class FPSController : MonoBehaviour
 
         // Rotation
 
-        //float mouseX = Input.GetAxis("Mouse X") * MouseSensitivity * Time.deltaTime;
-        //float mouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * MouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.deltaTime;
 
-        //if (mobileControll) {
-        //    mouseX = joystickRotate.Horizontal * 2;
-        //    mouseY = joystickRotate.Vertical * 2;
-        //}
 
-        //xRotation -= mouseY;
-        //xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        if (mobileControll) {
+            float rotateFactor = 5;
+            LookAxis = TouchField.TouchDist;
+            mouseX = LookAxis.x / rotateFactor;
+            mouseY = LookAxis.y / rotateFactor;
+        }
 
-        //camera.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        //transform.Rotate(Vector3.up * mouseX);
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        camera.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        transform.Rotate(Vector3.up * mouseX);
 
         // Movement
 
