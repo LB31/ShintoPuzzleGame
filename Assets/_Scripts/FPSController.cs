@@ -27,13 +27,20 @@ public class FPSController : MonoBehaviour
     private Vector3 velocity;
     private bool isGrounded;
 
-    // Debug
-    public bool mobileControll;
+    public GameObject MobileUI;
+    public bool MobileControll;
+    
 
 
     void Start() {
-        if (!mobileControll)
+
+        if (MobileControll) {
+            MobileUI.SetActive(true);
+        } else {
+            MobileUI.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
+        }
+            
 
         camera = GetComponentInChildren<Camera>().transform;
         controller = GetComponent<CharacterController>();
@@ -64,7 +71,7 @@ public class FPSController : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.deltaTime;
 
 
-        if (mobileControll) {
+        if (MobileControll) {
             float rotateFactor = 5;
             LookAxis = TouchField.TouchDist;
             mouseX = LookAxis.x / rotateFactor;
@@ -82,7 +89,7 @@ public class FPSController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        if (mobileControll) {
+        if (MobileControll) {
             x = joystickMove.Horizontal;
             z = joystickMove.Vertical;
         }
@@ -92,13 +99,6 @@ public class FPSController : MonoBehaviour
         float moveSpeed = Input.GetKey(KeyCode.LeftShift) && z == 1 ? SprintSpeed : WalkSpeed;
 
         controller.Move(move * moveSpeed * Time.deltaTime);
-
-        // Mobile movement
-        #region mobile
-
-
-
-        #endregion
 
     }
 }
