@@ -382,8 +382,8 @@ MonoBehaviour:
     m_Bits: 256
   joystickMove: {fileID: 2929252285099835592}
   TouchField: {fileID: 1025292409}
-  MobileControll: 0
   MobileUI: {fileID: 1901456697}
+  MobileControll: 1
 --- !u!1 &5552819236424664713
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5552819236733088699
 Transform:
   m_ObjectHideFlags: 0

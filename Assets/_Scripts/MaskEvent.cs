@@ -30,7 +30,7 @@ public class MaskEvent : MonoBehaviour
 	void Update()
 	{
 
-		if (Input.GetKey("up"))
+		if (Input.GetKey("t"))
 		{
 			dissolveFloat = Mathf.Lerp(-1, 1, time);
 			time += 0.3f * Time.deltaTime;
@@ -48,7 +48,7 @@ public class MaskEvent : MonoBehaviour
 			time1 += 0.1f * Time.deltaTime;
 			particleMask.GetComponent<VisualEffect>().SetFloat("particleSpeed", parameter);
 		}
-		if (Input.GetKey("down"))
+		if (Input.GetKey("g"))
 		{
 			parameter2 = Mathf.Lerp(1, 25, time2);
 			time2 += 0.2f * Time.deltaTime;

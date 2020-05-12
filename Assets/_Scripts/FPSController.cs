@@ -38,7 +38,7 @@ public class FPSController : MonoBehaviour
             MobileUI.SetActive(true);
         } else {
             MobileUI.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.lockState = CursorLockMode.Locked;
         }
             
 
