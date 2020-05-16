@@ -18,6 +18,19 @@ public class MaskEvent : MonoBehaviour
 
 	float parameter2 = 1;
 
+	bool startGlow;
+	bool startFly;
+
+	public void StartGlowingMask()
+	{
+		startGlow = true;
+	}
+
+	public void StartFly()
+	{
+		startFly = true;
+	}
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -26,11 +39,13 @@ public class MaskEvent : MonoBehaviour
 
 	}
 
+
+
 	// Update is called once per frame
 	void Update()
 	{
 
-		if (Input.GetKey("t"))
+		if (startGlow || Input.GetKey("t"))
 		{
 			dissolveFloat = Mathf.Lerp(-1, 1, time);
 			time += 0.3f * Time.deltaTime;
@@ -48,7 +63,7 @@ public class MaskEvent : MonoBehaviour
 			time1 += 0.1f * Time.deltaTime;
 			particleMask.GetComponent<VisualEffect>().SetFloat("particleSpeed", parameter);
 		}
-		if (Input.GetKey("g"))
+		if (startFly || Input.GetKey("g"))
 		{
 			parameter2 = Mathf.Lerp(1, 25, time2);
 			time2 += 0.2f * Time.deltaTime;
