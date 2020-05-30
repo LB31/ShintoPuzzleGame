@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 1025292410}
   - component: {fileID: 1025292409}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: CameraMovementPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1301,6 +1301,7 @@ MonoBehaviour:
     m_Bits: 256
   joystickMove: {fileID: 2929252285099835592}
   TouchField: {fileID: 1025292409}
+  ReticleUI: {fileID: 707058791}
   MobileUI: {fileID: 1901456697}
   MobileControll: 0
 --- !u!114 &1998288144

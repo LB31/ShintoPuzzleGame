@@ -27,6 +27,7 @@ public class FPSController : MonoBehaviour
     private Vector3 velocity;
     private bool isGrounded;
 
+    public GameObject ReticleUI;
     public GameObject MobileUI;
     public bool MobileControll;
     
@@ -36,8 +37,10 @@ public class FPSController : MonoBehaviour
 
         if (MobileControll) {
             MobileUI.SetActive(true);
+            ReticleUI.SetActive(false);
         } else {
             MobileUI.SetActive(false);
+            ReticleUI.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
         }
             
