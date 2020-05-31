@@ -21,6 +21,7 @@ public class Interaction : MonoBehaviour
         {
             canvas.SetActive(true);
             playerCamera.SetActive(false);
+
         }
     }
 }
