@@ -3,12 +3,14 @@
         {
             "id": 0,
             "godName": "Ametarasu",
-            "puzzleText": "20 süße Kitsune verwandeln sich jeden Samstag in Menschen und genießen zusammen die in ihrem Schrein erbrachten Opfergaben. Diesmal tranken 10 von ihnen guten Sake, 15 aßen leckeren Reis und 3 von ihnen wollten sich lediglich unterhalten. Wie viele der Kitsune aßen Reis und tranken dazu Sake?"
+            "puzzleText": "20 süße Kitsune verwandeln sich jeden Samstag in Menschen und genießen zusammen die in ihrem Schrein erbrachten Opfergaben. Diesmal tranken 10 von ihnen guten Sake, 15 aßen leckeren Reis und 3 von ihnen wollten sich lediglich unterhalten. Wie viele der Kitsune aßen Reis und tranken dazu Sake?",
+            "puzzleAnswer": "20"       
         },
         {
             "id": 1,
             "godName": "Susanno",
-            "puzzleText": "Beim Besuch ihres Hauptschreines Fushimi Inari-Taisha in Kyoto schaut sich Inari die an sie gerichteten Kiganbun (Wunsch-Briefe) an, als die Kitsune ihr plötzlich aufgeregt zurufen, dass eines der Schriftstücke vor ihr ein besonders schöner Liebesbrief ist. Um welchen davon handelt es sich wohl?"
+            "puzzleText": "Beim Besuch ihres Hauptschreines Fushimi Inari-Taisha in Kyoto schaut sich Inari die an sie gerichteten Kiganbun (Wunsch-Briefe) an, als die Kitsune ihr plötzlich aufgeregt zurufen, dass eines der Schriftstücke vor ihr ein besonders schöner Liebesbrief ist. Um welchen davon handelt es sich wohl?",
+            "puzzleAnswer":  "2"
         }
     ]
 }

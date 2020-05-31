@@ -33,6 +33,8 @@ public class InteractionController : MonoBehaviour
             canvas.SetActive(true);
             playerCamera.SetActive(false);
             inputField.ActivateInputField();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 

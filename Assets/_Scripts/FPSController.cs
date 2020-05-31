@@ -30,6 +30,9 @@ public class FPSController : MonoBehaviour
     public GameObject ReticleUI;
     public GameObject MobileUI;
     public bool MobileControll;
+
+    [SerializeField]
+    private GameObject canvasUi;
     
 
 
@@ -43,7 +46,6 @@ public class FPSController : MonoBehaviour
             ReticleUI.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
         }
-            
 
         camera = GetComponentInChildren<Camera>().transform;
         controller = GetComponent<CharacterController>();
@@ -51,6 +53,12 @@ public class FPSController : MonoBehaviour
     }
 
     void Update() {
+
+        if(canvasUi.activeInHierarchy == false)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
 
         // Gravity
 
