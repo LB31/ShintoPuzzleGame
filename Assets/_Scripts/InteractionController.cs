@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InteractionController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject canvas;
+    [SerializeField]
+    private GameObject playerCamera;
+    [SerializeField]
+    private TMP_InputField inputField;
 
     void Update()
     {
@@ -20,6 +27,12 @@ public class InteractionController : MonoBehaviour
                     print(hitInfo.transform.name);
                 }
             }
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            canvas.SetActive(true);
+            playerCamera.SetActive(false);
+            inputField.ActivateInputField();
         }
     }
 
