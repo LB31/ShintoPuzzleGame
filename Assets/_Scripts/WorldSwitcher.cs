@@ -51,7 +51,7 @@ public class WorldSwitcher : MonoBehaviour
         if (mainWorld)
         {
             mainWorld = !mainWorld;
-
+            playerCam.GetComponentInChildren<Light>().enabled = false;
             lastPlayerPosition = Player.position;
             lastPlayerRotation = Player.rotation;
             lastCameraRotation = playerCam.transform.localRotation;
@@ -68,7 +68,7 @@ public class WorldSwitcher : MonoBehaviour
             Player.rotation = SpawnPoint.rotation;
             playerCam.transform.localRotation = SpawnPoint.rotation;
 
-            //Player.GetComponent<CharacterController>().enabled = true;
+            Player.GetComponent<CharacterController>().enabled = true;
 
         }
         else
@@ -88,7 +88,7 @@ public class WorldSwitcher : MonoBehaviour
             print(playerCam.transform.localRotation);
 
 
-            //Player.GetComponent<CharacterController>().enabled = true;
+            Player.GetComponent<CharacterController>().enabled = true;
         }
     }
 }

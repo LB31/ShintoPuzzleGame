@@ -1,0 +1,209 @@
+newmtl FrontMisc:blinn1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd FrontMiscText.png
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 0.06
+newmtl FrontMisc:blinn2SG
+illum 4
+Kd 0.47 0.42 0.05
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.66 0.17 0.00
+Ns 0.06
+newmtl InsideStuff:blinn2SG
+illum 4
+Kd 0.24 0.17 0.09
+Ka 0.00 0.00 0.00
+Tf 0.76 0.76 0.76
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 0.06
+newmtl InsideStuff:blinn3SG
+illum 4
+Kd 0.17 0.45 0.42
+Ka 0.00 0.00 0.00
+Tf 0.57 0.57 0.57
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 0.06
+newmtl InsideStuff:blinn4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd InsideStuffText.png
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 0.06
+newmtl Templo:blinn1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd temploText.png
+Ni 1.00
+Ks 0.29 0.29 0.29
+Ns 0.06
+newmtl arbol2_lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd ARBOL 2.tga
+Ni 1.00
+newmtl arbol_grueso_lambert3SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd sakura.png
+Ni 1.00
+newmtl arbol_grueso_lambert4SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd arbol textura.jpg
+Ni 1.00
+newmtl arbolfino:lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd arbolfino.tga
+Ni 1.00
+newmtl arbolfino:lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd arbol fino.jpg
+Ni 1.00
+newmtl blinn4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd piso templo textura.jpg
+bump piso templo.jpg -bm 1
+Ni 1.00
+Ks 0.50 0.50 0.50
+newmtl blinn5SG
+illum 4
+Kd 0.10 0.13 0.08
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+newmtl gate:blinn1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd gateText.png
+Ni 1.00
+Ks 0.06 0.06 0.06
+Ns 3.82
+newmtl lambert8SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd arbol textura.jpg
+Ni 1.00
+newmtl lambert9SG
+illum 4
+Kd 0.96 0.96 0.96
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert10SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd base.jpg
+Ni 1.00
+newmtl lambert11SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl lambert13SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd ojizou.jpg
+Ni 1.00
+newmtl lambert14SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd estatuas.jpg
+Ni 1.00
+newmtl lambert15SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd arbol muerto.jpg
+Ni 1.00
+newmtl lambert16SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd rocas uv.jpg
+Ni 1.00
+newmtl oceanShader3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 0.00
+newmtl omikuji_lambert2SG
+illum 4
+Kd 0.98 0.98 0.98
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl omikuji_lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd omikuji.jpg
+Ni 1.00
+newmtl pagoda1:blinn1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd pagodaText.png
+Ni 1.00
+Ks 0.24 0.24 0.24
+Ns 0.06
+newmtl stoneMisc:blinn1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd StonMisctext.png
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 0.06
+newmtl yuyo_lambert2SG1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd yuyo.tga
+Ni 1.00
