@@ -17,6 +17,7 @@ public class InteractionController : MonoBehaviour
                 if (rg && hitInfo.distance < 2)
                 {
                     rg.AddForce(new Vector3(1000f, 0F, 0f));
+                    WorldSwitcher.Instance.SwitchWorld();
                     print(hitInfo.transform.name);
                 }
             }

@@ -6,20 +6,37 @@ using UnityEngine.SceneManagement;
 
 public class WorldSwitcher : MonoBehaviour
 {
+
+    public static WorldSwitcher Instance;
+
     public GameObject MainScene;
     public GameObject SecondScene;
     public Transform Player;
     public Transform SpawnPoint;
 
-    private Vector3 lastPlayerPos;
+    private Vector3 lastPlayerPosition;
     private Quaternion lastPlayerRotation;
+    private Quaternion lastCameraRotation;
+    private Camera playerCam;
 
     private bool mainWorld = true;
 
-    //private void Start()
-    //{
-    //    DontDestroyOnLoad(this);
-    //}
+    private void Awake()
+    {
+        if (Instance)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
+    private void Start()
+    {
+        playerCam = Player.GetComponentInChildren<Camera>();
+    }
 
     void Update()
     {
@@ -29,31 +46,49 @@ public class WorldSwitcher : MonoBehaviour
         }
     }
 
-    void SwitchWorld()
+    public void SwitchWorld()
     {
         if (mainWorld)
         {
-
             mainWorld = !mainWorld;
-            lastPlayerPos = Player.position;
+
+            lastPlayerPosition = Player.position;
             lastPlayerRotation = Player.rotation;
+            lastCameraRotation = playerCam.transform.localRotation;
+
+            print(lastPlayerRotation + " lastPlayerRotation");
+            print(lastCameraRotation + "lastCameraRotation");
+
             SecondScene.SetActive(true);
             MainScene.SetActive(false);
+
             Player.GetComponent<CharacterController>().enabled = false;
+
             Player.position = SpawnPoint.position;
             Player.rotation = SpawnPoint.rotation;
-            Player.GetComponent<CharacterController>().enabled = true;
+            playerCam.transform.localRotation = SpawnPoint.rotation;
+
+            //Player.GetComponent<CharacterController>().enabled = true;
 
         }
         else
         {
             mainWorld = !mainWorld;
+
             SecondScene.SetActive(false);
             MainScene.SetActive(true);
+
             Player.GetComponent<CharacterController>().enabled = false;
-            Player.position = lastPlayerPos;
+
+            Player.position = lastPlayerPosition;
             Player.rotation = lastPlayerRotation;
-            Player.GetComponent<CharacterController>().enabled = true;
+            playerCam.transform.localRotation = lastCameraRotation;
+
+            print(Player.rotation);
+            print(playerCam.transform.localRotation);
+
+
+            //Player.GetComponent<CharacterController>().enabled = true;
         }
     }
 }

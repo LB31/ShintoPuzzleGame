@@ -33,7 +33,7 @@ public class FPSController : MonoBehaviour
     
 
 
-    void Start() {
+    void Awake() {
 
         if (MobileControll) {
             MobileUI.SetActive(true);
@@ -61,7 +61,7 @@ public class FPSController : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Jump") && isGrounded) {
-            velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+            //velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
         }
 
         velocity.y += Gravity * Time.deltaTime;
