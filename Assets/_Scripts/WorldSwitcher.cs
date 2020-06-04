@@ -4,11 +4,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WorldSwitcher : MonoBehaviour
 {
 
     public static WorldSwitcher Instance;
+
+    public Image SceneTransition;
 
     public enum SendingKami
     {
@@ -48,17 +51,18 @@ public class WorldSwitcher : MonoBehaviour
     private void Start()
     {
         playerCam = Player.GetComponentInChildren<Camera>();
+        SecondScene.SetActive(false);
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SwitchWorld();
+            StartCoroutine(VisualizeSceneChange());
         }
     }
 
-    public void SwitchWorld()
+    private void SwitchWorld()
     {
         if (mainWorld)
         {
@@ -112,6 +116,28 @@ public class WorldSwitcher : MonoBehaviour
         Player.GetComponent<CharacterController>().enabled = on;
         Player.GetComponent<FPSController>().enabled = on;
     }
+
+    public IEnumerator VisualizeSceneChange()
+    {
+        float fadeDuration = 1;
+        Color color = SceneTransition.color;
+        for (float i = 0; i <= 1; i += Time.deltaTime * fadeDuration)
+        {
+            color.a = i;
+            SceneTransition.color = color;
+            yield return null;
+        }
+
+        SwitchWorld();
+
+        for (float i = 1; i >= 0; i -= Time.deltaTime * fadeDuration)
+        {
+            color.a = i;
+            SceneTransition.color = color;
+            yield return null;
+        }
+
+    } 
 
 
 }

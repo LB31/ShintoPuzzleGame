@@ -19,7 +19,7 @@ public class DreamWorldController : MonoBehaviour
         if (firstTime)
         {
             PlayAnimation("fallingOrb");
-            firstTime = false;
+            //firstTime = false;
         }
 
     }

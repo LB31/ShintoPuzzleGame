@@ -18,7 +18,7 @@ public class InteractionController : MonoBehaviour
                 if (rg && hitInfo.distance < 2)
                 {
                     rg.AddForce(new Vector3(1000f, 0F, 0f));
-                    WorldSwitcher.Instance.SwitchWorld();
+                    StartCoroutine(WorldSwitcher.Instance.VisualizeSceneChange());
                     WorldSwitcher.Instance.sendingKami = (WorldSwitcher.SendingKami)Enum.Parse(typeof(WorldSwitcher.SendingKami), hitInfo.transform.name);
                 }
             }

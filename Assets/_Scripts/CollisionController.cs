@@ -9,9 +9,7 @@ public class CollisionController : MonoBehaviour
 
     private Transform tutorialSphere;
 
-    private bool startEvent;
-
-    private Animator animator;
+    public Animator animator;
 
     private void Start()
     {
@@ -23,11 +21,10 @@ public class CollisionController : MonoBehaviour
     {
         if (other.transform == player)
         {
- 
             if (WorldSwitcher.Instance.sendingKami == WorldSwitcher.SendingKami.Amaterasu)
             {
+                // forbid player movement
                 player.GetComponent<FPSController>().enabled = false;
-                animator = FindObjectOfType<DreamWorldController>().anim;
                 StartCoroutine(PlayAndWaitForAnim(animator, "amaterasuOrb"));
             }
                 
@@ -57,5 +54,7 @@ public class CollisionController : MonoBehaviour
 
         //Done playing. Do something below!
         player.GetComponent<FPSController>().enabled = true;
+        player.rotation = Quaternion.Euler(0, player.rotation.y, 0);
+        GetComponent<Collider>().enabled = false;
     }
 }
