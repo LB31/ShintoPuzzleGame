@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FPSController : MonoBehaviour
 {
-
     public float MouseSensitivity = 100f;
     public float Gravity = -9.81f;
     public float JumpHeight = 3f;
@@ -36,7 +35,7 @@ public class FPSController : MonoBehaviour
     
 
 
-    void Start() {
+    void Awake() {
 
         if (MobileControll) {
             MobileUI.SetActive(true);
@@ -50,6 +49,11 @@ public class FPSController : MonoBehaviour
         camera = GetComponentInChildren<Camera>().transform;
         controller = GetComponent<CharacterController>();
 
+    }
+
+    private void OnEnable()
+    {
+        xRotation = 0;
     }
 
     void Update() {
@@ -69,7 +73,7 @@ public class FPSController : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Jump") && isGrounded) {
-            velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+            //velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
         }
 
         velocity.y += Gravity * Time.deltaTime;
@@ -112,4 +116,7 @@ public class FPSController : MonoBehaviour
         controller.Move(move * moveSpeed * Time.deltaTime);
 
     }
+
+
+
 }
