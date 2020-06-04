@@ -119,6 +119,7 @@ public class WorldSwitcher : MonoBehaviour
 
     public IEnumerator VisualizeSceneChange()
     {
+        SceneTransition.enabled = true;
         float fadeDuration = 1;
         Color color = SceneTransition.color;
         for (float i = 0; i <= 1; i += Time.deltaTime * fadeDuration)
@@ -136,7 +137,7 @@ public class WorldSwitcher : MonoBehaviour
             SceneTransition.color = color;
             yield return null;
         }
-
+        SceneTransition.enabled = false;
     } 
 
 
