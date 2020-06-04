@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ public class InteractionController : MonoBehaviour
                 {
                     rg.AddForce(new Vector3(1000f, 0F, 0f));
                     WorldSwitcher.Instance.SwitchWorld();
-                    print(hitInfo.transform.name);
+                    WorldSwitcher.Instance.sendingKami = (WorldSwitcher.SendingKami)Enum.Parse(typeof(WorldSwitcher.SendingKami), hitInfo.transform.name);
                 }
             }
         }

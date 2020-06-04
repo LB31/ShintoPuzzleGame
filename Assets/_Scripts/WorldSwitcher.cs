@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,17 @@ public class WorldSwitcher : MonoBehaviour
 {
 
     public static WorldSwitcher Instance;
+
+    public enum SendingKami
+    {
+        Bob,
+        Amaterasu,
+        Susanoo,
+        Inari,
+    }
+
+    public SendingKami sendingKami;
+
 
     public GameObject MainScene;
     public GameObject SecondScene;
@@ -50,45 +62,56 @@ public class WorldSwitcher : MonoBehaviour
     {
         if (mainWorld)
         {
-            mainWorld = !mainWorld;
+            // Remove flashlight for dream world
             playerCam.GetComponentInChildren<Light>().enabled = false;
+            // Store previous Transform
             lastPlayerPosition = Player.position;
             lastPlayerRotation = Player.rotation;
             lastCameraRotation = playerCam.transform.localRotation;
 
-            print(lastPlayerRotation + " lastPlayerRotation");
-            print(lastCameraRotation + "lastCameraRotation");
+            SecondScene.SetActive(mainWorld);
+            MainScene.SetActive(!mainWorld);
 
-            SecondScene.SetActive(true);
-            MainScene.SetActive(false);
-
-            Player.GetComponent<CharacterController>().enabled = false;
+            TriggerPlayerControls(false);
 
             Player.position = SpawnPoint.position;
             Player.rotation = SpawnPoint.rotation;
             playerCam.transform.localRotation = SpawnPoint.rotation;
 
-            Player.GetComponent<CharacterController>().enabled = true;
+            //await Task.Delay(2000);
+            TriggerPlayerControls(true);
 
+            Player.GetComponent<FPSController>().WalkSpeed = 1.5f;
+
+            SecondScene.GetComponent<DreamWorldController>().enabled = true;
         }
         else
         {
-            mainWorld = !mainWorld;
+            // Remove flashlight for dream world
+            playerCam.GetComponentInChildren<Light>().enabled = true;
 
-            SecondScene.SetActive(false);
-            MainScene.SetActive(true);
+            SecondScene.SetActive(mainWorld);
+            MainScene.SetActive(!mainWorld);
 
-            Player.GetComponent<CharacterController>().enabled = false;
+            TriggerPlayerControls(false);
 
             Player.position = lastPlayerPosition;
             Player.rotation = lastPlayerRotation;
             playerCam.transform.localRotation = lastCameraRotation;
 
-            print(Player.rotation);
-            print(playerCam.transform.localRotation);
+            TriggerPlayerControls(true);
 
-
-            Player.GetComponent<CharacterController>().enabled = true;
+            Player.GetComponent<FPSController>().WalkSpeed = 2;
         }
+
+        mainWorld = !mainWorld;
     }
+
+    private void TriggerPlayerControls(bool on)
+    {
+        Player.GetComponent<CharacterController>().enabled = on;
+        Player.GetComponent<FPSController>().enabled = on;
+    }
+
+
 }
