@@ -12,3 +12,10 @@ public class God
     public string[] dialogs;
     
 }
+
+[System.Serializable]
+public class Gods2
+{
+    public God[] gods;
+
+}
