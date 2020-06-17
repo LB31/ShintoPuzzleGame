@@ -20,7 +20,15 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField]
     private GameObject playerCamera;
     [SerializeField]
-    private GameObject canvasUi;
+    private GameObject canvasPuzzle;
+    [SerializeField]
+    private GameObject canvasDialog;
+    [SerializeField]
+    private float timeLapse;
+
+    private float timeCounter = 0;
+
+    private int currentCharacterIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,12 +62,36 @@ public class PuzzleManager : MonoBehaviour
         if(answerGiven == correctAnswer)
         {
             Debug.Log("You are correct");
-            canvasUi.SetActive(false);
+            canvasPuzzle.SetActive(false);
             playerCamera.SetActive(true);
         }
         else
         {
             Debug.Log("You are incorrect");
         }
+    }
+
+    public void StartDialog()
+    {
+        string[] dialogs = selectedGod.dialogs;
+        
+        foreach (string dialog in dialogs)
+        {
+            if (isTyping(dialog))
+            {
+                timeCounter += Time.deltaTime;
+                if(timeCounter >= timeLapse)
+                {
+                    ++currentCharacterIndex;
+                    canvasPuzzle.transform.Find("Dialog").GetComponent<TMP_Text>().text = dialog.Substring(0, currentCharacterIndex);
+                    timeCounter = 0f;
+                }
+            }
+        }
+    }
+
+    private bool isTyping(string dialog)
+    {
+        return currentCharacterIndex < dialog.Length;
     }
 }

@@ -9,5 +9,6 @@ public class God
     public string godName;
     public string puzzleText;
     public string puzzleAnswer;
+    public string[] dialogs;
     
 }

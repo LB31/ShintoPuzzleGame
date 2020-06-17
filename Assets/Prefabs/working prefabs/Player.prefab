@@ -1001,9 +1001,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdf210f7e44299641b243bccdf0b4652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 2031883238332312660, guid: 10afef8d735386c448f2544712402b57, type: 3}
+  canvasPuzzle: {fileID: 0}
   playerCamera: {fileID: 979250447691754922}
   inputField: {fileID: 0}
+  canvasDialog: {fileID: 0}
 --- !u!114 &1071328217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,8 +1021,9 @@ MonoBehaviour:
   selectedGodType: 0
   puzzleTextField: {fileID: 0}
   playerCamera: {fileID: 979250447691754922}
-  canvasUi: {fileID: 2031883238332312660, guid: 10afef8d735386c448f2544712402b57,
-    type: 3}
+  canvasPuzzle: {fileID: 0}
+  canvasDialog: {fileID: 0}
+  timeLapse: 10
 --- !u!1 &5078415481505886615
 GameObject:
   m_ObjectHideFlags: 0
