@@ -58,7 +58,8 @@ public class FPSController : MonoBehaviour
 
     void Update() {
 
-        if(canvasUi.activeInHierarchy == false)
+
+        if(canvasUi && canvasUi.activeInHierarchy == false )
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
