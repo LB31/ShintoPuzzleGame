@@ -11,3 +11,10 @@ public class God
     public string puzzleAnswer;
     
 }
+
+[System.Serializable]
+public class Gods2
+{
+    public God[] gods;
+
+}

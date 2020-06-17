@@ -32,15 +32,19 @@ public class FPSController : MonoBehaviour
 
     [SerializeField]
     private GameObject canvasUi;
-    
 
 
-    void Awake() {
 
-        if (MobileControll) {
+    void Awake()
+    {
+
+        if (MobileControll)
+        {
             MobileUI.SetActive(true);
             ReticleUI.SetActive(false);
-        } else {
+        }
+        else
+        {
             MobileUI.SetActive(false);
             ReticleUI.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
@@ -56,9 +60,11 @@ public class FPSController : MonoBehaviour
         xRotation = 0;
     }
 
-    void Update() {
+    void Update()
+    {
 
-        if(canvasUi.activeInHierarchy == false)
+
+        if (canvasUi && canvasUi.activeInHierarchy == false)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -68,17 +74,18 @@ public class FPSController : MonoBehaviour
 
         isGrounded = Physics.CheckSphere(GroundCheck.position, GroundDistance, GroundMask);
 
-        if (isGrounded && velocity.y < 0) {
+        if (isGrounded && velocity.y < 0)
+        {
             velocity.y = -1f;
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded) {
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
             //velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
         }
 
         velocity.y += Gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-
 
         // Rotation
 
@@ -86,7 +93,8 @@ public class FPSController : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * MouseSensitivity * Time.deltaTime;
 
 
-        if (MobileControll) {
+        if (MobileControll)
+        {
             float rotateFactor = 5;
             LookAxis = TouchField.TouchDist;
             mouseX = LookAxis.x / rotateFactor;
@@ -104,7 +112,8 @@ public class FPSController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        if (MobileControll) {
+        if (MobileControll)
+        {
             x = joystickMove.Horizontal;
             z = joystickMove.Vertical;
         }
@@ -114,7 +123,6 @@ public class FPSController : MonoBehaviour
         float moveSpeed = Input.GetKey(KeyCode.LeftShift) && z == 1 ? SprintSpeed : WalkSpeed;
 
         controller.Move(move * moveSpeed * Time.deltaTime);
-
     }
 
 

@@ -35,7 +35,7 @@ public class PuzzleManager : MonoBehaviour
 
     private void PuzzleUI()
     {
-        Gods godsInJson = JsonUtility.FromJson<Gods>(json.text);
+        Gods2 godsInJson = JsonUtility.FromJson<Gods2>(json.text);
         int selectedGodId = (int)selectedGodType;
         foreach(God god in godsInJson.gods)
         {
