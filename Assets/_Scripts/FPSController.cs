@@ -48,6 +48,7 @@ public class FPSController : MonoBehaviour
             MobileUI.SetActive(false);
             ReticleUI.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         camera = GetComponentInChildren<Camera>().transform;
