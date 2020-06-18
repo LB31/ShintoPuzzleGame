@@ -11,7 +11,7 @@ public class PlayMakerTest : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //FSM.Fsm.Event(EventName);
+        //FSM.Fsm.Event("MOUSE DOWN");
         //PlayMakerFSM.BroadcastEvent(EventName);
         FsmInt defeatedYokai = FSM.Fsm.Variables.GetFsmInt("defeatedYokai");
         defeatedYokai.Value = 5;

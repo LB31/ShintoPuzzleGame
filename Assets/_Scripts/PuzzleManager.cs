@@ -16,11 +16,20 @@ public class PuzzleManager : MonoBehaviour
     private GodTypes selectedGodType;
     [SerializeField]
     private GameObject puzzleTextField;
-    private God selectedGod;
+    private Kami selectedGod;
     [SerializeField]
     private GameObject playerCamera;
     [SerializeField]
-    private GameObject canvasUi;
+    private GameObject canvasPuzzle;
+    [SerializeField]
+    private GameObject canvasDialog;
+    [SerializeField]
+    private float timeLapse;
+
+    private float timeCounter = 0;
+
+    //private int currentCharacterIndex;
+    private string currentDialog;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,16 +44,16 @@ public class PuzzleManager : MonoBehaviour
 
     private void PuzzleUI()
     {
-        Gods2 godsInJson = JsonUtility.FromJson<Gods2>(json.text);
+        Kamis godsInJson = JsonUtility.FromJson<Kamis>(json.text);
         int selectedGodId = (int)selectedGodType;
-        foreach(God god in godsInJson.gods)
+        /*foreach(Kami god in godsInJson.gods)
         {
             if(selectedGodId == god.id)
             {
                 selectedGod = god;
                 puzzleTextField.GetComponent<TMP_Text>().text = god.puzzleText;
             }
-        }
+        }*/
     }
 
     public void CheckAnswer()
@@ -54,7 +63,7 @@ public class PuzzleManager : MonoBehaviour
         if(answerGiven == correctAnswer)
         {
             Debug.Log("You are correct");
-            canvasUi.SetActive(false);
+            canvasPuzzle.SetActive(false);
             playerCamera.SetActive(true);
         }
         else
@@ -62,4 +71,38 @@ public class PuzzleManager : MonoBehaviour
             Debug.Log("You are incorrect");
         }
     }
+
+    public void StartDialog()
+    {
+        string[] dialogs = selectedGod.dialogs;
+        
+        foreach (string dialog in dialogs)
+        {
+            /*
+            if (isTyping(dialog))
+            {
+                timeCounter += Time.deltaTime;
+                if(timeCounter >= timeLapse)
+                {
+                    ++currentCharacterIndex;
+                    canvasPuzzle.transform.Find("Dialog").GetComponent<TMP_Text>().text = dialog.Substring(0, currentCharacterIndex);
+                    timeCounter = 0f;
+                }
+            }
+            */
+
+        }
+    }
+
+    private void BuildDialog(string dialog)
+    {
+        canvasPuzzle.transform.Find("Dialog").GetComponent<TMP_Text>().text = dialog;
+    }
+
+    /*
+    private bool isTyping(string dialog)
+    {
+        return currentCharacterIndex < dialog.Length;
+    }
+    */
 }

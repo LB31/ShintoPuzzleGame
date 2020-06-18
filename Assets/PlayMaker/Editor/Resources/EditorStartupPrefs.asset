@@ -15,6 +15,6 @@ MonoBehaviour:
   welcomeScreenVersion: '1.9.0 '
   playmakerVersion: 
   showWelcomeScreen: 1
-  showUpgradeGuide: 0
-  lastAutoUpdateSignature: 2019.4.0f1__E:/Programme/UnityProjects/ShintoPuzzleGame/Assets__0.0.0.0
+  showUpgradeGuide: 1
+  lastAutoUpdateSignature: 2019.4.0f1__D:/Documents/University/Master/GameDesign/ShintoGame/ShintoPuzzleGame/Assets__0.0.0.0
   useLegacyNetworking: 0

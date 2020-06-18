@@ -3,18 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class God
+public class Kami
 {
     public int id;
-    public string godName;
+    public string kamiName;
     public string puzzleText;
     public string puzzleAnswer;
+    public string[] dialogs;
     
-}
-
-[System.Serializable]
-public class Gods2
-{
-    public God[] gods;
-
 }
