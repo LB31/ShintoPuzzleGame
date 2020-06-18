@@ -7,13 +7,16 @@ using UnityEngine;
 public class LightningManager : MonoBehaviour
 {
 
-	public List<GameObject> lightnings = new List<GameObject>();
+	private List<GameObject> lightnings = new List<GameObject>();
 	private bool start = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        for (int i = 0; i < transform.childCount; i++)
+        {
+			lightnings.Add(transform.GetChild(i).gameObject);
+		}
     }
 
     // Update is called once per frame
@@ -23,6 +26,7 @@ public class LightningManager : MonoBehaviour
 		{
 			StartCoroutine(startLightning());
 		}
+ 
     }
 
 	IEnumerator startLightning()

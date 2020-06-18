@@ -13,13 +13,16 @@ public class ThunderManager : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		for (int i = 0; i < transform.childCount; i++)
+		{
+			thunders.Add(transform.GetChild(i).gameObject);
+		}
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (start == false)
+		if (!start)
 		{
 			StartCoroutine(startLightning());
 		}
@@ -36,5 +39,6 @@ public class ThunderManager : MonoBehaviour
 		timeDelay = Random.Range(0.1f, 0.2f);
 		yield return new WaitForSeconds(timeDelay);
 		start = false;
+		yield return new WaitForSeconds(1);
 	}
 }
