@@ -1,8 +1,8 @@
 {
-    "gods": [
+    "kamis": [
         {
             "id": 0,
-            "godName": "Ametarasu",
+            "kamiName": "Ametarasu",
             "dialogs": [
                 "Citizens of Dalaran! Raise your eyes to the skies and observe! Today our world's destruction has been averted in defiance of our very makers!",
                 "Algalon the Observer, herald of the titans, has been defeated by our brave comrades in the depths of the titan city of Ulduar.",
@@ -10,11 +10,11 @@
                 "Cold logic deemed our world not worth saving. Cold logic, however, does not account for the power of free will. It's up to each of us to prove this is a world worth saving. That our lives... our lives are worth living."
             ],
             "puzzleText": "20 süße Kitsune verwandeln sich jeden Samstag in Menschen und genießen zusammen die in ihrem Schrein erbrachten Opfergaben. Diesmal tranken 10 von ihnen guten Sake, 15 aßen leckeren Reis und 3 von ihnen wollten sich lediglich unterhalten. Wie viele der Kitsune aßen Reis und tranken dazu Sake?",
-            "puzzleAnswer": "20"       
+            "puzzleAnswer": "20"
         },
         {
             "id": 1,
-            "godName": "Susanno",
+            "kamiName": "Susanno",
             "dialogs": [
                 "My son, the day you were born, the very forests of Lordaeron whispered the name Arthas.",
                 "My child, I watched with pride as you grew into a weapon of righteousness.",

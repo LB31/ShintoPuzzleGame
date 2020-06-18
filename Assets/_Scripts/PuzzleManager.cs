@@ -16,7 +16,7 @@ public class PuzzleManager : MonoBehaviour
     private GodTypes selectedGodType;
     [SerializeField]
     private GameObject puzzleTextField;
-    private God selectedGod;
+    private Kami selectedGod;
     [SerializeField]
     private GameObject playerCamera;
     [SerializeField]
@@ -28,7 +28,8 @@ public class PuzzleManager : MonoBehaviour
 
     private float timeCounter = 0;
 
-    private int currentCharacterIndex;
+    //private int currentCharacterIndex;
+    private string currentDialog;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,16 +44,16 @@ public class PuzzleManager : MonoBehaviour
 
     private void PuzzleUI()
     {
-        Gods2 godsInJson = JsonUtility.FromJson<Gods2>(json.text);
+        Kamis godsInJson = JsonUtility.FromJson<Kamis>(json.text);
         int selectedGodId = (int)selectedGodType;
-        foreach(God god in godsInJson.gods)
+        /*foreach(Kami god in godsInJson.gods)
         {
             if(selectedGodId == god.id)
             {
                 selectedGod = god;
                 puzzleTextField.GetComponent<TMP_Text>().text = god.puzzleText;
             }
-        }
+        }*/
     }
 
     public void CheckAnswer()
@@ -77,6 +78,7 @@ public class PuzzleManager : MonoBehaviour
         
         foreach (string dialog in dialogs)
         {
+            /*
             if (isTyping(dialog))
             {
                 timeCounter += Time.deltaTime;
@@ -87,11 +89,20 @@ public class PuzzleManager : MonoBehaviour
                     timeCounter = 0f;
                 }
             }
+            */
+
         }
     }
 
+    private void BuildDialog(string dialog)
+    {
+        canvasPuzzle.transform.Find("Dialog").GetComponent<TMP_Text>().text = dialog;
+    }
+
+    /*
     private bool isTyping(string dialog)
     {
         return currentCharacterIndex < dialog.Length;
     }
+    */
 }

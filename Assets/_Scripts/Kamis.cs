@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Gods
+public class Kamis
 {
-    public God[] gods;
-    
+    public Kami[] kamis;
+
 }
