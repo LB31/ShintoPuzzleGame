@@ -55,9 +55,9 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: -2968
+    x: -2993
     y: -113
-    width: 5913
+    width: 5938
     height: 2480
 --- !u!114 &114350483966674976
 MonoBehaviour:
@@ -647,7 +647,7 @@ VisualEffectResource:
       /*inout */attributes.size, Size_b, attributes.stripProgress);\n\t\t\t\tSubpixelAA(attributes.position, 
       /*inout */attributes.alpha, attributes.size,  /*inout */attributes.scaleX, 
       /*inout */attributes.scaleY);\n\t\t\t\t{\n\t\t\t\t    SetAttribute_FDD06EC7(
-      /*inout */attributes.color, float3(2.76078439, 34.8862762, 64));\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t   
+      /*inout */attributes.color, float3(9.03529453, 105.411766, 191.749023));\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t   
       float tmp_bd = attributes.age / attributes.lifetime;\n\t\t\t\t    float tmp_be
       = SampleCurve(uniform_a,tmp_bd);\n\t\t\t\t    float tmp_bg = tmp_be + (float)-0.0250000004;\n\t\t\t\t   
       float tmp_bh = attributes.stripProgress - tmp_bg;\n\t\t\t\t    float tmp_bj
@@ -884,7 +884,7 @@ VisualEffectResource:
       /*inout */attributes.size, Size_b, attributes.stripProgress);\n\t\t\t\tSubpixelAA(attributes.position, 
       /*inout */attributes.alpha, attributes.size,  /*inout */attributes.scaleX, 
       /*inout */attributes.scaleY);\n\t\t\t\t{\n\t\t\t\t    SetAttribute_FDD06EC7(
-      /*inout */attributes.color, float3(2.76078439, 34.8862762, 64));\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t   
+      /*inout */attributes.color, float3(9.03529453, 105.411766, 191.749023));\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t   
       float tmp_bd = attributes.age / attributes.lifetime;\n\t\t\t\t    float tmp_be
       = SampleCurve(uniform_a,tmp_bd);\n\t\t\t\t    float tmp_bg = tmp_be + (float)-0.0250000004;\n\t\t\t\t   
       float tmp_bh = attributes.stripProgress - tmp_bg;\n\t\t\t\t    float tmp_bj
@@ -2019,7 +2019,7 @@ VisualEffectResource:
       /*inout */attributes.size, attributes.alpha);\n\t\t\t\tSubpixelAA(attributes.position, 
       /*inout */attributes.alpha, attributes.size,  /*inout */attributes.scaleX, 
       /*inout */attributes.scaleY);\n\t\t\t\t{\n\t\t\t\t    SetAttribute_FDD06EC7(
-      /*inout */attributes.color, float3(2.76078439, 34.8862762, 64));\n\t\t\t\t}\n\t\t\t\tAttributeFromCurve_CF7471E0(
+      /*inout */attributes.color, float3(9.03529453, 105.411766, 191.749023));\n\t\t\t\t}\n\t\t\t\tAttributeFromCurve_CF7471E0(
       /*inout */attributes.alpha, attributes.age, attributes.lifetime, Alpha_e);\n\t\t\t\t\n\n\t\t\t\t\n\t\t\t#if
       !HAS_STRIPS\n\t\t\t\tif (!attributes.alive)\n\t\t\t\t\treturn o;\n\t\t\t#endif\n\t\t\t\t\n\t\t\t#if
       VFX_PRIMITIVE_QUAD\n\t\t\t\n\t\t\t#if HAS_STRIPS\n\t\t\t#if VFX_STRIPS_UV_STRECHED\n\t\t\t\to.VFX_VARYING_UV.x
@@ -2233,7 +2233,7 @@ VisualEffectResource:
       /*inout */attributes.size, attributes.alpha);\n\t\t\t\tSubpixelAA(attributes.position, 
       /*inout */attributes.alpha, attributes.size,  /*inout */attributes.scaleX, 
       /*inout */attributes.scaleY);\n\t\t\t\t{\n\t\t\t\t    SetAttribute_FDD06EC7(
-      /*inout */attributes.color, float3(2.76078439, 34.8862762, 64));\n\t\t\t\t}\n\t\t\t\tAttributeFromCurve_CF7471E0(
+      /*inout */attributes.color, float3(9.03529453, 105.411766, 191.749023));\n\t\t\t\t}\n\t\t\t\tAttributeFromCurve_CF7471E0(
       /*inout */attributes.alpha, attributes.age, attributes.lifetime, Alpha_e);\n\t\t\t\t\n\n\t\t\t\t\n\t\t\t#if
       !HAS_STRIPS\n\t\t\t\tif (!attributes.alive)\n\t\t\t\t\treturn o;\n\t\t\t#endif\n\t\t\t\t\n\t\t\t#if
       VFX_PRIMITIVE_QUAD\n\t\t\t\n\t\t\t#if HAS_STRIPS\n\t\t\t#if VFX_STRIPS_UV_STRECHED\n\t\t\t\to.VFX_VARYING_UV.x
@@ -2818,7 +2818,7 @@ VisualEffectResource:
         - m_ExpressionIndex: 55
           m_Value: {x: 1, y: 1, z: 1}
         - m_ExpressionIndex: 63
-          m_Value: {x: 2.7607844, y: 34.886276, z: 64}
+          m_Value: {x: 9.035295, y: 105.411766, z: 191.74902}
       m_Vector4f:
         m_Array: []
       m_Uint:
@@ -7832,7 +7832,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":2.760784387588501,"y":34.88627624511719,"z":64.0}'
+      m_SerializableObject: '{"x":9.035294532775879,"y":105.4117660522461,"z":191.7490234375}'
     m_Space: 2147483647
   m_Property:
     name: Color
@@ -10604,7 +10604,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":2.760784387588501,"y":34.88627624511719,"z":64.0}'
+      m_SerializableObject: '{"x":9.035294532775879,"y":105.4117660522461,"z":191.7490234375}'
     m_Space: 2147483647
   m_Property:
     name: Color

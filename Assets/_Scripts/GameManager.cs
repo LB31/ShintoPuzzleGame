@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager gameManager;
+
     [SerializeField]
     private TextAsset json;
 
     public GameObject MobileUI;
     public GameObject ReticleUI;
     public FPSController fpsController;
+    public bool Mobile;
 
     public enum KamiType
     {
@@ -20,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     public List<Kami> kamis;
 
-    public static GameManager gameManager;
+    
 
     //erstelen gamemanager als singleton
     private void Awake()
@@ -56,7 +59,13 @@ public class GameManager : MonoBehaviour
 
     public void TriggerUi(bool isActive)
     {
-        //MobileUI.SetActive(false);
+        if (Mobile)
+        {
+            MobileUI.SetActive(!isActive);
+            fpsController.enabled = !isActive;
+            return;
+        }
+
         ReticleUI.SetActive(!isActive);
         fpsController.enabled = !isActive;
         if (isActive)

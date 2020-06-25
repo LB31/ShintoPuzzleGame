@@ -35,7 +35,7 @@ public class LightningManager : MonoBehaviour
 		int range = Random.Range(0, lightnings.Count - 1);
 		int time1 = Random.Range(1, 2);
 		lightnings[range].SetActive(true);
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(1);
 		lightnings[range].SetActive(false);
 		start = false;
 	}

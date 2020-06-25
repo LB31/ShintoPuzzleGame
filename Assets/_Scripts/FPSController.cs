@@ -28,15 +28,16 @@ public class FPSController : MonoBehaviour
 
     public GameObject ReticleUI;
     public GameObject MobileUI;
-    public bool MobileControll;
+    private bool MobileControll;
 
     [SerializeField]
     private GameObject canvasUi;
 
 
 
-    void Awake()
+    void Start()
     {
+        MobileControll = GameManager.gameManager.Mobile;
 
         if (MobileControll)
         {
@@ -48,7 +49,6 @@ public class FPSController : MonoBehaviour
             MobileUI.SetActive(false);
             ReticleUI.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
         }
 
         camera = GetComponentInChildren<Camera>().transform;

@@ -260,14 +260,14 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: StartDialog
+          value: 
         fsmObjectParams:
-        - useVariable: 0
+        - useVariable: 1
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          typeName: Dialog
+          typeName: UnityEngine.Component
           value: {fileID: 0}
         fsmVarParams:
         - variableName: 
