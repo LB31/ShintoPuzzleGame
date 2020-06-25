@@ -7,11 +7,13 @@ using UnityEngine;
 public class InteractionController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject canvas;
+    private GameObject canvasPuzzle;
     [SerializeField]
     private GameObject playerCamera;
     [SerializeField]
     private TMP_InputField inputField;
+    [SerializeField]
+    private GameObject canvasDialog;
 
     void Update()
     {
@@ -39,11 +41,18 @@ public class InteractionController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            canvas.SetActive(true);
+            canvasPuzzle.SetActive(true);
             playerCamera.SetActive(false);
             inputField.ActivateInputField();
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            canvasDialog.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            this.GetComponent<PuzzleManager>().StartDialog();
         }
     }
 
