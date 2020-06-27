@@ -12,52 +12,72 @@ public class Dialog : MonoBehaviour
     private Kami currentKami;
 
     public int dialogSequence;
+    private IEnumerator currentCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void StartDialog(GameManager.KamiType selectedKami)
     {
-        foreach(Kami kami in GameManager.gameManager.kamis)
+        foreach (Kami kami in GameManager.gameManager.kamis)
         {
             if (kami.kamiName == selectedKami.ToString())
             {
                 dialogSequence = 0;
                 currentKami = kami;
-                BuildDialog();
+                GetDialogName();
+
+                currentCoroutine = BuildDialog();
+                StartCoroutine(currentCoroutine);
             }
         }
     }
 
-    private void BuildDialog()
+    private IEnumerator BuildDialog()
     {
         string[] dialogs = currentKami.dialogs;
-
-        var dialogBox = dialogUI.transform.Find("Panel/Dialog");
+        var dialogBox = dialogUI.transform.Find("DialogPanel/Dialog");
         var textComponent = dialogBox.GetComponent<TMP_Text>();
-        if(dialogs.Length > dialogSequence)
+
+        if (dialogSequence < dialogs.Length)
         {
-            textComponent.text = dialogs[dialogSequence];
+            textComponent.text = "";
+            foreach (char letter in dialogs[dialogSequence])
+            {
+                textComponent.text += letter;
+                yield return new WaitForSeconds(0.05f);
+            }
+
         }
         else
         {
             PlayMakerFSM.BroadcastEvent("dialogFinished");
         }
-        
-    }
-    
-    public void DialogSequence()
-    {
-        dialogSequence++;
-        BuildDialog();
+
     }
 
+    private void GetDialogName()
+    {
+        var dialogBox = dialogUI.transform.Find("NamePanel/Name");
+        var textComponent = dialogBox.GetComponent<TMP_Text>();
+
+        textComponent.text = currentKami.kamiName;
+    }
+
+    public void DialogSequence()
+    {
+        StopCoroutine(currentCoroutine);
+        dialogSequence++; 
+        currentCoroutine = BuildDialog();
+        StartCoroutine(currentCoroutine);
+    }
 }
