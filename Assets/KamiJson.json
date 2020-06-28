@@ -24,6 +24,18 @@
             ],
             "puzzleText": "Beim Besuch ihres Hauptschreines Fushimi Inari-Taisha in Kyoto schaut sich Inari die an sie gerichteten Kiganbun (Wunsch-Briefe) an, als die Kitsune ihr plötzlich aufgeregt zurufen, dass eines der Schriftstücke vor ihr ein besonders schöner Liebesbrief ist. Um welchen davon handelt es sich wohl?",
             "puzzleAnswer": "2"
+        },
+		{
+            "id": 2,
+            "kamiName": "Amabie",
+            "dialogs": [
+                "I'm the Yokai of stuff and things",
+                "This is not even my final form",
+                "Have you ever dreamt of being a cucumber?",
+                "However, I have a puzzle for you. When you won't solve it, you will die. With pain. I will laugh"
+            ],
+            "puzzleText": "Beim Besuch ihres Hauptschreines Fushimi Inari-Taisha in Kyoto schaut sich Inari die an sie gerichteten Kiganbun (Wunsch-Briefe) an, als die Kitsune ihr plötzlich aufgeregt zurufen, dass eines der Schriftstücke vor ihr ein besonders schöner Liebesbrief ist. Um welchen davon handelt es sich wohl?",
+            "puzzleAnswer": "2"
         }
     ]
 }
