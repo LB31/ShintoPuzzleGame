@@ -51,7 +51,7 @@ public class WorldSwitcher : MonoBehaviour
     private void Start()
     {
         playerCam = Player.GetComponentInChildren<Camera>();
-        SecondScene.SetActive(false);
+        //SecondScene.SetActive(false);
     }
 
     private void Update()
