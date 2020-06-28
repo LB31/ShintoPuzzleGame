@@ -8,6 +8,9 @@ public class Dialog : MonoBehaviour
 {
     [SerializeField]
     private GameObject dialogUI;
+    [SerializeField]
+    private float dialogSpeed;
+
 
     private Kami currentKami;
 
@@ -54,7 +57,7 @@ public class Dialog : MonoBehaviour
             foreach (char letter in dialogs[dialogSequence])
             {
                 textComponent.text += letter;
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(dialogSpeed);
             }
 
         }
