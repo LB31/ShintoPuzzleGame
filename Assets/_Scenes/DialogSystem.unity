@@ -155,6 +155,7 @@ MonoBehaviour:
   MobileUI: {fileID: 1363146821}
   ReticleUI: {fileID: 1876994430}
   fpsController: {fileID: 2058676207}
+  Mobile: 0
   selectedKamiType: 0
   kamis: []
 --- !u!114 &291606672
@@ -538,6 +539,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 286531307, guid: 09dc6a3b5842dfa498fcd8455bf026ae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 515305522, guid: 09dc6a3b5842dfa498fcd8455bf026ae, type: 3}
       propertyPath: m_textInfo.characterCount
       value: 0
@@ -889,6 +894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogUI: {fileID: 817463080}
+  dialogSpeed: 0.03
   dialogSequence: 0
 --- !u!1 &152898717091825174
 GameObject:
