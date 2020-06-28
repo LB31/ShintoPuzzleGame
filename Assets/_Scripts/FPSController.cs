@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FPSController : MonoBehaviour
 {
+
     public float MouseSensitivity = 100f;
     public float Gravity = -9.81f;
     public float JumpHeight = 3f;
@@ -26,43 +27,27 @@ public class FPSController : MonoBehaviour
     private Vector3 velocity;
     private bool isGrounded;
 
-    public GameObject ReticleUI;
     public GameObject MobileUI;
     public bool MobileControll;
-
-    [SerializeField]
-    private GameObject canvasUi;
     
 
 
-    void Awake() {
+    void Start() {
 
         if (MobileControll) {
             MobileUI.SetActive(true);
-            ReticleUI.SetActive(false);
         } else {
             MobileUI.SetActive(false);
-            ReticleUI.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
         }
+            
 
         camera = GetComponentInChildren<Camera>().transform;
         controller = GetComponent<CharacterController>();
 
     }
 
-    private void OnEnable()
-    {
-        xRotation = 0;
-    }
-
     void Update() {
-
-        if(canvasUi.activeInHierarchy == false)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
 
         // Gravity
 
@@ -73,7 +58,7 @@ public class FPSController : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Jump") && isGrounded) {
-            //velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+            velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
         }
 
         velocity.y += Gravity * Time.deltaTime;
@@ -116,7 +101,4 @@ public class FPSController : MonoBehaviour
         controller.Move(move * moveSpeed * Time.deltaTime);
 
     }
-
-
-
 }
