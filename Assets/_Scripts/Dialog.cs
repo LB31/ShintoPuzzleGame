@@ -26,7 +26,7 @@ public class Dialog : MonoBehaviour
 
     public void StartDialog(GameManager.KamiType selectedKami)
     {
-        foreach(Kami kami in GameManager.gameManager.kamis)
+        foreach(Kami kami in GameManager.Instance.kamis)
         {
             if (kami.kamiName == selectedKami.ToString())
             {

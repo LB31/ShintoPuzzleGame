@@ -6,18 +6,20 @@ using UnityEngine;
 public class PuzzleManagerApple : MonoBehaviour
 {
     public List<Transform> Baskets;
+    public Transform AppleTree;
 
-    private Transform selectedApple;
-    private Vector3 previousScale;
-    private Vector3 previousPosition;
+    public List<Transform> AllApples;
+    public List<Vector3> OriginAppleScale;
+    public List<Vector3> OriginApplePosition;
 
-    // Start is called before the first frame update
+    private int selectedApple = -1;
+
     void Start()
     {
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         DragObject();
@@ -29,58 +31,63 @@ public class PuzzleManagerApple : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                if (hit.transform.name.Contains("Apple"))
-                {
-                    previousScale = hit.transform.localScale;
-                    previousPosition = hit.transform.position;
-                    hit.transform.localScale = Vector3.one * 0.5f;
-                    selectedApple = hit.transform;
-                }
-            }
+            RaycastHit hit = Physics.RaycastAll(ray).FirstOrDefault(element => element.transform.name.Contains("Apple"));
+            if (!hit.transform) return;
+            hit.transform.localScale = Vector3.one * 0.5f;
+            selectedApple = AllApples.IndexOf(hit.transform);
         }
 
         // drag apple
         if (Input.GetMouseButton(0))
         {
+            
             Vector3 mp = Input.mousePosition;
             mp.z = 2f;
-            mp.y += 50; // change the offset for fat fingers
-            if (selectedApple)
-                selectedApple.position = Camera.main.ScreenToWorldPoint(mp);
+            // change the offset for fat fingers
+            if (GameManager.Instance.Mobile) 
+                mp.y += 30; 
+
+            Debug.DrawLine(Camera.main.transform.position, Camera.main.ScreenToWorldPoint(mp), Color.green);
+            if (selectedApple != -1)
+                AllApples[selectedApple].position = Camera.main.ScreenToWorldPoint(mp);
         }
 
         // release apple
         if (Input.GetMouseButtonUp(0))
         {
-            if (!selectedApple) return;
+            if (selectedApple == -1) return;
 
             if (!SnapToBasket())
-            {
-                selectedApple.localScale = previousScale;
-                selectedApple.position = previousPosition;
+            {   
+                AllApples[selectedApple].localScale = OriginAppleScale[selectedApple];
+                AllApples[selectedApple].position = OriginApplePosition[selectedApple];
             }
-            
-            selectedApple = null;
+            selectedApple = -1;
         }
     }
 
     private bool SnapToBasket()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(selectedApple.position, 0.3f);
+        Collider[] hitColliders = Physics.OverlapSphere(AllApples[selectedApple].position, 0.05f);
         if (hitColliders.Any(b => b.name.Contains("Straw")))
         {
-            selectedApple.position = hitColliders[0].transform.position;
-            foreach (var item in hitColliders)
-            {
-                print(item.name);
-            }
-            
             return true;
         }
         return false;
+    }
+
+    [ContextMenu("Fill Fields")]
+    public void FillFields()
+    {
+        AllApples.Clear();
+        OriginAppleScale.Clear();
+        OriginApplePosition.Clear();
+        foreach (Transform child in AppleTree)
+        {
+            AllApples.Add(child);
+            OriginAppleScale.Add(child.localScale);
+            OriginApplePosition.Add(child.position);
+        }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager gameManager;
+    public static GameManager Instance;
 
     [SerializeField]
     private TextAsset json;
@@ -29,11 +29,11 @@ public class GameManager : MonoBehaviour
     //erstelen gamemanager als singleton
     private void Awake()
     {
-        if (gameManager)
+        if (Instance)
         {
             return;
         }
-        gameManager = this;
+        Instance = this;
     }
 
     // Start is called before the first frame update

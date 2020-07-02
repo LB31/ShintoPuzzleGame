@@ -35,8 +35,8 @@ public class FPSController : MonoBehaviour
 
     void Start()
     {
-        if (GameManager.gameManager)
-            MobileControll = GameManager.gameManager.Mobile;
+        if (GameManager.Instance)
+            MobileControll = GameManager.Instance.Mobile;
 
         if (MobileControll)
         {
