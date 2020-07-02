@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 5951727359084579307}
   - component: {fileID: 5951727359084579305}
   - component: {fileID: 1883550537}
+  - component: {fileID: 933343756050337268}
   m_Layer: 0
   m_Name: Amaterasu_VFX
   m_TagString: Untagged
@@ -1089,7 +1090,7 @@ MonoBehaviour:
     EnableBreakpoints: 1
     editorFlags: 1
     activeStateName: 
-    mouseEvents: 0
+    mouseEvents: 1
     handleLevelLoaded: 0
     handleTriggerEnter2D: 0
     handleTriggerExit2D: 0
@@ -1117,6 +1118,20 @@ MonoBehaviour:
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 1
+--- !u!114 &933343756050337268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2430014609801515263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1775717093, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetFSMs:
+  - {fileID: 1883550537}
 --- !u!1 &5432870938925241933
 GameObject:
   m_ObjectHideFlags: 0

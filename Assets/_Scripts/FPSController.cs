@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Profiling.Memory.Experimental;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FPSController : MonoBehaviour
 {
@@ -134,9 +131,6 @@ public class FPSController : MonoBehaviour
         
         transform.rotation = Quaternion.Euler(0, refernce.eulerAngles.y, 0);
         Camera.main.transform.localRotation = Quaternion.Euler(refernce.eulerAngles.x, 0, 0);
-
-        print(Camera.main.transform.rotation.eulerAngles);
-        print(Quaternion.Euler(refernce.eulerAngles.x, 0, 0));
     } 
 
 }
