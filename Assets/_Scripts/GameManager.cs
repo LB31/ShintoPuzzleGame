@@ -60,15 +60,18 @@ public class GameManager : MonoBehaviour
 
     public void TriggerUi(bool isActive)
     {
+        CharacterController cc = FindObjectOfType<CharacterController>();
         if (Mobile)
         {
             MobileUI.SetActive(!isActive);
             fpsController.enabled = !isActive;
+            cc.enabled = !isActive;
             return;
         }
 
         ReticleUI.SetActive(!isActive);
         fpsController.enabled = !isActive;
+        cc.enabled = !isActive;
         if (isActive)
         {
             Cursor.lockState = CursorLockMode.None;
