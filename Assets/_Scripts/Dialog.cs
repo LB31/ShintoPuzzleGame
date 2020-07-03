@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using HutongGames.PlayMaker;
 using TMPro;
+using System;
 
 public class Dialog : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class Dialog : MonoBehaviour
     private GameObject dialogUI;
     [SerializeField]
     private float dialogSpeed;
+    [SerializeField]
+    private PlayMakerFSM fsm;
 
 
     private Kami currentKami;
 
     public int dialogSequence;
     private IEnumerator currentCoroutine;
+    //public bool isPuzzleFinished = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +39,7 @@ public class Dialog : MonoBehaviour
         {
             if (kami.kamiName == selectedKami.ToString())
             {
+              
                 dialogSequence = 0;
                 currentKami = kami;
                 GetDialogName();
@@ -48,6 +53,11 @@ public class Dialog : MonoBehaviour
     private IEnumerator BuildDialog()
     {
         string[] dialogs = currentKami.dialogs;
+        if (fsm.FsmVariables.FindFsmBool("isPuzzleFinished").Value)
+        {
+            dialogs = currentKami.dialogsAfterPuzzle;
+        }
+
         var dialogBox = dialogUI.transform.Find("DialogPanel/Dialog");
         var textComponent = dialogBox.GetComponent<TMP_Text>();
 
@@ -82,5 +92,11 @@ public class Dialog : MonoBehaviour
         dialogSequence++; 
         currentCoroutine = BuildDialog();
         StartCoroutine(currentCoroutine);
+    }
+
+    public void StopDialog()
+    {
+        StopCoroutine(currentCoroutine);
+        PlayMakerFSM.BroadcastEvent("cancelInteraction");
     }
 }
