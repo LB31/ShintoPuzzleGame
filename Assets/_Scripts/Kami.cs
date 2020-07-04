@@ -10,5 +10,5 @@ public class Kami
     public string puzzleText;
     public string puzzleAnswer;
     public string[] dialogs;
-    
+    public string[] dialogsAfterPuzzle;
 }
