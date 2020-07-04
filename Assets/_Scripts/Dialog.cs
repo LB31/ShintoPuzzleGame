@@ -4,6 +4,7 @@ using UnityEngine;
 using HutongGames.PlayMaker;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 public class Dialog : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class Dialog : MonoBehaviour
     private float dialogSpeed;
     [SerializeField]
     private PlayMakerFSM fsm;
-
 
     private Kami currentKami;
 
@@ -63,6 +63,11 @@ public class Dialog : MonoBehaviour
 
         if (dialogSequence < dialogs.Length)
         {
+            if(dialogSequence + 1 == dialogs.Length)
+            {
+                dialogUI.transform.Find("DialogPanel/NextButton").gameObject.SetActive(false);
+                dialogUI.transform.Find("DialogPanel/YesButton").gameObject.SetActive(true);
+            }
             textComponent.text = "";
             foreach (char letter in dialogs[dialogSequence])
             {
