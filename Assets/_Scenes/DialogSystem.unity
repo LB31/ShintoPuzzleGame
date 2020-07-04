@@ -857,10 +857,44 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 911069957, guid: 6d565bd27a8b5374ab93050662e1b5db, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.93224305
+      objectReference: {fileID: 0}
+    - target: {fileID: 911069957, guid: 6d565bd27a8b5374ab93050662e1b5db, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 911069957, guid: 6d565bd27a8b5374ab93050662e1b5db, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 911069957, guid: 6d565bd27a8b5374ab93050662e1b5db, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 911069957, guid: 6d565bd27a8b5374ab93050662e1b5db, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 911069957, guid: 6d565bd27a8b5374ab93050662e1b5db, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 911069958, guid: 6d565bd27a8b5374ab93050662e1b5db, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2058676211}
+    - target: {fileID: 2354876074216358335, guid: 6d565bd27a8b5374ab93050662e1b5db,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354876074216358335, guid: 6d565bd27a8b5374ab93050662e1b5db,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 2354876075278671783, guid: 6d565bd27a8b5374ab93050662e1b5db,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -966,6 +1000,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2354876075278671785, guid: 6d565bd27a8b5374ab93050662e1b5db,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354876075278671785, guid: 6d565bd27a8b5374ab93050662e1b5db,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354876075278671785, guid: 6d565bd27a8b5374ab93050662e1b5db,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354876075278671785, guid: 6d565bd27a8b5374ab93050662e1b5db,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2354876075278671787, guid: 6d565bd27a8b5374ab93050662e1b5db,
         type: 3}
       propertyPath: m_Name
@@ -974,7 +1028,17 @@ PrefabInstance:
     - target: {fileID: 2354876075278671787, guid: 6d565bd27a8b5374ab93050662e1b5db,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050109187820526735, guid: 6d565bd27a8b5374ab93050662e1b5db,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050109187820526735, guid: 6d565bd27a8b5374ab93050662e1b5db,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8375915738602994661, guid: 6d565bd27a8b5374ab93050662e1b5db,
         type: 3}
@@ -1500,12 +1564,12 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: FSM
-        - useVariable: 0
-          name: 
+        - useVariable: 1
+          name: isPuzzleFinished
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: isPuzzleFinished
+          value: 
         fsmObjectParams:
         - useVariable: 0
           name: 
@@ -1854,12 +1918,12 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: FSM
-        - useVariable: 0
-          name: 
+        - useVariable: 1
+          name: isPuzzleFinished
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: isPuzzleFinished
+          value: 
         - useVariable: 0
           name: 
           tooltip: 
@@ -2688,8 +2752,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 100.796875
-        y: 510.17188
+        x: 99.53906
+        y: 519.8906
         width: 131
         height: 48
       isBreakpoint: 0
@@ -2759,12 +2823,12 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: FSM
-        - useVariable: 0
-          name: 
+        - useVariable: 1
+          name: isPuzzleFinished
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: isPuzzleFinished
+          value: 
         - useVariable: 0
           name: 
           tooltip: 
