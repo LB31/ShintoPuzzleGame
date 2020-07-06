@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PuzzleManagerApple : MonoBehaviour
 {
@@ -81,6 +82,12 @@ public class PuzzleManagerApple : MonoBehaviour
                 
             }
             selectedApple = -1;
+
+            if (CheckIfPuzzleSolved())
+            {
+                PlayMakerFSM.BroadcastEvent("PuzzleSolved");
+            }
+            
         }
     }
 
@@ -116,5 +123,21 @@ public class PuzzleManagerApple : MonoBehaviour
         }
 
         outsider.parent = GameObject.Find("BasketParent").transform;
+    }
+
+    private bool CheckIfPuzzleSolved()
+    {
+        Transform[] basketChildren;
+        // Big check
+        basketChildren = Baskets[0].GetComponentsInChildren<Transform>();
+        bool checkBig = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 3 && basketChildren.Any(child => child.name.Contains("Small"));
+        // Middle check
+        basketChildren = Baskets[1].GetComponentsInChildren<Transform>();
+        bool checkMiddle = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 2;
+        // Small check
+        basketChildren = Baskets[2].GetComponentsInChildren<Transform>();
+        bool checkSmall = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 1;
+
+        return checkBig && checkMiddle && checkSmall;
     }
 }
