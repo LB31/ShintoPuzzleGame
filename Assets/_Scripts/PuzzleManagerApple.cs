@@ -15,9 +15,14 @@ public class PuzzleManagerApple : MonoBehaviour
 
     private int selectedApple = -1;
 
+    // for moving of the small basket
+    private float distanceToBigBasket;
+    private Quaternion originSmallRotation;
+
     void Start()
     {
-
+        distanceToBigBasket = Vector3.Distance(Baskets[0].position, Baskets[2].position);
+        originSmallRotation = Baskets[2].rotation;
     }
 
 
@@ -32,20 +37,16 @@ public class PuzzleManagerApple : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            RaycastHit hit = Physics.RaycastAll(ray).
+            RaycastHit hit = Physics.RaycastAll(ray). // TODO maybe select all baskets
                 FirstOrDefault(element => element.transform.name.Contains("Apple") || element.transform.name.Contains("Small"));
+
             if (!hit.transform) return;
-            Debug.Log(hit.transform.name, hit.transform);
+            //Debug.Log(hit.transform.name, hit.transform);
+
             if (hit.transform.name.Contains("Apple"))
             {
                 if (hit.transform.parent == AppleTree)
                     hit.transform.localScale = Vector3.one * 0.5f;
-            }
-            else
-            {
-                // TODO move basket properly
-                hit.transform.rotation = Baskets[0].rotation;
             }
 
             selectedApple = AllApples.IndexOf(hit.transform);
@@ -60,9 +61,20 @@ public class PuzzleManagerApple : MonoBehaviour
             if (GameManager.Instance.Mobile)
                 mp.y += 50;
 
-            Debug.DrawLine(Camera.main.transform.position, Camera.main.ScreenToWorldPoint(mp), Color.green);
+            //Debug.DrawLine(Camera.main.transform.position, Camera.main.ScreenToWorldPoint(mp), Color.green);
             if (selectedApple != -1)
+            {
                 AllApples[selectedApple].position = Camera.main.ScreenToWorldPoint(mp);
+                // if the basket is moved
+                if (AllApples[selectedApple].name.Contains("Small"))
+                {
+                    float distance = Vector3.Distance(AllApples[selectedApple].position, Baskets[0].position);
+                    float f = distance / distanceToBigBasket;
+                    float t = 1.0f - f;
+                    AllApples[selectedApple].rotation = Quaternion.Lerp(Baskets[0].rotation, originSmallRotation, f);
+                }
+            }
+                
         }
 
         // release apple
@@ -79,7 +91,7 @@ public class PuzzleManagerApple : MonoBehaviour
                     AllApples[selectedApple].parent = Baskets[0].parent;
                 AllApples[selectedApple].localScale = OriginAppleScale[selectedApple];
                 AllApples[selectedApple].position = OriginApplePosition[selectedApple];
-                
+
             }
             selectedApple = -1;
 
@@ -87,7 +99,7 @@ public class PuzzleManagerApple : MonoBehaviour
             {
                 PlayMakerFSM.BroadcastEvent("PuzzleSolved");
             }
-            
+
         }
     }
 
@@ -95,20 +107,21 @@ public class PuzzleManagerApple : MonoBehaviour
     {
         List<Collider> hitColliders = Physics.OverlapSphere(AllApples[selectedApple].position, 0.05f).ToList();
         hitColliders.Remove(AllApples[selectedApple].GetComponent<Collider>());
-        if (hitColliders.Any(b => b.name.Contains("Straw"))) // if basket was triggered
+        if (hitColliders.Any(b => b.name.Contains("Straw"))) // if a basket was triggered / entered
         {
             // set basket as parent
             AllApples[selectedApple].parent = hitColliders.First(item => item.name.Contains("Straw")).transform;
             return true;
 
         }
+
         return false;
     }
 
     [ContextMenu("Fill Fields")]
     public void FillFields()
     {
-        // Handle small basket
+        // Handle small basket as an apple
         Transform outsider = GameObject.Find("StrawBasketSmall").transform;
         outsider.parent = AppleTree;
 
