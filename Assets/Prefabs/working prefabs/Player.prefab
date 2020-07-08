@@ -118,7 +118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286531306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 29.3, z: -5}
+  m_LocalPosition: {x: -10, y: 29.3, z: -10}
   m_LocalScale: {x: 2.1042001, y: 2.1042001, z: 2.1042001}
   m_Children: []
   m_Father: {fileID: 5552819235047938628}
@@ -1345,10 +1345,8 @@ GameObject:
   - component: {fileID: 5552819235047938628}
   - component: {fileID: 5552819235047938631}
   - component: {fileID: 5552819235047938629}
-  - component: {fileID: 1998288144}
   - component: {fileID: 971523438}
   - component: {fileID: 2058676205}
-  - component: {fileID: 2058676210}
   - component: {fileID: 2058676211}
   m_Layer: 0
   m_Name: Player
@@ -1422,22 +1420,6 @@ MonoBehaviour:
   ReticleUI: {fileID: 707058791}
   MobileUI: {fileID: 1901456697}
   canvasUi: {fileID: 0}
---- !u!114 &1998288144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552819235047938630}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdf210f7e44299641b243bccdf0b4652, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasPuzzle: {fileID: 0}
-  playerCamera: {fileID: 0}
-  inputField: {fileID: 0}
-  canvasDialog: {fileID: 0}
 --- !u!136 &971523438
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1465,20 +1447,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleUi: {fileID: 0}
---- !u!114 &2058676210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5552819235047938630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e7ce51b807378a40a1b32bf697a4cdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FSM: {fileID: 0}
-  EventName: 
 --- !u!114 &2058676211
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -33,6 +33,8 @@ public class Dialog : MonoBehaviour
                 dialogSequence = 0;
                 currentKami = kami;
                 GetDialogName();
+                dialogUI.transform.Find("DialogPanel/YesButton").gameObject.SetActive(false);
+                dialogUI.transform.Find("DialogPanel/NextButton").gameObject.SetActive(true);
 
                 currentCoroutine = BuildDialog();
                 StartCoroutine(currentCoroutine);
