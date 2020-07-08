@@ -21,21 +21,11 @@ public class Dialog : MonoBehaviour
     private IEnumerator currentCoroutine;
     //public bool isPuzzleFinished = false;
 
-    // Start is called before the first frame update
-    void Start()
+
+    public void StartDialog(GameManager.KamiType selectedKami, PlayMakerFSM sendingFSM)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void StartDialog(GameManager.KamiType selectedKami)
-    {
-        foreach (Kami kami in GameManager.gameManager.kamis)
+        fsm = sendingFSM;
+        foreach (Kami kami in GameManager.Instance.kamis)
         {
             if (kami.kamiName == selectedKami.ToString())
             {

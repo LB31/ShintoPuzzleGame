@@ -22,7 +22,7 @@ public class Puzzle : MonoBehaviour
 
     public void StartPuzzle(GameManager.KamiType selectedKami)
     {
-        foreach (Kami kami in GameManager.gameManager.kamis)
+        foreach (Kami kami in GameManager.Instance.kamis)
         {
             if (kami.kamiName == selectedKami.ToString())
             {
