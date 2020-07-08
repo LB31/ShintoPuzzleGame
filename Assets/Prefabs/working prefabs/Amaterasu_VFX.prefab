@@ -1034,6 +1034,9 @@ MonoBehaviour:
     - name: startDialog
       isSystemEvent: 0
       isGlobal: 0
+    - name: dialogFinished
+      isSystemEvent: 0
+      isGlobal: 0
     globalTransitions: []
     variables:
       floatVariables:
