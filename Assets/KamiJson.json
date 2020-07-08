@@ -36,6 +36,21 @@
                 "Did you honestly believe I would trust the future to some blind, half-night elf mongrel?",
                 "Oh no, he was merely an instrument, a stepping stone to a much larger plan! It has all led to this... and this time you will not interfere!"
             ]
-        }
+        },
+        {
+        "id": 2,
+            "kamiName": "Amabie",
+            "dialogs": [
+                "Ich bin Amabie!",
+                "My child, solve this puzzle"
+            ],
+            "puzzleText": "Beim Besuch ihres Hauptschreines Fushimi Inari-Taisha in Kyoto schaut sich Inari die an sie gerichteten Kiganbun (Wunsch-Briefe) an, als die Kitsune ihr plötzlich aufgeregt zurufen, dass eines der Schriftstücke vor ihr ein besonders schöner Liebesbrief ist. Um welchen davon handelt es sich wohl?",
+            "puzzleAnswer": "2",
+            "dialogsAfterPuzzle": [
+                "Don't look so smug! I know what you're thinking, but Tempest Keep was merely a set back.",
+                "Did you honestly believe I would trust the future to some blind, half-night elf mongrel?",
+                "Oh no, he was merely an instrument, a stepping stone to a much larger plan! It has all led to this... and this time you will not interfere!"
+            ]
+		}
     ]
 }
