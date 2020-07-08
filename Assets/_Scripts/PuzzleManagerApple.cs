@@ -59,7 +59,7 @@ public class PuzzleManagerApple : MonoBehaviour
             mp.z = 2f;
             // change the offset for fat fingers
             if (GameManager.Instance.Mobile)
-                mp.y += 50;
+                mp.y += 100;
 
             //Debug.DrawLine(Camera.main.transform.position, Camera.main.ScreenToWorldPoint(mp), Color.green);
             if (selectedApple != -1)
