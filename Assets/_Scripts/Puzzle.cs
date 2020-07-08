@@ -48,6 +48,7 @@ public class Puzzle : MonoBehaviour
         string answerGiven = puzzleBox.GetComponentInChildren<TMP_InputField>().text;
         if (answerGiven == correctAnswer)
         {
+
             Debug.Log("You are correct");
             PlayMakerFSM.BroadcastEvent("puzzleFinished");
         }

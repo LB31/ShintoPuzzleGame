@@ -12,7 +12,6 @@ public class Dialog : MonoBehaviour
     private GameObject dialogUI;
     [SerializeField]
     private float dialogSpeed;
-    [SerializeField]
     private PlayMakerFSM fsm;
 
     private Kami currentKami;
@@ -44,10 +43,15 @@ public class Dialog : MonoBehaviour
 
     private IEnumerator BuildDialog()
     {
-        string[] dialogs = currentKami.dialogs;
+        string[] dialogs;
+        Debug.Log(fsm.FsmVariables.FindFsmBool("isPuzzleFinished").Value);
         if (fsm.FsmVariables.FindFsmBool("isPuzzleFinished").Value)
         {
             dialogs = currentKami.dialogsAfterPuzzle;
+        }
+        else
+        {
+            dialogs = currentKami.dialogs;
         }
 
         var dialogBox = dialogUI.transform.Find("DialogPanel/Dialog");
