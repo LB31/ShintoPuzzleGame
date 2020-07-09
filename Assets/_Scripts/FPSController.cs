@@ -10,6 +10,7 @@ public class FPSController : MonoBehaviour
     public float JumpHeight = 3f;
     public float WalkSpeed = 6f;
     public float SprintSpeed = 12f;
+	public Vector3 additionalMovementSpeed = Vector3.zero;
 
     public Transform GroundCheck;
     public float GroundDistance = 0.4f;
@@ -98,7 +99,16 @@ public class FPSController : MonoBehaviour
 
         float moveSpeed = Input.GetKey(KeyCode.LeftShift) && z == 1 ? SprintSpeed : WalkSpeed;
 
-        controller.Move(move * moveSpeed * Time.deltaTime);
+        controller.Move((move * moveSpeed + additionalMovementSpeed) * Time.deltaTime);
 
     }
+
+	//private void OnTriggerEnter(Collider other)
+	//{
+	//	if (other.transform.name.Contains("MovingPlane"))
+	//	{
+	//		transform.parent = other.transform;
+			
+	//	}
+	//}
 }
