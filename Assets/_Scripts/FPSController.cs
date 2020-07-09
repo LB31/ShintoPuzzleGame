@@ -142,7 +142,7 @@ public class FPSController : MonoBehaviour
         {
             print("in");
             transform.parent = other.transform;
-            other.GetComponent<PlatformController>().enabled = true;
+            //other.GetComponent<PlatformController>().enabled = true;
         }
     }
 

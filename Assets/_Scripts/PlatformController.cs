@@ -15,29 +15,36 @@ public class PlatformController : MonoBehaviour
     private Vector3 offset;
     private bool platformMove;
 
+    public bool plattformDoesMove = false;
+
     private async void Start()
     {
         player = FindObjectOfType<FPSController>();
-        await Task.Delay(3000);
-        platformMove = true;
+        //await Task.Delay(3000);
+        //platformMove = true;
 
     }
 
-    public float t = 1;
+    public float t = 2;
     bool wait;
     public float pingPong = 0.5f;
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (!platformMove) return;
+        if (plattformDoesMove)
+        {
+            pingPong = Mathf.PingPong(Time.time * speed, 1);
+            transform.position = Vector3.Lerp(start.position, end.position, pingPong);
+        }
+        /*if (!platformMove) return;
 
-        if ((pingPong > 0.9f || pingPong < 0.1f) && !wait)
+        if ((pingPong > 0.99f || pingPong < 0.01f) && !wait)
         {
             wait = true;
             t = 0;
         }
 
-        if (t >= 1)
+        if (t >= 2)
         {
             wait = false;
             pingPong = Mathf.PingPong(Time.time * speed, 1);
@@ -46,10 +53,6 @@ public class PlatformController : MonoBehaviour
 
         if (wait)
             t += Time.deltaTime;
-
-
-
-
-
+    */
     }
 }
