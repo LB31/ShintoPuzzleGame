@@ -41,15 +41,15 @@
         "id": 2,
             "kamiName": "Amabie",
             "dialogs": [
-                "Ich bin Amabie!",
-                "My child, solve this puzzle"
+                "I'm Amabie, the beautiful queen of harvest and pandemics. Since the last big pandemic finally the small humans understand my value!",
+                "However, no one takes care of the harvest anymore. The stupid humans pretend to have other problems.",
+                "But you, little thing, look like you know what you are doing. Offer me some tasty apples to stop this pandemic!"
             ],
-            "puzzleText": "Beim Besuch ihres Hauptschreines Fushimi Inari-Taisha in Kyoto schaut sich Inari die an sie gerichteten Kiganbun (Wunsch-Briefe) an, als die Kitsune ihr plötzlich aufgeregt zurufen, dass eines der Schriftstücke vor ihr ein besonders schöner Liebesbrief ist. Um welchen davon handelt es sich wohl?",
+            "puzzleText": "Bla bla bla Mr. Freeman",
             "puzzleAnswer": "2",
             "dialogsAfterPuzzle": [
-                "Don't look so smug! I know what you're thinking, but Tempest Keep was merely a set back.",
-                "Did you honestly believe I would trust the future to some blind, half-night elf mongrel?",
-                "Oh no, he was merely an instrument, a stepping stone to a much larger plan! It has all led to this... and this time you will not interfere!"
+                "Don't look so smug! Did you really thought that you small human can stop a world wide pandemic? Muhahaha",
+                "Nevertheless, I will reward your efforts. Go to Susanno's shrine and help this old bastard to restore the balance in this world. At least a bit ;)"
             ]
 		}
     ]
