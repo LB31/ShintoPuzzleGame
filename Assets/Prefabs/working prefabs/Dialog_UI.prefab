@@ -451,7 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Ich bin shintoman
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d59d51966404eb42b1ff5109cbef10e, type: 2}
   m_sharedMaterial: {fileID: 4456208798197886860, guid: 1d59d51966404eb42b1ff5109cbef10e,
@@ -480,15 +480,15 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 513
-  m_characterSpacing: -8.41
+  m_characterSpacing: 0
   m_wordSpacing: -9.99
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -518,16 +518,16 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -15.631775, z: 0, w: -27.000927}
   m_textInfo:
     textComponent: {fileID: 2354876074216358335}
-    characterCount: 0
+    characterCount: 17
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
