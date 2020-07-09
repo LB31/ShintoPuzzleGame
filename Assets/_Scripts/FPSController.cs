@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Threading.Tasks;
+using UnityEngine;
 
 public class FPSController : MonoBehaviour
 {
@@ -123,7 +124,7 @@ public class FPSController : MonoBehaviour
 
         float moveSpeed = Input.GetKey(KeyCode.LeftShift) && z == 1 ? SprintSpeed : WalkSpeed;
 
-        controller.Move((move * moveSpeed + additionalMovementSpeed) * Time.deltaTime);
+        controller.Move(move * moveSpeed * Time.deltaTime);
     }
 
     public void AssignQuestFormation(Transform refernce)
@@ -132,6 +133,27 @@ public class FPSController : MonoBehaviour
         
         transform.rotation = Quaternion.Euler(0, refernce.eulerAngles.y, 0);
         Camera.main.transform.localRotation = Quaternion.Euler(refernce.eulerAngles.x, 0, 0);
-    } 
+    }
+
+    private async void OnTriggerEnter(Collider other)
+    {
+        await Task.Delay(500);
+        if (other.name.Contains("MovingPlane"))
+        {
+            print("in");
+            transform.parent = other.transform;
+            other.GetComponent<PlatformController>().enabled = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (other.name.Contains("MovingPlane"))
+        {
+            print("out");
+            transform.parent = null;           
+        }
+    }
 
 }
