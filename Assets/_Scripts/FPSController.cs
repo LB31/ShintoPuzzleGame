@@ -31,7 +31,8 @@ public class FPSController : MonoBehaviour
     [SerializeField]
     private GameObject canvasUi;
 
-
+    // For puzzles
+    public Vector3 additionalMovementSpeed = Vector3.zero;
 
     void Start()
     {
@@ -122,7 +123,7 @@ public class FPSController : MonoBehaviour
 
         float moveSpeed = Input.GetKey(KeyCode.LeftShift) && z == 1 ? SprintSpeed : WalkSpeed;
 
-        controller.Move(move * moveSpeed * Time.deltaTime);
+        controller.Move((move * moveSpeed + additionalMovementSpeed) * Time.deltaTime);
     }
 
     public void AssignQuestFormation(Transform refernce)
