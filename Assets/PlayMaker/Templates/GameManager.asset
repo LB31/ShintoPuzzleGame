@@ -25,7 +25,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 82
-        y: 132
+        y: 228
         width: 117.2
         height: 32
       isBreakpoint: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 72
-        y: 199
+        y: 295
         width: 140.4
         height: 32
       isBreakpoint: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 59.859375
-        y: 282.4453
+        y: 378.4453
         width: 156
         height: 16
       isBreakpoint: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 361.92188
-        y: 115.578125
+        y: 211.57812
         width: 126
         height: 32
       isBreakpoint: 0
@@ -301,9 +301,9 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 557.6172
-        y: 112.859375
-        width: 158
+        x: 591.6719
+        y: 207.75
+        width: 156
         height: 64
       isBreakpoint: 0
       isSequence: 0
@@ -335,13 +335,15 @@ MonoBehaviour:
         colorIndex: 0
       actionData:
         actionNames:
+        - HutongGames.PlayMaker.Actions.DebugFsmVariable
         - HutongGames.PlayMaker.Actions.IntSwitch
         customNames:
         - 
-        actionEnabled: 01
-        actionIsOpen: 01
-        actionStartIndex: 00000000
-        actionHashCodes: 092dca00
+        - 
+        actionEnabled: 0001
+        actionIsOpen: 0101
+        actionStartIndex: 0000000003000000
+        actionHashCodes: 32f77204092dca00
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -353,7 +355,31 @@ MonoBehaviour:
         layoutOptionParams: []
         fsmStringParams: []
         fsmObjectParams: []
-        fsmVarParams: []
+        fsmVarParams:
+        - variableName: defeatedYokai
+          objectType: UnityEngine.Object
+          useVariable: 1
+          type: 1
+          floatValue: 0
+          intValue: 2
+          boolValue: 0
+          stringValue: 
+          vector4Value: {x: 0, y: 0, z: 0, w: 0}
+          objectReference: {fileID: 0}
+          arrayValue:
+            useVariable: 0
+            name: 
+            tooltip: 
+            showInInspector: 0
+            networkSync: 0
+            type: -1
+            objectTypeName: 
+            floatValues: []
+            intValues: 
+            boolValues: 
+            stringValues: []
+            vector4Values: []
+            objectReferences: []
         fsmArrayParams: []
         fsmEnumParams: []
         fsmFloatParams: []
@@ -363,25 +389,19 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 0
-        - useVariable: 0
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
           value: 2
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 4
+          value: 3
         - useVariable: 0
           name: 
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 6
+          value: 4
         fsmBoolParams: []
         fsmVector2Params: []
         fsmVector3Params: []
@@ -391,35 +411,35 @@ MonoBehaviour:
         stringParams:
         - meetSusanoo
         - meetTsukuyomi
-        - meetAmaterasu
-        byteData: 00
-        arrayParamSizes: 0300000003000000
+        byteData: 000000000100
+        arrayParamSizes: 0200000002000000
         arrayParamTypes:
         - HutongGames.PlayMaker.FsmInt
         - HutongGames.PlayMaker.FsmEvent
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 100000000c0000001000000010000000100000000c00000017000000170000001700000001000000
+        paramDataType: 070000002700000001000000100000000c00000010000000100000000c000000170000001700000001000000
         paramName:
+        - logLevel
+        - variable
+        - sendToUnityLog
         - intVariable
         - compareTo
-        - 
         - 
         - 
         - sendEvent
         - 
         - 
-        - 
         - everyFrame
-        paramDataPos: 00000000000000000100000002000000030000000100000000000000010000000200000000000000
-        paramByteDataSize: 00000000000000000000000000000000000000000000000000000000000000000000000001000000
+        paramDataPos: 0000000000000000040000000000000000000000010000000200000001000000000000000100000005000000
+        paramByteDataSize: 0400000000000000010000000000000000000000000000000000000000000000000000000000000001000000
     - name: Start Susanno Event
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 563.33594
-        y: 244.15625
+        x: 564.33594
+        y: 356.15625
         width: 150.8
         height: 16
       isBreakpoint: 0
@@ -471,7 +491,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 829.25
-        y: 243.88281
+        y: 339.8828
         width: 165.2
         height: 16
       isBreakpoint: 0
@@ -523,7 +543,7 @@ MonoBehaviour:
       position:
         serializedVersion: 2
         x: 1088.1016
-        y: 243.41406
+        y: 339.41406
         width: 165.2
         height: 16
       isBreakpoint: 0
@@ -569,6 +589,83 @@ MonoBehaviour:
         paramName: []
         paramDataPos: 
         paramByteDataSize: 
+    - name: YokaiDefeated
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 570.3203
+        y: 114.08594
+        width: 117
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: FINISHED
+          isSystemEvent: 1
+          isGlobal: 0
+        toState: Track defeated Yokai
+        linkStyle: 0
+        linkConstraint: 0
+        colorIndex: 0
+      actionData:
+        actionNames:
+        - HutongGames.PlayMaker.Actions.IntAdd
+        customNames:
+        - 
+        actionEnabled: 01
+        actionIsOpen: 01
+        actionStartIndex: 00000000
+        actionHashCodes: 603dd905
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams:
+        - useVariable: 1
+          name: defeatedYokai
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 2
+        - useVariable: 0
+          name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 1
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 00
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 100000001000000001000000
+        paramName:
+        - intVariable
+        - add
+        - everyFrame
+        paramDataPos: 000000000100000000000000
+        paramByteDataSize: 000000000000000001000000
     events:
     - name: FINISHED
       isSystemEvent: 1
@@ -601,7 +698,7 @@ MonoBehaviour:
         name: YokaiDefeated
         isSystemEvent: 0
         isGlobal: 1
-      toState: Track defeated Yokai
+      toState: YokaiDefeated
       linkStyle: 0
       linkConstraint: 0
       colorIndex: 0
@@ -610,6 +707,12 @@ MonoBehaviour:
       intVariables:
       - useVariable: 1
         name: defeatedYokai
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        value: 2
+      - useVariable: 1
+        name: 
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -629,7 +732,7 @@ MonoBehaviour:
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 00000000
+      variableCategoryIDs: 0000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
