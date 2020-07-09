@@ -58,7 +58,7 @@ public class InteractionController : MonoBehaviour
 
     private void InteractionKami(RaycastHit hitInfo)
     {
-        StartCoroutine(WorldSwitcher.Instance.VisualizeSceneChange());
+        StartCoroutine(WorldSwitcher.Instance.VisualizeSceneChange(true));
         WorldSwitcher.Instance.sendingKami = (WorldSwitcher.SendingKami)Enum.Parse(typeof(WorldSwitcher.SendingKami), hitInfo.transform.name);
     }
 

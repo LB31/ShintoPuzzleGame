@@ -12,7 +12,6 @@ public class Dialog : MonoBehaviour
     private GameObject dialogUI;
     [SerializeField]
     private float dialogSpeed;
-    [SerializeField]
     private PlayMakerFSM fsm;
 
     private Kami currentKami;
@@ -21,21 +20,11 @@ public class Dialog : MonoBehaviour
     private IEnumerator currentCoroutine;
     //public bool isPuzzleFinished = false;
 
-    // Start is called before the first frame update
-    void Start()
+
+    public void StartDialog(GameManager.KamiType selectedKami, PlayMakerFSM sendingFSM)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void StartDialog(GameManager.KamiType selectedKami)
-    {
-        foreach (Kami kami in GameManager.gameManager.kamis)
+        fsm = sendingFSM;
+        foreach (Kami kami in GameManager.Instance.kamis)
         {
             if (kami.kamiName == selectedKami.ToString())
             {
@@ -43,6 +32,8 @@ public class Dialog : MonoBehaviour
                 dialogSequence = 0;
                 currentKami = kami;
                 GetDialogName();
+                dialogUI.transform.Find("DialogPanel/YesButton").gameObject.SetActive(false);
+                dialogUI.transform.Find("DialogPanel/NextButton").gameObject.SetActive(true);
 
                 currentCoroutine = BuildDialog();
                 StartCoroutine(currentCoroutine);
@@ -52,10 +43,15 @@ public class Dialog : MonoBehaviour
 
     private IEnumerator BuildDialog()
     {
-        string[] dialogs = currentKami.dialogs;
+        string[] dialogs;
+        Debug.Log(fsm.FsmVariables.FindFsmBool("isPuzzleFinished").Value);
         if (fsm.FsmVariables.FindFsmBool("isPuzzleFinished").Value)
         {
             dialogs = currentKami.dialogsAfterPuzzle;
+        }
+        else
+        {
+            dialogs = currentKami.dialogs;
         }
 
         var dialogBox = dialogUI.transform.Find("DialogPanel/Dialog");

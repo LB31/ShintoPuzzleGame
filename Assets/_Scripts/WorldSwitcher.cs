@@ -58,7 +58,7 @@ public class WorldSwitcher : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(VisualizeSceneChange());
+            StartCoroutine(VisualizeSceneChange(true));
         }
     }
 
@@ -116,7 +116,7 @@ public class WorldSwitcher : MonoBehaviour
         Player.GetComponent<FPSController>().enabled = on;
     }
 
-    public IEnumerator VisualizeSceneChange()
+    public IEnumerator VisualizeSceneChange(bool kami)
     {
         SceneTransition.enabled = true;
         float fadeDuration = 1;
@@ -128,7 +128,12 @@ public class WorldSwitcher : MonoBehaviour
             yield return null;
         }
 
-        SwitchWorld();
+        if (kami)
+            SwitchWorld();
+        else
+        {
+
+        }
 
         for (float i = 1; i >= 0; i -= Time.deltaTime * fadeDuration)
         {
@@ -138,7 +143,7 @@ public class WorldSwitcher : MonoBehaviour
         }
 
         SceneTransition.enabled = false;
-    } 
+    }
 
 
 }

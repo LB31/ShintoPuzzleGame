@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FPSController : MonoBehaviour
 {
@@ -37,8 +35,8 @@ public class FPSController : MonoBehaviour
 
     void Start()
     {
-        if (GameManager.gameManager)
-            MobileControll = GameManager.gameManager.Mobile;
+        if (GameManager.Instance)
+            MobileControll = GameManager.Instance.Mobile;
 
         if (MobileControll)
         {
@@ -127,6 +125,12 @@ public class FPSController : MonoBehaviour
         controller.Move(move * moveSpeed * Time.deltaTime);
     }
 
-
+    public void AssignQuestFormation(Transform refernce)
+    {
+        transform.position = refernce.position;
+        
+        transform.rotation = Quaternion.Euler(0, refernce.eulerAngles.y, 0);
+        Camera.main.transform.localRotation = Quaternion.Euler(refernce.eulerAngles.x, 0, 0);
+    } 
 
 }

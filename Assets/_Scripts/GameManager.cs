@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager gameManager;
+    public static GameManager Instance;
 
     [SerializeField]
     private TextAsset json;
@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
     public enum KamiType
     {
         Ametarasu = 0,
-        Susanno = 1
+        Susanno = 1,
+        Amabie = 2,
     }
     public KamiType selectedKamiType;
 
@@ -28,11 +29,11 @@ public class GameManager : MonoBehaviour
     //erstelen gamemanager als singleton
     private void Awake()
     {
-        if (gameManager)
+        if (Instance)
         {
             return;
         }
-        gameManager = this;
+        Instance = this;
     }
 
     // Start is called before the first frame update
@@ -59,15 +60,18 @@ public class GameManager : MonoBehaviour
 
     public void TriggerUi(bool isActive)
     {
+        CharacterController cc = FindObjectOfType<CharacterController>();
         if (Mobile)
         {
             MobileUI.SetActive(!isActive);
             fpsController.enabled = !isActive;
+            cc.enabled = !isActive;
             return;
         }
 
         ReticleUI.SetActive(!isActive);
         fpsController.enabled = !isActive;
+        cc.enabled = !isActive;
         if (isActive)
         {
             Cursor.lockState = CursorLockMode.None;

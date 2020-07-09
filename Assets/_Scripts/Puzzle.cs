@@ -22,7 +22,7 @@ public class Puzzle : MonoBehaviour
 
     public void StartPuzzle(GameManager.KamiType selectedKami)
     {
-        foreach (Kami kami in GameManager.gameManager.kamis)
+        foreach (Kami kami in GameManager.Instance.kamis)
         {
             if (kami.kamiName == selectedKami.ToString())
             {
@@ -48,6 +48,7 @@ public class Puzzle : MonoBehaviour
         string answerGiven = puzzleBox.GetComponentInChildren<TMP_InputField>().text;
         if (answerGiven == correctAnswer)
         {
+
             Debug.Log("You are correct");
             PlayMakerFSM.BroadcastEvent("puzzleFinished");
         }
