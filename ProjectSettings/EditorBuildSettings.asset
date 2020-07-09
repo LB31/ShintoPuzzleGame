@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/FPS_Controller.unity
     guid: e539f0fc626e88446beb89fbf9165941
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/GameLevel.unity
     guid: cb26b0e273418e74eb4aa78a7b1cfc44
+  - enabled: 1
+    path: Assets/_Scenes/Main.unity
+    guid: ccf42b5fef7254548b3cd3967065ae69
   m_configObjects: {}

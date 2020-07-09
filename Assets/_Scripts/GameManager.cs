@@ -45,7 +45,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ExitGame();
+            print("exit");
+        }
     }
 
     private void ParseJson()
@@ -81,5 +85,10 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
         Cursor.visible = isActive;
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
