@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_ElectricityShaderSchrein
+  m_Shader: {fileID: -6465566751694194690, guid: b677c3a94249b064aaac04275a0889da,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - Vector1_2639F62F: 1
+    - Vector1_382E8DD6: 0.22
+    - Vector1_56264EC0: 0.25
+    - Vector1_841DC84A: 2
+    - Vector1_BE11AAC5: 100
+    m_Colors:
+    - Color_45950825: {r: 1.254902, g: 3.2470589, b: 2.3215687, a: 1}
+    - Vector2_1E71F73C: {r: 0.1, g: 0.1, b: 0.1, a: 0}
+    - Vector2_5193F28B: {r: 0.1, g: -0.5, b: 0, a: 0}
