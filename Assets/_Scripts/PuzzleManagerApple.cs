@@ -19,10 +19,15 @@ public class PuzzleManagerApple : MonoBehaviour
     private float distanceToBigBasket;
     private Quaternion originSmallRotation;
 
+    // Puzzle Information
+    public GameObject TaskPanel;
+
     void Start()
     {
         distanceToBigBasket = Vector3.Distance(Baskets[0].position, Baskets[2].position);
         originSmallRotation = Baskets[2].rotation;
+
+        TaskPanel.transform.parent.gameObject.SetActive(false);
     }
 
 
@@ -152,5 +157,14 @@ public class PuzzleManagerApple : MonoBehaviour
         bool checkSmall = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 1;
 
         return checkBig && checkMiddle && checkSmall;
+    }
+
+
+    public void TriggerPuzzleInfo()
+    {
+        if (TaskPanel.activeSelf)
+            TaskPanel.SetActive(false);
+        else
+            TaskPanel.SetActive(true);
     }
 }

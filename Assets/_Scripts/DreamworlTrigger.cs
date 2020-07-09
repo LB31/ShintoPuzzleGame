@@ -6,6 +6,6 @@ public class DreamworlTrigger : MonoBehaviour
 {
     public void OnTriggerEnter(Collider other)
     {
-        PlayMakerFSM.BroadcastEvent("ENTER DREAMWORLD");
+        PlayMakerFSM.BroadcastEvent("TeleportToDreamworld");
     }
 }
