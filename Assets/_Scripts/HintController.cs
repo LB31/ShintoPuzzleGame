@@ -9,7 +9,8 @@ public class HintController : MonoBehaviour
 
     private void Start()
     {
-        ClickHintRotator.SetActive(false);
+        if (ClickHintRotator)
+            ClickHintRotator.SetActive(false);
     }
 
     private void Update()

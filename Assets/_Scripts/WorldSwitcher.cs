@@ -58,7 +58,7 @@ public class WorldSwitcher : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartCoroutine(VisualizeSceneChange());
+            StartCoroutine(VisualizeSceneChange(true));
         }
     }
 
@@ -82,7 +82,6 @@ public class WorldSwitcher : MonoBehaviour
             Player.rotation = SpawnPoint.rotation;
             playerCam.transform.localRotation = SpawnPoint.rotation;
 
-            //await Task.Delay(2000);
             TriggerPlayerControls(true);
 
             Player.GetComponent<FPSController>().WalkSpeed = 1.5f;
@@ -91,7 +90,7 @@ public class WorldSwitcher : MonoBehaviour
         }
         else
         {
-            // Remove flashlight for dream world
+            // Activate flashlight again
             playerCam.GetComponentInChildren<Light>().enabled = true;
 
             SecondScene.SetActive(mainWorld);
@@ -117,7 +116,7 @@ public class WorldSwitcher : MonoBehaviour
         Player.GetComponent<FPSController>().enabled = on;
     }
 
-    public IEnumerator VisualizeSceneChange()
+    public IEnumerator VisualizeSceneChange(bool kami)
     {
         SceneTransition.enabled = true;
         float fadeDuration = 1;
@@ -129,7 +128,12 @@ public class WorldSwitcher : MonoBehaviour
             yield return null;
         }
 
-        SwitchWorld();
+        if (kami)
+            SwitchWorld();
+        else
+        {
+
+        }
 
         for (float i = 1; i >= 0; i -= Time.deltaTime * fadeDuration)
         {
@@ -137,8 +141,9 @@ public class WorldSwitcher : MonoBehaviour
             SceneTransition.color = color;
             yield return null;
         }
+
         SceneTransition.enabled = false;
-    } 
+    }
 
 
 }
