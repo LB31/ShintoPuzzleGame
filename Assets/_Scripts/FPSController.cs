@@ -56,10 +56,14 @@ public class FPSController : MonoBehaviour
         xRotation = 0;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        FindObjectOfType<cubeMover>().enabled = true;
+    }
+
     void Update() {
 
-
-        if(canvasUi && canvasUi.activeInHierarchy == false )
+            if (canvasUi && canvasUi.activeInHierarchy == false )
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
