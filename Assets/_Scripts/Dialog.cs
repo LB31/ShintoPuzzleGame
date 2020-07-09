@@ -28,7 +28,6 @@ public class Dialog : MonoBehaviour
         {
             if (kami.kamiName == selectedKami.ToString())
             {
-              
                 dialogSequence = 0;
                 currentKami = kami;
                 GetDialogName();
@@ -36,6 +35,7 @@ public class Dialog : MonoBehaviour
                 dialogUI.transform.Find("DialogPanel/NextButton").gameObject.SetActive(true);
 
                 currentCoroutine = BuildDialog();
+                
                 StartCoroutine(currentCoroutine);
             }
         }

@@ -56,10 +56,10 @@ public class WorldSwitcher : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(VisualizeSceneChange(true));
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    StartCoroutine(VisualizeSceneChange(true));
+        //}
     }
 
     private void SwitchWorld()
