@@ -13,6 +13,8 @@ public class PuzzleManagerApple : MonoBehaviour
     public List<Vector3> OriginAppleScale;
     public List<Vector3> OriginApplePosition;
 
+    private string collectableName = "Apple";
+
     private int selectedApple = -1;
 
     // for moving of the small basket
@@ -43,12 +45,12 @@ public class PuzzleManagerApple : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit = Physics.RaycastAll(ray). // TODO maybe select all baskets
-                FirstOrDefault(element => element.transform.name.Contains("Apple") || element.transform.name.Contains("Small"));
+                FirstOrDefault(element => element.transform.name.Contains(collectableName) || element.transform.name.Contains("Small"));
 
             if (!hit.transform) return;
             //Debug.Log(hit.transform.name, hit.transform);
 
-            if (hit.transform.name.Contains("Apple") && hit.transform.parent == AppleTree)
+            if (hit.transform.name.Contains(collectableName) && hit.transform.parent == AppleTree)
             {
                 hit.transform.localScale = Vector3.one * 0.5f;
             }
@@ -148,15 +150,15 @@ public class PuzzleManagerApple : MonoBehaviour
 
         // Big check
         basketChildren = Baskets[0].GetComponentsInChildren<Transform>();
-        bool checkBig1 = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 3 && basketChildren.Any(child => child.name.Contains("Small"));
-        bool checkBig2 = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 3;
+        bool checkBig1 = basketChildren.Where(child => child.name.Contains(collectableName)).Count() == 3 && basketChildren.Any(child => child.name.Contains("Small"));
+        bool checkBig2 = basketChildren.Where(child => child.name.Contains(collectableName)).Count() == 3;
         // Middle check
         basketChildren = Baskets[1].GetComponentsInChildren<Transform>();
-        bool checkMiddle1 = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 2;
-        bool checkMiddle2 = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 2 && basketChildren.Any(child => child.name.Contains("Small"));
+        bool checkMiddle1 = basketChildren.Where(child => child.name.Contains(collectableName)).Count() == 2;
+        bool checkMiddle2 = basketChildren.Where(child => child.name.Contains(collectableName)).Count() == 2 && basketChildren.Any(child => child.name.Contains("Small"));
         // Small check
         basketChildren = Baskets[2].GetComponentsInChildren<Transform>();
-        bool checkSmall = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 1;
+        bool checkSmall = basketChildren.Where(child => child.name.Contains(collectableName)).Count() == 1;
 
         return ((checkBig1 && checkMiddle1) || (checkBig2 && checkMiddle2)) && checkSmall;
     }
