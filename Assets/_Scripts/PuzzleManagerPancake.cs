@@ -4,16 +4,14 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PuzzleManagerApple : MonoBehaviour
+public class PuzzleManagerPancake : MonoBehaviour
 {
-    public List<Transform> Baskets;
-    public Transform AppleTree;
+    public List<Transform> Plates;
 
-    public List<Transform> AllApples;
-    public List<Vector3> OriginAppleScale;
-    public List<Vector3> OriginApplePosition;
+    public List<Transform> AllPancakes;
+    public List<Vector3> OriginPancakePosition;
 
-    private int selectedApple = -1;
+    private int selectedPancake = -1;
 
     // for moving of the small basket
     private float distanceToBigBasket;
@@ -24,8 +22,8 @@ public class PuzzleManagerApple : MonoBehaviour
 
     void Start()
     {
-        distanceToBigBasket = Vector3.Distance(Baskets[0].position, Baskets[2].position);
-        originSmallRotation = Baskets[2].rotation;
+        distanceToBigBasket = Vector3.Distance(Plates[0].position, Plates[2].position);
+        originSmallRotation = Plates[2].rotation;
 
         TaskPanel.transform.parent.gameObject.SetActive(false);
     }
@@ -48,12 +46,8 @@ public class PuzzleManagerApple : MonoBehaviour
             if (!hit.transform) return;
             //Debug.Log(hit.transform.name, hit.transform);
 
-            if (hit.transform.name.Contains("Apple") && hit.transform.parent == AppleTree)
-            {
-                hit.transform.localScale = Vector3.one * 0.5f;
-            }
 
-            selectedApple = AllApples.IndexOf(hit.transform);
+            selectedPancake = AllPancakes.IndexOf(hit.transform);
         }
 
         // drag apple
@@ -66,55 +60,55 @@ public class PuzzleManagerApple : MonoBehaviour
                 mp.y += 100;
 
             //Debug.DrawLine(Camera.main.transform.position, Camera.main.ScreenToWorldPoint(mp), Color.green);
-            if (selectedApple != -1)
+            if (selectedPancake != -1)
             {
-                AllApples[selectedApple].position = Camera.main.ScreenToWorldPoint(mp);
+                AllPancakes[selectedPancake].position = Camera.main.ScreenToWorldPoint(mp);
                 // if the basket is moved
-                if (AllApples[selectedApple].name.Contains("Small"))
+                if (AllPancakes[selectedPancake].name.Contains("Small"))
                 {
-                    float distance = Vector3.Distance(AllApples[selectedApple].position, Baskets[0].position);
+                    float distance = Vector3.Distance(AllPancakes[selectedPancake].position, Plates[0].position);
                     float f = distance / distanceToBigBasket;
                     float t = 1.0f - f;
-                    AllApples[selectedApple].rotation = Quaternion.Lerp(Baskets[0].rotation, originSmallRotation, f);
+                    AllPancakes[selectedPancake].rotation = Quaternion.Lerp(Plates[0].rotation, originSmallRotation, f);
                 }
             }
-
+                
         }
 
         // release apple
         if (Input.GetMouseButtonUp(0))
         {
-            if (selectedApple == -1) return;
+            //if (selectedPancake == -1) return;
 
-            // return to origin position (e.g. apple tree)
-            if (!SnapToBasket())
-            {
-                if (selectedApple != AllApples.Count - 1)
-                    AllApples[selectedApple].parent = AppleTree;
-                else
-                    AllApples[selectedApple].parent = Baskets[0].parent;
-                AllApples[selectedApple].localScale = OriginAppleScale[selectedApple];
-                AllApples[selectedApple].position = OriginApplePosition[selectedApple];
+            //// return to origin position (e.g. apple tree)
+            //if (!SnapToBasket())
+            //{
+            //    if (selectedPancake != AllPancakes.Count - 1)
+            //        AllPancakes[selectedPancake].parent = AppleTree;
+            //    else
+            //        AllPancakes[selectedPancake].parent = Plates[0].parent;
+            //    AllPancakes[selectedPancake].localScale = OriginAppleScale[selectedPancake];
+            //    AllPancakes[selectedPancake].position = OriginPancakePosition[selectedPancake];
 
-            }
-            selectedApple = -1;
+            //}
+            //selectedPancake = -1;
 
-            if (CheckIfPuzzleSolved())
-            {
-                PlayMakerFSM.BroadcastEvent("PuzzleSolved");
-            }
+            //if (CheckIfPuzzleSolved())
+            //{
+            //    PlayMakerFSM.BroadcastEvent("PuzzleSolved");
+            //}
 
         }
     }
 
     private bool SnapToBasket()
     {
-        List<Collider> hitColliders = Physics.OverlapSphere(AllApples[selectedApple].position, 0.05f).ToList();
-        hitColliders.Remove(AllApples[selectedApple].GetComponent<Collider>());
+        List<Collider> hitColliders = Physics.OverlapSphere(AllPancakes[selectedPancake].position, 0.05f).ToList();
+        hitColliders.Remove(AllPancakes[selectedPancake].GetComponent<Collider>());
         if (hitColliders.Any(b => b.name.Contains("Straw"))) // if a basket was triggered / entered
         {
             // set basket as parent
-            AllApples[selectedApple].parent = hitColliders.First(item => item.name.Contains("Straw")).transform;
+            AllPancakes[selectedPancake].parent = hitColliders.First(item => item.name.Contains("Straw")).transform;
             return true;
 
         }
@@ -125,21 +119,21 @@ public class PuzzleManagerApple : MonoBehaviour
     [ContextMenu("Fill Fields")]
     public void FillFields()
     {
-        // Handle small basket as an apple
-        Transform outsider = GameObject.Find("StrawBasketSmall").transform;
-        outsider.parent = AppleTree;
+        //// Handle small basket as an apple
+        //Transform outsider = GameObject.Find("StrawBasketSmall").transform;
+        //outsider.parent = AppleTree;
 
-        AllApples.Clear();
-        OriginAppleScale.Clear();
-        OriginApplePosition.Clear();
-        foreach (Transform child in AppleTree)
-        {
-            AllApples.Add(child);
-            OriginAppleScale.Add(child.localScale);
-            OriginApplePosition.Add(child.position);
-        }
+        //AllPancakes.Clear();
+        //OriginAppleScale.Clear();
+        //OriginPancakePosition.Clear();
+        //foreach (Transform child in AppleTree)
+        //{
+        //    AllPancakes.Add(child);
+        //    OriginAppleScale.Add(child.localScale);
+        //    OriginPancakePosition.Add(child.position);
+        //}
 
-        outsider.parent = GameObject.Find("BasketParent").transform;
+        //outsider.parent = GameObject.Find("BasketParent").transform;
     }
 
     private bool CheckIfPuzzleSolved()
@@ -147,15 +141,15 @@ public class PuzzleManagerApple : MonoBehaviour
         Transform[] basketChildren;
 
         // Big check
-        basketChildren = Baskets[0].GetComponentsInChildren<Transform>();
+        basketChildren = Plates[0].GetComponentsInChildren<Transform>();
         bool checkBig1 = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 3 && basketChildren.Any(child => child.name.Contains("Small"));
         bool checkBig2 = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 3;
         // Middle check
-        basketChildren = Baskets[1].GetComponentsInChildren<Transform>();
+        basketChildren = Plates[1].GetComponentsInChildren<Transform>();
         bool checkMiddle1 = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 2;
         bool checkMiddle2 = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 2 && basketChildren.Any(child => child.name.Contains("Small"));
         // Small check
-        basketChildren = Baskets[2].GetComponentsInChildren<Transform>();
+        basketChildren = Plates[2].GetComponentsInChildren<Transform>();
         bool checkSmall = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 1;
 
         return ((checkBig1 && checkMiddle1) || (checkBig2 && checkMiddle2)) && checkSmall;
