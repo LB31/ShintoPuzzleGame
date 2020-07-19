@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SusanooRätselScript : MonoBehaviour
+public class PuzzleManagerSusanno : MonoBehaviour
 {
     public int anzahlLichter = 3;
 
@@ -33,37 +33,18 @@ public class SusanooRätselScript : MonoBehaviour
 
     public Image puzzleObject;
 
-    void Start()
-    {
-        gameState[0] = false; //Start
-        gameState[1] = false; //Links
-        gameState[2] = false; //Mitte1
-        gameState[3] = false; //Mitte2
-        gameState[4] = false; //Rechts
-    }
-
-   
     void Update()
     {
-        if(restart)
+        if (restart)
         {
-            gameState[0] = false;
-            gameState[1] = false;
-            gameState[2] = false; 
-            gameState[3] = false;
-            gameState[4] = false;
-            plattformMitte.GetComponent<PlatformController>().transform.position = plattformMitte.GetComponent<PlatformController>().start.position;
-            plattformLinks.GetComponent<PlatformController>().transform.position = plattformLinks.GetComponent<PlatformController>().start.position;
-            plattformRechts.GetComponent<PlatformController>().transform.position = plattformRechts.GetComponent<PlatformController>().start.position;
-
-            //player transport
+            PuzzleStart();
         }
 
-        if(gameState[0] || gameState[4])
+        if (gameState[0] || gameState[4])
         {
             //LichtStart is On; Move Middle
             plattformMitte.GetComponent<PlatformController>().plattformDoesMove = true;
-            
+
         }
         else
         {
@@ -71,7 +52,7 @@ public class SusanooRätselScript : MonoBehaviour
 
         }
 
-        if(gameState[2] || gameState[1])
+        if (gameState[2] || gameState[1])
         {
             //Licht Mitte1 is on; Move Links
             plattformLinks.GetComponent<PlatformController>().plattformDoesMove = true;
@@ -81,7 +62,7 @@ public class SusanooRätselScript : MonoBehaviour
             plattformLinks.GetComponent<PlatformController>().plattformDoesMove = false;
         }
 
-        if(gameState[3] || gameState[4])
+        if (gameState[3] || gameState[4])
         {
             //Licht Mitte2 is on; Move Rechts
             plattformRechts.GetComponent<PlatformController>().plattformDoesMove = true;
@@ -104,18 +85,18 @@ public class SusanooRätselScript : MonoBehaviour
             plattformRechts.GetComponent<PlatformController>().plattformDoesMove = true;
             plattformMitte.GetComponent<PlatformController>().plattformDoesMove = true;
 
-            Material M =  tempel.GetComponent<MeshRenderer>().materials[1];
+            Material M = tempel.GetComponent<MeshRenderer>().materials[1];
             Destroy(M);
-            
+
         }
 
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            if(Physics.Raycast(ray,out hit))
+            if (Physics.Raycast(ray, out hit))
             {
                 //Poller
                 if (hit.transform.name.Contains("Poller") && !puzzleSolved)
@@ -129,7 +110,7 @@ public class SusanooRätselScript : MonoBehaviour
                     {
                         anzahlLichter++;
                         Debug.Log(anzahlLichter);
-                        lightMangaer.transform.GetChild(anzahlLichter-1).gameObject.SetActive(true);
+                        lightMangaer.transform.GetChild(anzahlLichter - 1).gameObject.SetActive(true);
                     }
                     else
                     {
@@ -139,16 +120,27 @@ public class SusanooRätselScript : MonoBehaviour
                     }
                     gameState[result] = !gameState[result];
                     hit.transform.GetChild(0).gameObject.SetActive(gameState[result]);
-                    
+
                 }
-                if(puzzleSolved && hit.transform.name.Contains("PuzzleTempel"))
+                if (puzzleSolved && hit.transform.name.Contains("PuzzleTempel"))
                 {
                     hit.transform.GetChild(0).gameObject.SetActive(false);
                     puzzleObject.GetComponent<Image>().enabled = true;
+                    PlayMakerFSM.BroadcastEvent("PuzzleSolved");
                 }
             }
         }
 
+
+    }
+
+    public void PuzzleStart()
+    {
+
+        gameState = new bool[5];
+        plattformMitte.GetComponent<PlatformController>().transform.position = plattformMitte.GetComponent<PlatformController>().start.position;
+        plattformLinks.GetComponent<PlatformController>().transform.position = plattformLinks.GetComponent<PlatformController>().start.position;
+        plattformRechts.GetComponent<PlatformController>().transform.position = plattformRechts.GetComponent<PlatformController>().start.position;
 
     }
 }
