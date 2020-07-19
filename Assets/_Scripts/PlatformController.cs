@@ -1,58 +1,57 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlatformController : MonoBehaviour
 {
-    private FPSController player;
-    private Vector3 pos = Vector3.zero;
-    public float speed = 0.25f;
+    public float speed = 2f;
     public Transform start;
     public Transform end;
-    private bool playerEntered = false;
+    public bool plattformDoesMove = true;
+    private bool hinfahrt = false;
+    private float t = 2;
+    private Vector3 plattformRichtung;
 
-    private Vector3 offset;
-    private bool platformMove;
-
-    public bool plattformDoesMove = false;
-
-    private async void Start()
+    private void Start()
     {
-        player = FindObjectOfType<FPSController>();
-        //await Task.Delay(3000);
-        //platformMove = true;
-
+        plattformRichtung = end.position - start.position;
+        plattformRichtung.Normalize();
     }
-
-    public float t = 2;
-    bool wait;
-    public float pingPong = 0.5f;
 
     private void FixedUpdate()
     {
         if (plattformDoesMove)
         {
-            pingPong = Mathf.PingPong(Time.time * speed, 1);
-            transform.position = Vector3.Lerp(start.position, end.position, pingPong);
+            if (getDistance(this.transform, start) < 0.2 && hinfahrt == false) // Fahrt von Start zu Ziel
+            {
+                hinfahrt = true;
+                plattformRichtung = end.position - start.position;
+                plattformRichtung.Normalize();
+                t = 2;
+            }
+            if (getDistance(this.transform, end) < 0.2 && hinfahrt == true) // Fahrt von Ziel zu Start
+            {
+                hinfahrt = false;
+                plattformRichtung = start.position - end.position;
+                plattformRichtung.Normalize();
+                t = 2;
+            }
+            t -= Time.deltaTime;
+            if (t < 0)
+            {
+                Vector3 translation = Time.deltaTime * plattformRichtung * speed;
+                transform.Translate(translation);
+            }
         }
-        /*if (!platformMove) return;
+    }
 
-        if ((pingPong > 0.99f || pingPong < 0.01f) && !wait)
-        {
-            wait = true;
-            t = 0;
-        }
-
-        if (t >= 2)
-        {
-            wait = false;
-            pingPong = Mathf.PingPong(Time.time * speed, 1);
-            transform.position = Vector3.Lerp(start.position, end.position, pingPong);
-        }
-
-        if (wait)
-            t += Time.deltaTime;
-    */
+    private float getDistance(Transform plattformPos, Transform anchorPointPos)
+    {
+        return Mathf.Sqrt(
+            Mathf.Pow(plattformPos.position.x - anchorPointPos.position.x, 2) +
+            Mathf.Pow(plattformPos.position.y - anchorPointPos.position.y, 2) +
+            Mathf.Pow(plattformPos.position.z - anchorPointPos.position.z, 2));
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SusanooRätselScript : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class SusanooRätselScript : MonoBehaviour
     public GameObject pollerMitte1;
     public GameObject pollerMitte2;
     public GameObject pollerRechts;
+    public GameObject lightMangaer;
+    public GameObject tempel;
 
 
     public GameObject plattformLinks;
@@ -25,6 +29,9 @@ public class SusanooRätselScript : MonoBehaviour
     public GameObject electroBahnRechts;
 
     public bool restart = false;
+    private bool puzzleSolved = false;
+
+    public Image puzzleObject;
 
     void Start()
     {
@@ -64,7 +71,7 @@ public class SusanooRätselScript : MonoBehaviour
 
         }
 
-        if(gameState[2] || gameState[4] || gameState[1])
+        if(gameState[2] || gameState[1])
         {
             //Licht Mitte1 is on; Move Links
             plattformLinks.GetComponent<PlatformController>().plattformDoesMove = true;
@@ -84,9 +91,22 @@ public class SusanooRätselScript : MonoBehaviour
             plattformRechts.GetComponent<PlatformController>().plattformDoesMove = false;
         }
 
-        if (gameState[1] && gameState[3] && gameState[4])
+        if (gameState[1] && gameState[4])
         {
-            //solved
+            puzzleSolved = true;
+            pollerLinks.transform.GetChild(0).gameObject.SetActive(true);
+            pollerMitte1.transform.GetChild(0).gameObject.SetActive(true);
+            pollerMitte2.transform.GetChild(0).gameObject.SetActive(true);
+            pollerRechts.transform.GetChild(0).gameObject.SetActive(true);
+            pollerStart.transform.GetChild(0).gameObject.SetActive(true);
+
+            plattformLinks.GetComponent<PlatformController>().plattformDoesMove = true;
+            plattformRechts.GetComponent<PlatformController>().plattformDoesMove = true;
+            plattformMitte.GetComponent<PlatformController>().plattformDoesMove = true;
+
+            Material M =  tempel.GetComponent<MeshRenderer>().materials[1];
+            Destroy(M);
+            
         }
 
 
@@ -98,16 +118,33 @@ public class SusanooRätselScript : MonoBehaviour
             if(Physics.Raycast(ray,out hit))
             {
                 //Poller
-                if (hit.transform.name.Contains("Poller"))
+                if (hit.transform.name.Contains("Poller") && !puzzleSolved)
                 {
                     int result = System.Int32.Parse(Regex.Match(hit.transform.name, @"\d+").Value);
                     if (!gameState[result] && anzahlLichter < 1)
                     {
                         return;
                     }
+                    if (gameState[result])
+                    {
+                        anzahlLichter++;
+                        Debug.Log(anzahlLichter);
+                        lightMangaer.transform.GetChild(anzahlLichter-1).gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        anzahlLichter--;
+                        Debug.Log(anzahlLichter);
+                        lightMangaer.transform.GetChild(anzahlLichter).gameObject.SetActive(false);
+                    }
                     gameState[result] = !gameState[result];
                     hit.transform.GetChild(0).gameObject.SetActive(gameState[result]);
-
+                    
+                }
+                if(puzzleSolved && hit.transform.name.Contains("PuzzleTempel"))
+                {
+                    hit.transform.GetChild(0).gameObject.SetActive(false);
+                    puzzleObject.GetComponent<Image>().enabled = true;
                 }
             }
         }

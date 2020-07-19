@@ -28,6 +28,7 @@ public class FPSController : MonoBehaviour
     public GameObject ReticleUI;
     public GameObject MobileUI;
     private bool MobileControll;
+	private bool onPlattform = false;
 
     [SerializeField]
     private GameObject canvasUi;
@@ -137,10 +138,11 @@ public class FPSController : MonoBehaviour
 
     private async void OnTriggerEnter(Collider other)
     {
-        await Task.Delay(500);
-        if (other.name.Contains("MovingPlane"))
+        //await Task.Delay(500);
+        if (other.name.Contains("MovingPlane") && onPlattform == false)
         {
             print("in");
+			onPlattform = true;
             transform.parent = other.transform;
             //other.GetComponent<PlatformController>().enabled = true;
         }
@@ -149,9 +151,10 @@ public class FPSController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
 
-        if (other.name.Contains("MovingPlane"))
+        if (other.name.Contains("MovingPlane") && onPlattform)
         {
             print("out");
+			onPlattform = false;
             transform.parent = null;           
         }
     }
