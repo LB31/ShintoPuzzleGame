@@ -96,7 +96,7 @@ public class PuzzleManagerSusanno : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, 2f))
             {
                 //Poller
                 if (hit.transform.name.Contains("Poller") && !puzzleSolved)
