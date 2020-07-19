@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class PuzzleManagerKappa : MonoBehaviour
 {
+    [SerializeField]
+    public GameObject bigBucket;
+    [SerializeField]
+    public GameObject mediumBucket;
+    [SerializeField]
+    public GameObject smallBucket;
 
     private GameObject selectedBucket = null;
     private bool bucketIsSelected = false;
@@ -15,7 +21,22 @@ public class PuzzleManagerKappa : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        /* Initialize water in bucket
+        foreach(Transform child in bigBucket.transform)
+        {
+            waterInBigBucket.Add(child.gameObject);
+        }
+
+        foreach (Transform child in mediumBucket.transform)
+        {
+            waterInMediumBucket.Add(child.gameObject);
+        }
+
+        foreach (Transform child in smallBucket.transform)
+        {
+            waterInSmallBucket.Add(child.gameObject);
+        }
+        */
     }
 
     // Update is called once per frame
@@ -64,17 +85,43 @@ public class PuzzleManagerKappa : MonoBehaviour
         }
     }
 
-    private void ChooseSecondBucket()
+    private void ChooseSecondBucket(GameObject secondBucket)
     {
+        if(GetWaterAmount(selectedBucket).Count == 0)
+        {
+            return;
+        }
 
     }
 
-    private void GetWaterAmount()
+    private List<GameObject> GetWaterAmount(GameObject bucket)
     {
-        
-        foreach(Transform water in selectedBucket.transform)
+        if(bucket == bigBucket)
         {
-            //waterInBucket.Add(water.gameObject);
+            foreach (Transform water in bucket.transform)
+            {
+                waterInBigBucket.Add(water.gameObject);
+            }
+            return waterInBigBucket;
         }
+
+        if (bucket == mediumBucket)
+        {
+            foreach (Transform water in bucket.transform)
+            {
+                waterInMediumBucket.Add(water.gameObject);
+            }
+            return waterInMediumBucket;
+        }
+
+        if (bucket == smallBucket)
+        {
+            foreach (Transform water in bucket.transform)
+            {
+                waterInSmallBucket.Add(water.gameObject);
+            }
+            return waterInSmallBucket;
+        }
+        return null;
     }
 }
