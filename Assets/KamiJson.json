@@ -51,6 +51,19 @@
                 "Don't look so smug! Did you really thought that you small human can stop a world wide pandemic? Muhahaha",
                 "Nevertheless, I will reward your efforts. Go to Susanno's shrine and help this old bastard to restore the balance in this world. At least a bit ;)"
             ]
+		},
+         {
+        "id": 3,
+            "kamiName": "Kappa",
+            "dialogs": [
+                "I'm Kappa, the beautiful queen of harvest and pandemics. Since the last big pandemic finally the small humans understand my value!"
+            ],
+            "puzzleText": "Bla bla bla Mr. Freeman",
+            "puzzleAnswer": "2",
+            "dialogsAfterPuzzle": [
+                "Don't look so smug! Did you really thought that you small human can stop a world wide pandemic? Muhahaha",
+                "Nevertheless, I will reward your efforts. Go to Susanno's shrine and help this old bastard to restore the balance in this world. At least a bit ;)"
+            ]
 		}
     ]
 }
