@@ -7,6 +7,12 @@ public class PuzzleManagerKappa : MonoBehaviour
 {
     private GameObject selectedBucket = null;
     private bool bucketIsSelected = false;
+    [SerializeField]
+    private Bucket bigBucket;
+    [SerializeField]
+    private Bucket mediumBucket;
+    [SerializeField]
+    private Bucket smallBucket;
 
     // Start is called before the first frame update
     void Start()
@@ -73,5 +79,19 @@ public class PuzzleManagerKappa : MonoBehaviour
             bucketFirst.PopWater();
             bucketSecond.PushWater();
         }
+        if (CheckWinCondition())
+        {
+            Debug.Log("WON!!");
+            PlayMakerFSM.BroadcastEvent("PuzzleSolved");
+        }
+    }
+
+    private bool CheckWinCondition()
+    {
+        if(bigBucket.GetWaterAmount() == 8 && mediumBucket.GetWaterAmount() == 8)
+        {
+            return true;
+        }
+        return false;
     }
 }
