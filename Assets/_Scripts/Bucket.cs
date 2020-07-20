@@ -17,11 +17,10 @@ public class Bucket : MonoBehaviour
 
     private float offsetY;
     public int maxWaterAmount;
-    public Stack<GameObject> waters;
+    public Stack<GameObject> waters = new Stack<GameObject>();
    
     void Start()
-    {
-        waters = new Stack<GameObject>();
+    { 
         offsetY = bucketGround.transform.position.y;
         
         for(int i = 0; i < startWaterAmount; i++)

@@ -25,6 +25,7 @@ public class PuzzleManagerKappa : MonoBehaviour
     void Update()
     {
         SelectBucket();
+        UpdateWaterAmount();
     }
 
     private void SelectBucket()
@@ -87,6 +88,17 @@ public class PuzzleManagerKappa : MonoBehaviour
         }
     }
 
+    private void UpdateWaterAmount()
+    {
+        var bigPanel = this.transform.Find("PuzzleUi/WaterAmountPanel/BigPanel/Text");
+        var mediumPanel = this.transform.Find("PuzzleUi/WaterAmountPanel/MediumPanel/Text");
+        var smallPanel = this.transform.Find("PuzzleUi/WaterAmountPanel/SmallPanel/Text");
+
+        bigPanel.GetComponent<TMP_Text>().text = bigBucket.GetWaterAmount().ToString();
+        mediumPanel.GetComponent<TMP_Text>().text = mediumBucket.GetWaterAmount().ToString();
+        smallPanel.GetComponent<TMP_Text>().text = smallBucket.GetWaterAmount().ToString();
+    }
+
     private bool CheckWinCondition()
     {
         //ONLY FOR DEBUG
@@ -110,5 +122,21 @@ public class PuzzleManagerKappa : MonoBehaviour
         var textComponent = taskPanel.GetComponent<TMP_Text>();
         //Debug.Log(selectedKami);
         textComponent.text = GameManager.Instance.kamis[(int)selectedKami].puzzleText;
+    }
+
+    public void TriggerPuzzleInfo()
+    {
+        var taskPanel = this.transform.Find("PuzzleUi/TaskPanel").gameObject;
+        var bucketPanel = this.transform.Find("PuzzleUi/WaterAmountPanel").gameObject;
+        if (taskPanel.activeSelf)
+        {
+            taskPanel.SetActive(false);
+            bucketPanel.SetActive(true);
+        }
+        else
+        {
+            taskPanel.SetActive(true);
+            bucketPanel.SetActive(false);
+        }
     }
 }

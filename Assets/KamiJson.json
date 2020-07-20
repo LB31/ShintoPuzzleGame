@@ -56,9 +56,9 @@
             "id": 3,
             "kamiName": "Kappa",
             "dialogs": [
-                "I'm Kappa, the beautiful queen of harvest and pandemics. Since the last big pandemic finally the small humans understand my value!"
+                "I'm Kappa"
             ],
-            "puzzleText": "Bla bla bla Mr. Freeman",
+            "puzzleText": "You have one 16 litre pitcher full of water, one empty 9 litre pitcher, and one empty 7 litre pitcher. Using nothing but these three pitchers, can you divide the water evenly so that the 16 and 9 litre pitchers are each holding exactly 8 litres of water?",
             "puzzleAnswer": "2",
             "dialogsAfterPuzzle": [
                 "Don't look so smug! Did you really thought that you small human can stop a world wide pandemic? Muhahaha",
