@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,12 +14,13 @@ public class PuzzleManagerPancake : MonoBehaviour
     public List<Transform> AllPancakes;
     public List<Vector3> OriginPancakePosition;
 
+    public Transform YokaiHead;
+
     private Vector3 lastPancakePos;
 
     private string collectableName = "Pancake";
 
     private int selectedPancake = -1;
-    private float selectedPancakeZ;
 
 
 
@@ -33,6 +35,9 @@ public class PuzzleManagerPancake : MonoBehaviour
 
     private void Update()
     {
+        if (selectedPancake != -1)
+            YokaiHead.LookAt(AllPancakes[selectedPancake]);
+
         // select element
         if (Input.GetMouseButtonDown(0))
         {
@@ -61,7 +66,6 @@ public class PuzzleManagerPancake : MonoBehaviour
         //Debug.Log(hit.transform.name, hit.transform);
 
         selectedPancake = AllPancakes.IndexOf(hit.transform);
-        selectedPancakeZ = AllPancakes[selectedPancake].position.z;
 
         lastPancakePos = AllPancakes[selectedPancake].position;
 
@@ -91,7 +95,7 @@ public class PuzzleManagerPancake : MonoBehaviour
         }
     }
 
-    private void ReleaseElement()
+    private async void ReleaseElement()
     {
         if (selectedPancake == -1) return;
         if (SnapToPlate())
@@ -99,6 +103,9 @@ public class PuzzleManagerPancake : MonoBehaviour
             Rigidbody rg = AllPancakes[selectedPancake].GetComponent<Rigidbody>();
             rg.useGravity = true;
             rg.isKinematic = false;
+            await Task.Delay(500);
+            rg.useGravity = false;
+            rg.isKinematic = true;
         }
         else
         {
@@ -179,21 +186,8 @@ public class PuzzleManagerPancake : MonoBehaviour
 
     private bool CheckIfPuzzleSolved()
     {
-        Transform[] basketChildren;
-
-        // Big check
-        basketChildren = Plates[0].GetComponentsInChildren<Transform>();
-        bool checkBig1 = basketChildren.Where(child => child.name.Contains(collectableName)).Count() == 3 && basketChildren.Any(child => child.name.Contains("Small"));
-        bool checkBig2 = basketChildren.Where(child => child.name.Contains(collectableName)).Count() == 3;
-        // Middle check
-        basketChildren = Plates[1].GetComponentsInChildren<Transform>();
-        bool checkMiddle1 = basketChildren.Where(child => child.name.Contains(collectableName)).Count() == 2;
-        bool checkMiddle2 = basketChildren.Where(child => child.name.Contains(collectableName)).Count() == 2 && basketChildren.Any(child => child.name.Contains("Small"));
-        // Small check
-        basketChildren = Plates[2].GetComponentsInChildren<Transform>();
-        bool checkSmall = basketChildren.Where(child => child.name.Contains(collectableName)).Count() == 1;
-
-        return ((checkBig1 && checkMiddle1) || (checkBig2 && checkMiddle2)) && checkSmall;
+        if (Plates[1].childCount == 4) return true;
+        return false;
     }
 
 
