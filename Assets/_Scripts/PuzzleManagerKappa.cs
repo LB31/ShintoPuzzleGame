@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class PuzzleManagerKappa : MonoBehaviour
@@ -88,10 +89,26 @@ public class PuzzleManagerKappa : MonoBehaviour
 
     private bool CheckWinCondition()
     {
-        if(bigBucket.GetWaterAmount() == 8 && mediumBucket.GetWaterAmount() == 8)
+        //ONLY FOR DEBUG
+        if (mediumBucket.GetWaterAmount() == 9)
         {
             return true;
         }
         return false;
+
+        /*
+        if (bigBucket.GetWaterAmount() == 8 && mediumBucket.GetWaterAmount() == 8)
+        {
+            return true;
+        }
+        return false;
+        */
+    }
+    public void PuzzleDescription(GameManager.KamiType selectedKami)
+    {
+        var taskPanel = this.transform.Find("PuzzleUi/TaskPanel/Text");
+        var textComponent = taskPanel.GetComponent<TMP_Text>();
+        //Debug.Log(selectedKami);
+        textComponent.text = GameManager.Instance.kamis[(int)selectedKami].puzzleText;
     }
 }
