@@ -15,10 +15,17 @@ public class PuzzleManagerKappa : MonoBehaviour
     [SerializeField]
     private Bucket smallBucket;
 
+    private GameObject bigPanel;
+    private GameObject mediumPanel;
+    private GameObject smallPanel;
+  
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        bigPanel = this.transform.Find("PuzzleUi/WaterAmountPanel/BigPanel/Text").gameObject;
+        mediumPanel = this.transform.Find("PuzzleUi/WaterAmountPanel/MediumPanel/Text").gameObject;
+        smallPanel = this.transform.Find("PuzzleUi/WaterAmountPanel/SmallPanel/Text").gameObject;
     }
 
     // Update is called once per frame
@@ -94,14 +101,14 @@ public class PuzzleManagerKappa : MonoBehaviour
 
     private void UpdateWaterAmount()
     {
-        var bigPanel = this.transform.Find("PuzzleUi/WaterAmountPanel/BigPanel/Text");
-        var mediumPanel = this.transform.Find("PuzzleUi/WaterAmountPanel/MediumPanel/Text");
-        var smallPanel = this.transform.Find("PuzzleUi/WaterAmountPanel/SmallPanel/Text");
-
         //TODO: add maxAmount
-        bigPanel.GetComponent<TMP_Text>().text = bigBucket.GetWaterAmount().ToString();
-        mediumPanel.GetComponent<TMP_Text>().text = mediumBucket.GetWaterAmount().ToString();
-        smallPanel.GetComponent<TMP_Text>().text = smallBucket.GetWaterAmount().ToString();
+        string bigBucketText = bigBucket.GetWaterAmount().ToString() + "/" + bigBucket.maxWaterAmount;
+        string mediumBucketText = mediumBucket.GetWaterAmount().ToString() + "/" + mediumBucket.maxWaterAmount;
+        string smallBucketText = smallBucket.GetWaterAmount().ToString() + "/" + smallBucket.maxWaterAmount;
+
+        bigPanel.GetComponent<TMP_Text>().text = bigBucketText;
+        mediumPanel.GetComponent<TMP_Text>().text = mediumBucketText;
+        smallPanel.GetComponent<TMP_Text>().text = smallBucketText;
     }
 
     private bool CheckWinCondition()
