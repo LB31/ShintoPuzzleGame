@@ -41,10 +41,12 @@ public class PuzzleManagerKappa : MonoBehaviour
            
             if (hit.transform.name.Contains("Bucket"))
             {
+                //select second bucket
                 if (selectedBucket != hit.transform.gameObject && bucketIsSelected)
                 {
                     ChooseSecondBucket(hit.transform.gameObject);
                     //Debug.Log("Do Puzzle Stuff");
+                    selectedBucket.GetComponent<Bucket>().Activated(false);
                     selectedBucket = null;
                     bucketIsSelected = false;
                 }
@@ -52,11 +54,13 @@ public class PuzzleManagerKappa : MonoBehaviour
                 else if(selectedBucket != hit.transform.gameObject && !bucketIsSelected)
                 {
                     selectedBucket = hit.transform.gameObject;
+                    selectedBucket.GetComponent<Bucket>().Activated(true);
                     bucketIsSelected = true;
                 }
                 //checks if bucket has already been selected
                 else if (selectedBucket == hit.transform.gameObject && bucketIsSelected)
                 {
+                    selectedBucket.GetComponent<Bucket>().Activated(false);
                     //deselect the bucket
                     selectedBucket = null;
                     bucketIsSelected = false;
@@ -94,6 +98,7 @@ public class PuzzleManagerKappa : MonoBehaviour
         var mediumPanel = this.transform.Find("PuzzleUi/WaterAmountPanel/MediumPanel/Text");
         var smallPanel = this.transform.Find("PuzzleUi/WaterAmountPanel/SmallPanel/Text");
 
+        //TODO: add maxAmount
         bigPanel.GetComponent<TMP_Text>().text = bigBucket.GetWaterAmount().ToString();
         mediumPanel.GetComponent<TMP_Text>().text = mediumBucket.GetWaterAmount().ToString();
         smallPanel.GetComponent<TMP_Text>().text = smallBucket.GetWaterAmount().ToString();
@@ -107,7 +112,7 @@ public class PuzzleManagerKappa : MonoBehaviour
             return true;
         }
         return false;
-
+        
         /*
         if (bigBucket.GetWaterAmount() == 8 && mediumBucket.GetWaterAmount() == 8)
         {
@@ -115,6 +120,7 @@ public class PuzzleManagerKappa : MonoBehaviour
         }
         return false;
         */
+        
     }
     public void PuzzleDescription(GameManager.KamiType selectedKami)
     {

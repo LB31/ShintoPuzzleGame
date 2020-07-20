@@ -71,6 +71,11 @@ public class Bucket : MonoBehaviour
         offsetY += waterBlockHeight;
     }
 
+    public void Activated(bool isActivated)
+    {
+       this.transform.Find("PointLight").gameObject.SetActive(isActivated);
+    } 
+
     // Update is called once per frame
     void Update()
     {
