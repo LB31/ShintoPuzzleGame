@@ -3185,9 +3185,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f133e64d20b45f48b263ba452648cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Plates: []
-  AllPancakes: []
-  OriginPancakePosition: []
+  Plates:
+  - {fileID: 1514138141}
+  - {fileID: 1178967091}
+  - {fileID: 1363836370}
+  AllPancakes:
+  - {fileID: 9117753298375910467}
+  - {fileID: 7501274774327741053}
+  - {fileID: 3060500087375256142}
+  - {fileID: 382550882121724295}
+  OriginPancakePosition:
+  - {x: -4.6963015, y: 1.1257524, z: 1.4619889}
+  - {x: -4.705924, y: 1.1856741, z: 1.4659419}
+  - {x: -4.7012978, y: 1.2375857, z: 1.476706}
+  - {x: -4.698218, y: 1.2779441, z: 1.4839332}
   TaskPanel: {fileID: 0}
 --- !u!1 &1464157761
 GameObject:
@@ -7173,6 +7184,7 @@ GameObject:
   - component: {fileID: 382550882121724295}
   - component: {fileID: 4120756762706849997}
   - component: {fileID: 5224047462248910170}
+  - component: {fileID: 973946788577624836}
   m_Layer: 0
   m_Name: Pancake3
   m_TagString: Untagged
@@ -7180,6 +7192,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &973946788577624836
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973946788577624835}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.17553219, y: 0.18311793, z: 0.045974266}
+  m_Center: {x: 0.0092656, y: 0.00061526767, z: 0.015538528}
 --- !u!23 &999051247636587137
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9789,6 +9814,7 @@ GameObject:
   - component: {fileID: 9117753298375910467}
   - component: {fileID: 7471002377873536166}
   - component: {fileID: 2241126754741290423}
+  - component: {fileID: 2180648367860157155}
   m_Layer: 0
   m_Name: Pancake0
   m_TagString: Untagged
@@ -9796,6 +9822,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &2180648367860157155
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2180648367860157154}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19853246, y: 0.18889867, z: 0.04220449}
+  m_Center: {x: 0.0050814985, y: 0.0046014437, z: 0.015957301}
 --- !u!1 &2195168656003373823
 GameObject:
   m_ObjectHideFlags: 0
@@ -16475,6 +16514,7 @@ GameObject:
   - component: {fileID: 3060500087375256142}
   - component: {fileID: 8311977856095231965}
   - component: {fileID: 7816468868168925466}
+  - component: {fileID: 4424016020689725508}
   m_Layer: 0
   m_Name: Pancake2
   m_TagString: Untagged
@@ -16482,6 +16522,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &4424016020689725508
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4424016020689725507}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1950315, y: 0.1859545, z: 0.04609316}
+  m_Center: {x: -0.00009759523, y: 0.000009171672, z: 0.013450355}
 --- !u!33 &4442584154136204516
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -32947,6 +33000,7 @@ GameObject:
   - component: {fileID: 7501274774327741053}
   - component: {fileID: 8096014406275615350}
   - component: {fileID: 3341569597101441549}
+  - component: {fileID: 8922824293691501504}
   m_Layer: 0
   m_Name: Pancake1
   m_TagString: Untagged
@@ -32954,6 +33008,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &8922824293691501504
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8922824293691501503}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1945749, y: 0.18360257, z: 0.041264005}
+  m_Center: {x: 0.0003257917, y: 0.0011815095, z: 0.016141983}
 --- !u!23 &8926816099365818452
 MeshRenderer:
   m_ObjectHideFlags: 0

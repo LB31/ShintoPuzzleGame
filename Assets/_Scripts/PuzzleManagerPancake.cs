@@ -11,7 +11,10 @@ public class PuzzleManagerPancake : MonoBehaviour
     public List<Transform> AllPancakes;
     public List<Vector3> OriginPancakePosition;
 
+    private string collectableName = "Pancake";
+
     private int selectedPancake = -1;
+    private float selectedPancakeZ;
 
     // for moving of the small basket
     private float distanceToBigBasket;
@@ -25,7 +28,7 @@ public class PuzzleManagerPancake : MonoBehaviour
         distanceToBigBasket = Vector3.Distance(Plates[0].position, Plates[2].position);
         originSmallRotation = Plates[2].rotation;
 
-        TaskPanel.transform.parent.gameObject.SetActive(false);
+        //TaskPanel.transform.parent.gameObject.SetActive(false);
     }
 
 
@@ -36,25 +39,24 @@ public class PuzzleManagerPancake : MonoBehaviour
 
     private void DragObject()
     {
-        // select apple
+        // select element
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit = Physics.RaycastAll(ray). // TODO maybe select all baskets
-                FirstOrDefault(element => element.transform.name.Contains("Apple") || element.transform.name.Contains("Small"));
+            RaycastHit hit = Physics.RaycastAll(ray).FirstOrDefault(element => element.transform.name.Contains(collectableName));
 
             if (!hit.transform) return;
             //Debug.Log(hit.transform.name, hit.transform);
 
-
             selectedPancake = AllPancakes.IndexOf(hit.transform);
+            selectedPancakeZ = AllPancakes[selectedPancake].position.z;
         }
 
-        // drag apple
+        // drag element
         if (Input.GetMouseButton(0))
         {
             Vector3 mp = Input.mousePosition;
-            mp.z = 2f;
+            mp.z = selectedPancakeZ;
             // change the offset for fat fingers
             if (GameManager.Instance.Mobile)
                 mp.y += 100;
@@ -63,14 +65,6 @@ public class PuzzleManagerPancake : MonoBehaviour
             if (selectedPancake != -1)
             {
                 AllPancakes[selectedPancake].position = Camera.main.ScreenToWorldPoint(mp);
-                // if the basket is moved
-                if (AllPancakes[selectedPancake].name.Contains("Small"))
-                {
-                    float distance = Vector3.Distance(AllPancakes[selectedPancake].position, Plates[0].position);
-                    float f = distance / distanceToBigBasket;
-                    float t = 1.0f - f;
-                    AllPancakes[selectedPancake].rotation = Quaternion.Lerp(Plates[0].rotation, originSmallRotation, f);
-                }
             }
                 
         }
@@ -119,21 +113,13 @@ public class PuzzleManagerPancake : MonoBehaviour
     [ContextMenu("Fill Fields")]
     public void FillFields()
     {
-        //// Handle small basket as an apple
-        //Transform outsider = GameObject.Find("StrawBasketSmall").transform;
-        //outsider.parent = AppleTree;
-
-        //AllPancakes.Clear();
-        //OriginAppleScale.Clear();
-        //OriginPancakePosition.Clear();
-        //foreach (Transform child in AppleTree)
-        //{
-        //    AllPancakes.Add(child);
-        //    OriginAppleScale.Add(child.localScale);
-        //    OriginPancakePosition.Add(child.position);
-        //}
-
-        //outsider.parent = GameObject.Find("BasketParent").transform;
+        AllPancakes.Clear();
+        OriginPancakePosition.Clear();
+        foreach (Transform child in Plates[0])
+        {
+            AllPancakes.Add(child);
+            OriginPancakePosition.Add(child.position);
+        }
     }
 
     private bool CheckIfPuzzleSolved()
@@ -142,15 +128,15 @@ public class PuzzleManagerPancake : MonoBehaviour
 
         // Big check
         basketChildren = Plates[0].GetComponentsInChildren<Transform>();
-        bool checkBig1 = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 3 && basketChildren.Any(child => child.name.Contains("Small"));
-        bool checkBig2 = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 3;
+        bool checkBig1 = basketChildren.Where(child => child.name.Contains(collectableName)).Count() == 3 && basketChildren.Any(child => child.name.Contains("Small"));
+        bool checkBig2 = basketChildren.Where(child => child.name.Contains(collectableName)).Count() == 3;
         // Middle check
         basketChildren = Plates[1].GetComponentsInChildren<Transform>();
-        bool checkMiddle1 = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 2;
-        bool checkMiddle2 = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 2 && basketChildren.Any(child => child.name.Contains("Small"));
+        bool checkMiddle1 = basketChildren.Where(child => child.name.Contains(collectableName)).Count() == 2;
+        bool checkMiddle2 = basketChildren.Where(child => child.name.Contains(collectableName)).Count() == 2 && basketChildren.Any(child => child.name.Contains("Small"));
         // Small check
         basketChildren = Plates[2].GetComponentsInChildren<Transform>();
-        bool checkSmall = basketChildren.Where(child => child.name.Contains("Apple")).Count() == 1;
+        bool checkSmall = basketChildren.Where(child => child.name.Contains(collectableName)).Count() == 1;
 
         return ((checkBig1 && checkMiddle1) || (checkBig2 && checkMiddle2)) && checkSmall;
     }
