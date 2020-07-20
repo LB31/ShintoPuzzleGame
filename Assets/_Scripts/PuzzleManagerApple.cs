@@ -118,7 +118,6 @@ public class PuzzleManagerApple : MonoBehaviour
             // set basket as parent
             AllApples[selectedApple].parent = hitColliders.First(item => item.name.Contains("Straw")).transform;
             return true;
-
         }
 
         return false;

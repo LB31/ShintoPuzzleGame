@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,103 +13,156 @@ public class PuzzleManagerPancake : MonoBehaviour
     public List<Transform> AllPancakes;
     public List<Vector3> OriginPancakePosition;
 
+    private Vector3 lastPancakePos;
+
     private string collectableName = "Pancake";
 
     private int selectedPancake = -1;
     private float selectedPancakeZ;
 
-    // for moving of the small basket
-    private float distanceToBigBasket;
-    private Quaternion originSmallRotation;
+
 
     // Puzzle Information
     public GameObject TaskPanel;
 
     void Start()
     {
-        distanceToBigBasket = Vector3.Distance(Plates[0].position, Plates[2].position);
-        originSmallRotation = Plates[2].rotation;
-
-        //TaskPanel.transform.parent.gameObject.SetActive(false);
+        AssignSelectablePancakes();
     }
 
 
-    void Update()
-    {
-        DragObject();
-    }
-
-    private void DragObject()
+    private void Update()
     {
         // select element
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit = Physics.RaycastAll(ray).FirstOrDefault(element => element.transform.name.Contains(collectableName));
-
-            if (!hit.transform) return;
-            //Debug.Log(hit.transform.name, hit.transform);
-
-            selectedPancake = AllPancakes.IndexOf(hit.transform);
-            selectedPancakeZ = AllPancakes[selectedPancake].position.z;
+            GrabElement();
         }
 
         // drag element
         if (Input.GetMouseButton(0))
         {
-            Vector3 mp = Input.mousePosition;
-            mp.z = selectedPancakeZ;
-            // change the offset for fat fingers
-            if (GameManager.Instance.Mobile)
-                mp.y += 100;
-
-            //Debug.DrawLine(Camera.main.transform.position, Camera.main.ScreenToWorldPoint(mp), Color.green);
-            if (selectedPancake != -1)
-            {
-                AllPancakes[selectedPancake].position = Camera.main.ScreenToWorldPoint(mp);
-            }
-                
+            DragElement();
         }
 
-        // release apple
+        // release element
         if (Input.GetMouseButtonUp(0))
         {
-            //if (selectedPancake == -1) return;
-
-            //// return to origin position (e.g. apple tree)
-            //if (!SnapToBasket())
-            //{
-            //    if (selectedPancake != AllPancakes.Count - 1)
-            //        AllPancakes[selectedPancake].parent = AppleTree;
-            //    else
-            //        AllPancakes[selectedPancake].parent = Plates[0].parent;
-            //    AllPancakes[selectedPancake].localScale = OriginAppleScale[selectedPancake];
-            //    AllPancakes[selectedPancake].position = OriginPancakePosition[selectedPancake];
-
-            //}
-            //selectedPancake = -1;
-
-            //if (CheckIfPuzzleSolved())
-            //{
-            //    PlayMakerFSM.BroadcastEvent("PuzzleSolved");
-            //}
-
+            ReleaseElement();
         }
     }
 
-    private bool SnapToBasket()
+    private void GrabElement()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit = Physics.RaycastAll(ray).FirstOrDefault(element => element.transform.name.Contains(collectableName));
+
+        if (!hit.transform || hit.transform.tag != "selectable") return;
+        //Debug.Log(hit.transform.name, hit.transform);
+
+        selectedPancake = AllPancakes.IndexOf(hit.transform);
+        selectedPancakeZ = AllPancakes[selectedPancake].position.z;
+
+        lastPancakePos = AllPancakes[selectedPancake].position;
+
+        AllPancakes[selectedPancake].GetComponent<Rigidbody>().useGravity = false;
+    }
+
+    private void DragElement()
+    {
+        if (selectedPancake == -1) return;
+        Vector3 mp = Input.mousePosition;
+        mp.z = 1.55f;
+        // change the offset for fat fingers
+        if (GameManager.Instance.Mobile)
+            mp.y += 100;
+
+        float offsetTable = 0.02f;
+        Debug.DrawLine(Camera.main.transform.position, Camera.main.ScreenToWorldPoint(mp), Color.green);
+        if (AllPancakes[selectedPancake].localPosition.z > offsetTable)
+        {
+            AllPancakes[selectedPancake].position = Camera.main.ScreenToWorldPoint(mp);
+        }
+        else
+        {
+            // Stop the pancake from being under the table
+            Vector3 curPos = AllPancakes[selectedPancake].localPosition;
+            AllPancakes[selectedPancake].localPosition = new Vector3(curPos.x, curPos.y, curPos.z + offsetTable);
+        }
+    }
+
+    private void ReleaseElement()
+    {
+        if (selectedPancake == -1) return;
+        if (SnapToPlate())
+        {
+            Rigidbody rg = AllPancakes[selectedPancake].GetComponent<Rigidbody>();
+            rg.useGravity = true;
+            rg.isKinematic = false;
+        }
+        else
+        {
+            AllPancakes[selectedPancake].position = lastPancakePos;
+        }
+
+        selectedPancake = -1;
+
+
+        //// return to origin position (e.g. apple tree)
+        //if (!SnapToBasket())
+        //{
+        //    if (selectedPancake != AllPancakes.Count - 1)
+        //        AllPancakes[selectedPancake].parent = AppleTree;
+        //    else
+        //        AllPancakes[selectedPancake].parent = Plates[0].parent;
+        //    AllPancakes[selectedPancake].localScale = OriginAppleScale[selectedPancake];
+        //    AllPancakes[selectedPancake].position = OriginPancakePosition[selectedPancake];
+
+        //}
+
+
+        //if (CheckIfPuzzleSolved())
+        //{
+        //    PlayMakerFSM.BroadcastEvent("PuzzleSolved");
+        //}
+    }
+
+    private bool SnapToPlate()
     {
         List<Collider> hitColliders = Physics.OverlapSphere(AllPancakes[selectedPancake].position, 0.05f).ToList();
         hitColliders.Remove(AllPancakes[selectedPancake].GetComponent<Collider>());
-        if (hitColliders.Any(b => b.name.Contains("Straw"))) // if a basket was triggered / entered
+        if (hitColliders.Any(b => b.name.Contains("Plate"))) // if a basket was triggered / entered
         {
-            // set basket as parent
-            AllPancakes[selectedPancake].parent = hitColliders.First(item => item.name.Contains("Straw")).transform;
+            Transform plate = hitColliders.First(item => item.name.Contains("Plate")).transform;
+            if (!CheckIfPlaceable(plate)) return false;
+            // set plate as parent
+            AllPancakes[selectedPancake].parent = plate;
+            AssignSelectablePancakes();
             return true;
-
         }
-
         return false;
+    }
+
+    private bool CheckIfPlaceable(Transform plate)
+    {
+        if (plate.childCount == 0) return true;
+        Transform lastChild = plate.GetChild(plate.childCount - 1);
+        int childNumber = int.Parse(Regex.Match(lastChild.name, @"\d+").Value);
+        if (childNumber < selectedPancake) return true;
+        return false;
+    }
+
+    private void AssignSelectablePancakes()
+    {
+        foreach (Transform plate in Plates)
+        {
+            foreach (Transform child in plate)
+            {
+                child.tag = "Untagged";
+            }
+            if (plate.childCount > 0)
+                plate.GetChild(plate.childCount - 1).tag = "selectable";
+        }
     }
 
     [ContextMenu("Fill Fields")]
