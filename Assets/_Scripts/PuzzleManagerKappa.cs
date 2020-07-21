@@ -152,4 +152,11 @@ public class PuzzleManagerKappa : MonoBehaviour
             bucketPanel.SetActive(false);
         }
     }
+
+    public void TriggerPuzzleScene()
+    {
+        var kappaBigHead = this.transform.Find("kappaBig/Kappa/Heas/sara").gameObject;
+        var kappaMediumHead = this.transform.Find("kappaBig/Kappa/Heas/sara").gameObject;
+        var kappaSmallHead = this.transform.Find("kappaBig/Kappa/Heas/sara").gameObject;
+    }
 }

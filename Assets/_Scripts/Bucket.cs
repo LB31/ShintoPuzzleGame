@@ -25,9 +25,12 @@ public class Bucket : MonoBehaviour
         
         for(int i = 0; i < startWaterAmount; i++)
         {
-            GameObject newWaterBlock = Instantiate(waterBlock, new Vector3(waterBlock.transform.position.x, offsetY, waterBlock.transform.position.z), bucketGround.transform.rotation, this.transform);
+            GameObject newWaterBlock = Instantiate(waterBlock, new Vector3(waterBlock.transform.position.x, offsetY, waterBlock.transform.position.z), waterBlock.transform.rotation, this.transform);
+
 
             newWaterBlock.SetActive(true);
+            newWaterBlock.transform.position = new Vector3(waterBlock.transform.position.x, offsetY, waterBlock.transform.position.z);
+
             waters.Push(newWaterBlock);
 
             offsetY += waterBlockHeight;
@@ -64,7 +67,7 @@ public class Bucket : MonoBehaviour
             throw new Exception("Bucket is already full");
         }
  
-        GameObject newWaterBlock = Instantiate(waterBlock, new Vector3(waterBlock.transform.position.x, offsetY, waterBlock.transform.position.z), bucketGround.transform.rotation, this.transform);
+        GameObject newWaterBlock = Instantiate(waterBlock, new Vector3(waterBlock.transform.position.x, offsetY, waterBlock.transform.position.z), waterBlock.transform.rotation, this.transform);
 
         newWaterBlock.SetActive(true);
         waters.Push(newWaterBlock);
