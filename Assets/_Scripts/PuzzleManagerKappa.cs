@@ -153,10 +153,22 @@ public class PuzzleManagerKappa : MonoBehaviour
         }
     }
 
-    public void TriggerPuzzleScene()
+    public void TriggerPuzzleScene(bool isActive)
     {
-        var kappaBigHead = this.transform.Find("kappaBig/Kappa/Heas/sara").gameObject;
-        var kappaMediumHead = this.transform.Find("kappaBig/Kappa/Heas/sara").gameObject;
-        var kappaSmallHead = this.transform.Find("kappaBig/Kappa/Heas/sara").gameObject;
+        var kappaBigHead = this.transform.Find("kappaBig/Kappa/Head/sara").gameObject;
+        var kappaMediumHead = this.transform.Find("kappaMiddle/Kappa/Head/sara").gameObject;
+        var kappaSmallHead = this.transform.Find("kappaSmall/Kappa/Head/sara").gameObject;
+
+        var kappaBigHeadPuzzle = this.transform.Find("kappaBig/Kappa/Head/saraBig").gameObject;
+        var kappaMediumHeadPuzzle = this.transform.Find("kappaMiddle/Kappa/Head/saraMedium").gameObject;
+        var kappaSmallHeadPuzzle = this.transform.Find("kappaSmall/Kappa/Head/saraSmall").gameObject;
+
+        kappaBigHead.SetActive(!isActive);
+        kappaMediumHead.SetActive(!isActive);
+        kappaSmallHead.SetActive(!isActive);
+
+        kappaBigHeadPuzzle.SetActive(isActive);
+        kappaMediumHeadPuzzle.SetActive(isActive);
+        kappaSmallHeadPuzzle.SetActive(isActive);
     }
 }
