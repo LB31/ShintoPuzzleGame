@@ -139,7 +139,7 @@ public class FPSController : MonoBehaviour
     private async void OnTriggerEnter(Collider other)
     {
         //await Task.Delay(500);
-        if (other.name.Contains("MovingPlane") && onPlattform == false)
+        if (other.name.Contains("Platt") && onPlattform == false)
         {
             print("in");
 			onPlattform = true;
@@ -151,7 +151,7 @@ public class FPSController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
 
-        if (other.name.Contains("MovingPlane") && onPlattform)
+        if (other.name.Contains("Platt") && onPlattform)
         {
             print("out");
 			onPlattform = false;

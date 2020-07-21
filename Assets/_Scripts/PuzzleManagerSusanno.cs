@@ -30,6 +30,7 @@ public class PuzzleManagerSusanno : MonoBehaviour
 
     public bool restart = false;
     private bool puzzleSolved = false;
+    public bool puzzleActivated = false;
 
     public Image puzzleObject;
 
@@ -44,11 +45,13 @@ public class PuzzleManagerSusanno : MonoBehaviour
         {
             //LichtStart is On; Move Middle
             plattformMitte.GetComponent<PlatformController>().plattformDoesMove = true;
+            electroBahnMitte.SetActive(true);
 
         }
         else
         {
             plattformMitte.GetComponent<PlatformController>().plattformDoesMove = false;
+            electroBahnMitte.SetActive(false);
 
         }
 
@@ -56,20 +59,24 @@ public class PuzzleManagerSusanno : MonoBehaviour
         {
             //Licht Mitte1 is on; Move Links
             plattformLinks.GetComponent<PlatformController>().plattformDoesMove = true;
+            electroBahnLinks.SetActive(true);
         }
         else
         {
             plattformLinks.GetComponent<PlatformController>().plattformDoesMove = false;
+            electroBahnLinks.SetActive(false);
         }
 
         if (gameState[3] || gameState[4])
         {
             //Licht Mitte2 is on; Move Rechts
             plattformRechts.GetComponent<PlatformController>().plattformDoesMove = true;
+            electroBahnRechts.SetActive(true);
         }
         else
         {
             plattformRechts.GetComponent<PlatformController>().plattformDoesMove = false;
+            electroBahnRechts.SetActive(false);
         }
 
         if (gameState[1] && gameState[4])
@@ -86,6 +93,9 @@ public class PuzzleManagerSusanno : MonoBehaviour
             plattformRechts.GetComponent<PlatformController>().plattformDoesMove = true;
             plattformMitte.GetComponent<PlatformController>().plattformDoesMove = true;
 
+            electroBahnMitte.SetActive(true);
+            electroBahnLinks.SetActive(true);
+            electroBahnRechts.SetActive(true);
             Destroy(tempel);
             
 
@@ -95,7 +105,7 @@ public class PuzzleManagerSusanno : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && puzzleActivated)
         {
             if (Physics.Raycast(ray, out hit, 2f))
             {
@@ -152,5 +162,10 @@ public class PuzzleManagerSusanno : MonoBehaviour
         plattformLinks.GetComponent<PlatformController>().transform.position = plattformLinks.GetComponent<PlatformController>().start.position;
         plattformRechts.GetComponent<PlatformController>().transform.position = plattformRechts.GetComponent<PlatformController>().start.position;
 
+    }
+
+    public void activatePuzzle()
+    {
+        puzzleActivated = true;
     }
 }
