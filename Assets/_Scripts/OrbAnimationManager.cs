@@ -7,22 +7,15 @@ public class OrbAnimationManager : MonoBehaviour
 
     public Animator animator;
     public GameObject player;
-    public bool triggerOne = false;
-    public bool triggertwo = false;
-    // Start is called before the first frame update
+    public GameObject blockadeWall;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player && triggerOne)
+        if (other.gameObject == player)
         {
-            Debug.Log("AnimatorStart");
             animator.SetBool("startAnim1", true);
-        }else if (other.gameObject == player && triggertwo)
-        {
-            animator.SetBool("startAnim2", true);
+            blockadeWall.SetActive(false);
         }
-        //animator.SetBool("startAnim1", false);
-        //animator.SetBool("startAnim2", false);
     }
 
 

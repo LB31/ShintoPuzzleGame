@@ -301,77 +301,77 @@ VisualEffectResource:
       (float)0);\n\t\t\t    float4 tmp_bi = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_bh);\n\t\t\t   
       float tmp_bj = tmp_bi[0];\n\t\t\t    float tmp_bk = tmp_bi[1];\n\t\t\t    float
       tmp_bl = tmp_bi[2];\n\t\t\t    float3 tmp_bm = float3(tmp_bj, tmp_bk, tmp_bl);\n\t\t\t   
-      float tmp_bo = frac(tmp_ba);\n\t\t\t    float tmp_bp = saturate(tmp_bo);\n\t\t\t   
-      float tmp_bq = (float)1 - tmp_bp;\n\t\t\t    float3 tmp_br = float3(tmp_bq,
-      tmp_bq, tmp_bq);\n\t\t\t    float3 tmp_bs = tmp_bm * tmp_br;\n\t\t\t    float3
-      tmp_bt = tmp_bs * tmp_br;\n\t\t\t    float3 tmp_bu = tmp_bt * tmp_br;\n\t\t\t   
-      int tmp_bw = (int)tmp_bb;\n\t\t\t    int tmp_by = tmp_bw + (int)1;\n\t\t\t   
-      int tmp_ca = max(tmp_by, (int)0);\n\t\t\t    int tmp_cb = min(tmp_ca, asint(uniform_d));\n\t\t\t   
-      uint tmp_cc = (uint)tmp_cb;\n\t\t\t    float tmp_cd = (float)tmp_cc;\n\t\t\t   
-      float3 tmp_ce = float3(tmp_cd, (float)0, (float)0);\n\t\t\t    float4 tmp_cf
-      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_ce);\n\t\t\t    float tmp_cg
-      = tmp_cf[0];\n\t\t\t    float tmp_ch = tmp_cf[1];\n\t\t\t    float tmp_ci =
-      tmp_cf[2];\n\t\t\t    float3 tmp_cj = float3(tmp_cg, tmp_ch, tmp_ci);\n\t\t\t   
-      uint tmp_cl = tmp_bb + (uint)4294967295;\n\t\t\t    int tmp_cm = (int)tmp_cl;\n\t\t\t   
-      int tmp_cn = max(tmp_cm, (int)0);\n\t\t\t    int tmp_co = min(tmp_cn, asint(uniform_d));\n\t\t\t   
-      uint tmp_cp = (uint)tmp_co;\n\t\t\t    float tmp_cq = (float)tmp_cp;\n\t\t\t   
-      float3 tmp_cr = float3(tmp_cq, (float)0, (float)0);\n\t\t\t    float4 tmp_cs
-      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_cr);\n\t\t\t    float tmp_ct
-      = tmp_cs[0];\n\t\t\t    float tmp_cu = tmp_cs[1];\n\t\t\t    float tmp_cv =
-      tmp_cs[2];\n\t\t\t    float3 tmp_cw = float3(tmp_ct, tmp_cu, tmp_cv);\n\t\t\t   
-      float3 tmp_cx = tmp_cj - tmp_cw;\n\t\t\t    float3 tmp_cy = tmp_cx * tmp_cx;\n\t\t\t   
-      float tmp_cz = tmp_cy[2];\n\t\t\t    float tmp_da = tmp_cy[1];\n\t\t\t    float
-      tmp_db = tmp_cz + tmp_da;\n\t\t\t    float tmp_dc = tmp_cy[0];\n\t\t\t    float
-      tmp_dd = tmp_db + tmp_dc;\n\t\t\t    float tmp_df = pow(tmp_dd, (float)0.5);\n\t\t\t   
-      float tmp_dg = (float)1 / tmp_df;\n\t\t\t    float3 tmp_dh = float3(tmp_dg,
-      tmp_dg, tmp_dg);\n\t\t\t    float3 tmp_di = tmp_cx * tmp_dh;\n\t\t\t    float3
-      tmp_dj = tmp_cj - tmp_bm;\n\t\t\t    float3 tmp_dl = tmp_dj * float3(0.5, 0.5,
-      0.5);\n\t\t\t    float3 tmp_dm = tmp_di * tmp_dl;\n\t\t\t    float tmp_dn =
-      tmp_dm[2];\n\t\t\t    float tmp_do = tmp_dm[1];\n\t\t\t    float tmp_dp = tmp_dn
-      + tmp_do;\n\t\t\t    float tmp_dq = tmp_dm[0];\n\t\t\t    float tmp_dr = tmp_dp
-      + tmp_dq;\n\t\t\t    float tmp_ds = abs(tmp_dr);\n\t\t\t    float3 tmp_dt =
-      tmp_dj * tmp_dj;\n\t\t\t    float tmp_du = tmp_dt[2];\n\t\t\t    float tmp_dv
-      = tmp_dt[1];\n\t\t\t    float tmp_dw = tmp_du + tmp_dv;\n\t\t\t    float tmp_dx
-      = tmp_dt[0];\n\t\t\t    float tmp_dy = tmp_dw + tmp_dx;\n\t\t\t    float tmp_dz
-      = pow(tmp_dy, (float)0.5);\n\t\t\t    float tmp_eb = tmp_dz * (float)0.25;\n\t\t\t   
-      float tmp_ec = max(tmp_ds, tmp_eb);\n\t\t\t    float3 tmp_ed = float3(tmp_ec,
-      tmp_ec, tmp_ec);\n\t\t\t    float3 tmp_ee = tmp_di * tmp_ed;\n\t\t\t    float3
-      tmp_ef = tmp_bm + tmp_ee;\n\t\t\t    float3 tmp_eg = float3(3, 3, 3) * tmp_ef;\n\t\t\t   
-      float3 tmp_eh = tmp_eg * tmp_br;\n\t\t\t    float3 tmp_ei = tmp_eh * tmp_br;\n\t\t\t   
-      float3 tmp_ej = float3(tmp_bp, tmp_bp, tmp_bp);\n\t\t\t    float3 tmp_ek =
-      tmp_ei * tmp_ej;\n\t\t\t    float3 tmp_el = tmp_bu + tmp_ek;\n\t\t\t    uint
-      tmp_en = tmp_bb + (uint)2;\n\t\t\t    int tmp_eo = (int)tmp_en;\n\t\t\t   
-      int tmp_ep = max(tmp_eo, (int)0);\n\t\t\t    int tmp_eq = min(tmp_ep, asint(uniform_d));\n\t\t\t   
-      uint tmp_er = (uint)tmp_eq;\n\t\t\t    float tmp_es = (float)tmp_er;\n\t\t\t   
-      float3 tmp_et = float3(tmp_es, (float)0, (float)0);\n\t\t\t    float4 tmp_eu
-      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_et);\n\t\t\t    float tmp_ev
-      = tmp_eu[0];\n\t\t\t    float tmp_ew = tmp_eu[1];\n\t\t\t    float tmp_ex =
-      tmp_eu[2];\n\t\t\t    float3 tmp_ey = float3(tmp_ev, tmp_ew, tmp_ex);\n\t\t\t   
-      float3 tmp_ez = tmp_ey - tmp_bm;\n\t\t\t    float3 tmp_fa = tmp_ez * tmp_ez;\n\t\t\t   
-      float tmp_fb = tmp_fa[2];\n\t\t\t    float tmp_fc = tmp_fa[1];\n\t\t\t    float
-      tmp_fd = tmp_fb + tmp_fc;\n\t\t\t    float tmp_fe = tmp_fa[0];\n\t\t\t    float
-      tmp_ff = tmp_fd + tmp_fe;\n\t\t\t    float tmp_fg = pow(tmp_ff, (float)0.5);\n\t\t\t   
-      float tmp_fh = (float)1 / tmp_fg;\n\t\t\t    float3 tmp_fi = float3(tmp_fh,
-      tmp_fh, tmp_fh);\n\t\t\t    float3 tmp_fj = tmp_ez * tmp_fi;\n\t\t\t    float3
-      tmp_fk = tmp_dl * tmp_fj;\n\t\t\t    float tmp_fl = tmp_fk[2];\n\t\t\t    float
-      tmp_fm = tmp_fk[1];\n\t\t\t    float tmp_fn = tmp_fl + tmp_fm;\n\t\t\t    float
-      tmp_fo = tmp_fk[0];\n\t\t\t    float tmp_fp = tmp_fn + tmp_fo;\n\t\t\t    float
-      tmp_fq = abs(tmp_fp);\n\t\t\t    float tmp_fr = max(tmp_eb, tmp_fq);\n\t\t\t   
-      float3 tmp_fs = float3(tmp_fr, tmp_fr, tmp_fr);\n\t\t\t    float3 tmp_ft =
-      tmp_fj * tmp_fs;\n\t\t\t    float3 tmp_fv = tmp_ft * float3(-1, -1, -1);\n\t\t\t   
-      float3 tmp_fw = tmp_fv + tmp_cj;\n\t\t\t    float3 tmp_fx = float3(3, 3, 3)
-      * tmp_fw;\n\t\t\t    float3 tmp_fy = tmp_fx * tmp_br;\n\t\t\t    float3 tmp_fz
-      = tmp_fy * tmp_ej;\n\t\t\t    float3 tmp_ga = tmp_fz * tmp_ej;\n\t\t\t    float3
-      tmp_gb = tmp_el + tmp_ga;\n\t\t\t    float3 tmp_gc = tmp_cj * tmp_ej;\n\t\t\t   
-      float3 tmp_gd = tmp_gc * tmp_ej;\n\t\t\t    float3 tmp_ge = tmp_gd * tmp_ej;\n\t\t\t   
-      float3 tmp_gf = tmp_gb + tmp_ge;\n\t\t\t    float4 tmp_gi = GeneratePerlinNoise(tmp_gf,
+      float tmp_bo = frac(tmp_ba);\n\t\t\t    float tmp_bp = max(tmp_bo, (float)0);\n\t\t\t   
+      float tmp_bq = min(tmp_bp, (float)1);\n\t\t\t    float tmp_br = (float)1 -
+      tmp_bq;\n\t\t\t    float3 tmp_bs = float3(tmp_br, tmp_br, tmp_br);\n\t\t\t   
+      float3 tmp_bt = tmp_bm * tmp_bs;\n\t\t\t    float3 tmp_bu = tmp_bt * tmp_bs;\n\t\t\t   
+      float3 tmp_bv = tmp_bu * tmp_bs;\n\t\t\t    int tmp_bx = (int)tmp_bb;\n\t\t\t   
+      int tmp_bz = tmp_bx + (int)1;\n\t\t\t    int tmp_cb = max(tmp_bz, (int)0);\n\t\t\t   
+      int tmp_cc = min(tmp_cb, asint(uniform_d));\n\t\t\t    uint tmp_cd = (uint)tmp_cc;\n\t\t\t   
+      float tmp_ce = (float)tmp_cd;\n\t\t\t    float3 tmp_cf = float3(tmp_ce, (float)0,
+      (float)0);\n\t\t\t    float4 tmp_cg = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_cf);\n\t\t\t   
+      float tmp_ch = tmp_cg[0];\n\t\t\t    float tmp_ci = tmp_cg[1];\n\t\t\t    float
+      tmp_cj = tmp_cg[2];\n\t\t\t    float3 tmp_ck = float3(tmp_ch, tmp_ci, tmp_cj);\n\t\t\t   
+      uint tmp_cm = tmp_bb + (uint)4294967295;\n\t\t\t    int tmp_cn = (int)tmp_cm;\n\t\t\t   
+      int tmp_co = max(tmp_cn, (int)0);\n\t\t\t    int tmp_cp = min(tmp_co, asint(uniform_d));\n\t\t\t   
+      uint tmp_cq = (uint)tmp_cp;\n\t\t\t    float tmp_cr = (float)tmp_cq;\n\t\t\t   
+      float3 tmp_cs = float3(tmp_cr, (float)0, (float)0);\n\t\t\t    float4 tmp_ct
+      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_cs);\n\t\t\t    float tmp_cu
+      = tmp_ct[0];\n\t\t\t    float tmp_cv = tmp_ct[1];\n\t\t\t    float tmp_cw =
+      tmp_ct[2];\n\t\t\t    float3 tmp_cx = float3(tmp_cu, tmp_cv, tmp_cw);\n\t\t\t   
+      float3 tmp_cy = tmp_ck - tmp_cx;\n\t\t\t    float3 tmp_cz = tmp_cy * tmp_cy;\n\t\t\t   
+      float tmp_da = tmp_cz[2];\n\t\t\t    float tmp_db = tmp_cz[1];\n\t\t\t    float
+      tmp_dc = tmp_da + tmp_db;\n\t\t\t    float tmp_dd = tmp_cz[0];\n\t\t\t    float
+      tmp_de = tmp_dc + tmp_dd;\n\t\t\t    float tmp_dg = pow(tmp_de, (float)0.5);\n\t\t\t   
+      float tmp_dh = (float)1 / tmp_dg;\n\t\t\t    float3 tmp_di = float3(tmp_dh,
+      tmp_dh, tmp_dh);\n\t\t\t    float3 tmp_dj = tmp_cy * tmp_di;\n\t\t\t    float3
+      tmp_dk = tmp_ck - tmp_bm;\n\t\t\t    float3 tmp_dm = tmp_dk * float3(0.5, 0.5,
+      0.5);\n\t\t\t    float3 tmp_dn = tmp_dj * tmp_dm;\n\t\t\t    float tmp_do =
+      tmp_dn[2];\n\t\t\t    float tmp_dp = tmp_dn[1];\n\t\t\t    float tmp_dq = tmp_do
+      + tmp_dp;\n\t\t\t    float tmp_dr = tmp_dn[0];\n\t\t\t    float tmp_ds = tmp_dq
+      + tmp_dr;\n\t\t\t    float tmp_dt = abs(tmp_ds);\n\t\t\t    float3 tmp_du =
+      tmp_dk * tmp_dk;\n\t\t\t    float tmp_dv = tmp_du[2];\n\t\t\t    float tmp_dw
+      = tmp_du[1];\n\t\t\t    float tmp_dx = tmp_dv + tmp_dw;\n\t\t\t    float tmp_dy
+      = tmp_du[0];\n\t\t\t    float tmp_dz = tmp_dx + tmp_dy;\n\t\t\t    float tmp_ea
+      = pow(tmp_dz, (float)0.5);\n\t\t\t    float tmp_ec = tmp_ea * (float)0.25;\n\t\t\t   
+      float tmp_ed = max(tmp_dt, tmp_ec);\n\t\t\t    float3 tmp_ee = float3(tmp_ed,
+      tmp_ed, tmp_ed);\n\t\t\t    float3 tmp_ef = tmp_dj * tmp_ee;\n\t\t\t    float3
+      tmp_eg = tmp_bm + tmp_ef;\n\t\t\t    float3 tmp_eh = float3(3, 3, 3) * tmp_eg;\n\t\t\t   
+      float3 tmp_ei = tmp_eh * tmp_bs;\n\t\t\t    float3 tmp_ej = tmp_ei * tmp_bs;\n\t\t\t   
+      float3 tmp_ek = float3(tmp_bq, tmp_bq, tmp_bq);\n\t\t\t    float3 tmp_el =
+      tmp_ej * tmp_ek;\n\t\t\t    float3 tmp_em = tmp_bv + tmp_el;\n\t\t\t    uint
+      tmp_eo = tmp_bb + (uint)2;\n\t\t\t    int tmp_ep = (int)tmp_eo;\n\t\t\t   
+      int tmp_eq = max(tmp_ep, (int)0);\n\t\t\t    int tmp_er = min(tmp_eq, asint(uniform_d));\n\t\t\t   
+      uint tmp_es = (uint)tmp_er;\n\t\t\t    float tmp_et = (float)tmp_es;\n\t\t\t   
+      float3 tmp_eu = float3(tmp_et, (float)0, (float)0);\n\t\t\t    float4 tmp_ev
+      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_eu);\n\t\t\t    float tmp_ew
+      = tmp_ev[0];\n\t\t\t    float tmp_ex = tmp_ev[1];\n\t\t\t    float tmp_ey =
+      tmp_ev[2];\n\t\t\t    float3 tmp_ez = float3(tmp_ew, tmp_ex, tmp_ey);\n\t\t\t   
+      float3 tmp_fa = tmp_ez - tmp_bm;\n\t\t\t    float3 tmp_fb = tmp_fa * tmp_fa;\n\t\t\t   
+      float tmp_fc = tmp_fb[2];\n\t\t\t    float tmp_fd = tmp_fb[1];\n\t\t\t    float
+      tmp_fe = tmp_fc + tmp_fd;\n\t\t\t    float tmp_ff = tmp_fb[0];\n\t\t\t    float
+      tmp_fg = tmp_fe + tmp_ff;\n\t\t\t    float tmp_fh = pow(tmp_fg, (float)0.5);\n\t\t\t   
+      float tmp_fi = (float)1 / tmp_fh;\n\t\t\t    float3 tmp_fj = float3(tmp_fi,
+      tmp_fi, tmp_fi);\n\t\t\t    float3 tmp_fk = tmp_fa * tmp_fj;\n\t\t\t    float3
+      tmp_fl = tmp_dm * tmp_fk;\n\t\t\t    float tmp_fm = tmp_fl[2];\n\t\t\t    float
+      tmp_fn = tmp_fl[1];\n\t\t\t    float tmp_fo = tmp_fm + tmp_fn;\n\t\t\t    float
+      tmp_fp = tmp_fl[0];\n\t\t\t    float tmp_fq = tmp_fo + tmp_fp;\n\t\t\t    float
+      tmp_fr = abs(tmp_fq);\n\t\t\t    float tmp_fs = max(tmp_ec, tmp_fr);\n\t\t\t   
+      float3 tmp_ft = float3(tmp_fs, tmp_fs, tmp_fs);\n\t\t\t    float3 tmp_fu =
+      tmp_fk * tmp_ft;\n\t\t\t    float3 tmp_fw = tmp_fu * float3(-1, -1, -1);\n\t\t\t   
+      float3 tmp_fx = tmp_fw + tmp_ck;\n\t\t\t    float3 tmp_fy = float3(3, 3, 3)
+      * tmp_fx;\n\t\t\t    float3 tmp_fz = tmp_fy * tmp_bs;\n\t\t\t    float3 tmp_ga
+      = tmp_fz * tmp_ek;\n\t\t\t    float3 tmp_gb = tmp_ga * tmp_ek;\n\t\t\t    float3
+      tmp_gc = tmp_em + tmp_gb;\n\t\t\t    float3 tmp_gd = tmp_ck * tmp_ek;\n\t\t\t   
+      float3 tmp_ge = tmp_gd * tmp_ek;\n\t\t\t    float3 tmp_gf = tmp_ge * tmp_ek;\n\t\t\t   
+      float3 tmp_gg = tmp_gc + tmp_gf;\n\t\t\t    float4 tmp_gj = GeneratePerlinNoise(tmp_gg,
       float3(1, 0.313863188, 4).x, (int)4, float3(1, 0.313863188, 4).y, float3(1,
-      0.313863188, 4).z);\n\t\t\t    float tmp_gj = tmp_gi[1];\n\t\t\t    float tmp_gl
-      = tmp_gj * (float)0.200000003;\n\t\t\t    float tmp_gm = tmp_gi[2];\n\t\t\t   
-      float tmp_gn = tmp_gm * (float)0.200000003;\n\t\t\t    float tmp_go = tmp_gi[3];\n\t\t\t   
-      float tmp_gp = tmp_go * (float)0.200000003;\n\t\t\t    float3 tmp_gq = float3(tmp_gl,
-      tmp_gn, tmp_gp);\n\t\t\t    float3 tmp_gr = tmp_gf + tmp_gq;\n\t\t\t    SetAttribute_CAC29747(
-      /*inout */attributes.position, tmp_gr);\n\t\t\t}\n\t\t\tAge( /*inout */attributes.age,
+      0.313863188, 4).z);\n\t\t\t    float tmp_gk = tmp_gj[1];\n\t\t\t    float tmp_gm
+      = tmp_gk * (float)0.200000003;\n\t\t\t    float tmp_gn = tmp_gj[2];\n\t\t\t   
+      float tmp_go = tmp_gn * (float)0.200000003;\n\t\t\t    float tmp_gp = tmp_gj[3];\n\t\t\t   
+      float tmp_gq = tmp_gp * (float)0.200000003;\n\t\t\t    float3 tmp_gr = float3(tmp_gm,
+      tmp_go, tmp_gq);\n\t\t\t    float3 tmp_gs = tmp_gg + tmp_gr;\n\t\t\t    SetAttribute_CAC29747(
+      /*inout */attributes.position, tmp_gs);\n\t\t\t}\n\t\t\tAge( /*inout */attributes.age,
       deltaTime_b);\n\t\t\tReap(attributes.age, attributes.lifetime,  /*inout */attributes.alive);\n\t\t\t\n\r\n\r\n\t\t\tif
       (attributes.alive)\r\n\t\t\t{\r\n\t\t\t\tattributeBuffer.Store3((index * 0x4
       + 0x800) << 2,asuint(attributes.position));\n\t\t\t\tattributeBuffer.Store((index
@@ -405,74 +405,75 @@ VisualEffectResource:
       = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_bh);\n\t\t    float tmp_bj =
       tmp_bi[0];\n\t\t    float tmp_bk = tmp_bi[1];\n\t\t    float tmp_bl = tmp_bi[2];\n\t\t   
       float3 tmp_bm = float3(tmp_bj, tmp_bk, tmp_bl);\n\t\t    float tmp_bo = frac(tmp_ba);\n\t\t   
-      float tmp_bp = saturate(tmp_bo);\n\t\t    float tmp_bq = (float)1 - tmp_bp;\n\t\t   
-      float3 tmp_br = float3(tmp_bq, tmp_bq, tmp_bq);\n\t\t    float3 tmp_bs = tmp_bm
-      * tmp_br;\n\t\t    float3 tmp_bt = tmp_bs * tmp_br;\n\t\t    float3 tmp_bu
-      = tmp_bt * tmp_br;\n\t\t    int tmp_bw = (int)tmp_bb;\n\t\t    int tmp_by =
-      tmp_bw + (int)1;\n\t\t    int tmp_ca = max(tmp_by, (int)0);\n\t\t    int tmp_cb
-      = min(tmp_ca, asint(uniform_d));\n\t\t    uint tmp_cc = (uint)tmp_cb;\n\t\t   
-      float tmp_cd = (float)tmp_cc;\n\t\t    float3 tmp_ce = float3(tmp_cd, (float)0,
-      (float)0);\n\t\t    float4 tmp_cf = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_ce);\n\t\t   
-      float tmp_cg = tmp_cf[0];\n\t\t    float tmp_ch = tmp_cf[1];\n\t\t    float
-      tmp_ci = tmp_cf[2];\n\t\t    float3 tmp_cj = float3(tmp_cg, tmp_ch, tmp_ci);\n\t\t   
-      uint tmp_cl = tmp_bb + (uint)4294967295;\n\t\t    int tmp_cm = (int)tmp_cl;\n\t\t   
-      int tmp_cn = max(tmp_cm, (int)0);\n\t\t    int tmp_co = min(tmp_cn, asint(uniform_d));\n\t\t   
-      uint tmp_cp = (uint)tmp_co;\n\t\t    float tmp_cq = (float)tmp_cp;\n\t\t   
-      float3 tmp_cr = float3(tmp_cq, (float)0, (float)0);\n\t\t    float4 tmp_cs
-      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_cr);\n\t\t    float tmp_ct =
-      tmp_cs[0];\n\t\t    float tmp_cu = tmp_cs[1];\n\t\t    float tmp_cv = tmp_cs[2];\n\t\t   
-      float3 tmp_cw = float3(tmp_ct, tmp_cu, tmp_cv);\n\t\t    float3 tmp_cx = tmp_cj
-      - tmp_cw;\n\t\t    float3 tmp_cy = tmp_cx * tmp_cx;\n\t\t    float tmp_cz =
-      tmp_cy[2];\n\t\t    float tmp_da = tmp_cy[1];\n\t\t    float tmp_db = tmp_cz
-      + tmp_da;\n\t\t    float tmp_dc = tmp_cy[0];\n\t\t    float tmp_dd = tmp_db
-      + tmp_dc;\n\t\t    float tmp_df = pow(tmp_dd, (float)0.5);\n\t\t    float tmp_dg
-      = (float)1 / tmp_df;\n\t\t    float3 tmp_dh = float3(tmp_dg, tmp_dg, tmp_dg);\n\t\t   
-      float3 tmp_di = tmp_cx * tmp_dh;\n\t\t    float3 tmp_dj = tmp_cj - tmp_bm;\n\t\t   
-      float3 tmp_dl = tmp_dj * float3(0.5, 0.5, 0.5);\n\t\t    float3 tmp_dm = tmp_di
-      * tmp_dl;\n\t\t    float tmp_dn = tmp_dm[2];\n\t\t    float tmp_do = tmp_dm[1];\n\t\t   
-      float tmp_dp = tmp_dn + tmp_do;\n\t\t    float tmp_dq = tmp_dm[0];\n\t\t   
-      float tmp_dr = tmp_dp + tmp_dq;\n\t\t    float tmp_ds = abs(tmp_dr);\n\t\t   
-      float3 tmp_dt = tmp_dj * tmp_dj;\n\t\t    float tmp_du = tmp_dt[2];\n\t\t   
-      float tmp_dv = tmp_dt[1];\n\t\t    float tmp_dw = tmp_du + tmp_dv;\n\t\t   
-      float tmp_dx = tmp_dt[0];\n\t\t    float tmp_dy = tmp_dw + tmp_dx;\n\t\t   
-      float tmp_dz = pow(tmp_dy, (float)0.5);\n\t\t    float tmp_eb = tmp_dz * (float)0.25;\n\t\t   
-      float tmp_ec = max(tmp_ds, tmp_eb);\n\t\t    float3 tmp_ed = float3(tmp_ec,
-      tmp_ec, tmp_ec);\n\t\t    float3 tmp_ee = tmp_di * tmp_ed;\n\t\t    float3
-      tmp_ef = tmp_bm + tmp_ee;\n\t\t    float3 tmp_eg = float3(3, 3, 3) * tmp_ef;\n\t\t   
-      float3 tmp_eh = tmp_eg * tmp_br;\n\t\t    float3 tmp_ei = tmp_eh * tmp_br;\n\t\t   
-      float3 tmp_ej = float3(tmp_bp, tmp_bp, tmp_bp);\n\t\t    float3 tmp_ek = tmp_ei
-      * tmp_ej;\n\t\t    float3 tmp_el = tmp_bu + tmp_ek;\n\t\t    uint tmp_en =
-      tmp_bb + (uint)2;\n\t\t    int tmp_eo = (int)tmp_en;\n\t\t    int tmp_ep =
-      max(tmp_eo, (int)0);\n\t\t    int tmp_eq = min(tmp_ep, asint(uniform_d));\n\t\t   
-      uint tmp_er = (uint)tmp_eq;\n\t\t    float tmp_es = (float)tmp_er;\n\t\t   
-      float3 tmp_et = float3(tmp_es, (float)0, (float)0);\n\t\t    float4 tmp_eu
-      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_et);\n\t\t    float tmp_ev =
-      tmp_eu[0];\n\t\t    float tmp_ew = tmp_eu[1];\n\t\t    float tmp_ex = tmp_eu[2];\n\t\t   
-      float3 tmp_ey = float3(tmp_ev, tmp_ew, tmp_ex);\n\t\t    float3 tmp_ez = tmp_ey
-      - tmp_bm;\n\t\t    float3 tmp_fa = tmp_ez * tmp_ez;\n\t\t    float tmp_fb =
-      tmp_fa[2];\n\t\t    float tmp_fc = tmp_fa[1];\n\t\t    float tmp_fd = tmp_fb
-      + tmp_fc;\n\t\t    float tmp_fe = tmp_fa[0];\n\t\t    float tmp_ff = tmp_fd
-      + tmp_fe;\n\t\t    float tmp_fg = pow(tmp_ff, (float)0.5);\n\t\t    float tmp_fh
-      = (float)1 / tmp_fg;\n\t\t    float3 tmp_fi = float3(tmp_fh, tmp_fh, tmp_fh);\n\t\t   
-      float3 tmp_fj = tmp_ez * tmp_fi;\n\t\t    float3 tmp_fk = tmp_dl * tmp_fj;\n\t\t   
-      float tmp_fl = tmp_fk[2];\n\t\t    float tmp_fm = tmp_fk[1];\n\t\t    float
-      tmp_fn = tmp_fl + tmp_fm;\n\t\t    float tmp_fo = tmp_fk[0];\n\t\t    float
-      tmp_fp = tmp_fn + tmp_fo;\n\t\t    float tmp_fq = abs(tmp_fp);\n\t\t    float
-      tmp_fr = max(tmp_eb, tmp_fq);\n\t\t    float3 tmp_fs = float3(tmp_fr, tmp_fr,
-      tmp_fr);\n\t\t    float3 tmp_ft = tmp_fj * tmp_fs;\n\t\t    float3 tmp_fv =
-      tmp_ft * float3(-1, -1, -1);\n\t\t    float3 tmp_fw = tmp_fv + tmp_cj;\n\t\t   
-      float3 tmp_fx = float3(3, 3, 3) * tmp_fw;\n\t\t    float3 tmp_fy = tmp_fx *
-      tmp_br;\n\t\t    float3 tmp_fz = tmp_fy * tmp_ej;\n\t\t    float3 tmp_ga =
-      tmp_fz * tmp_ej;\n\t\t    float3 tmp_gb = tmp_el + tmp_ga;\n\t\t    float3
-      tmp_gc = tmp_cj * tmp_ej;\n\t\t    float3 tmp_gd = tmp_gc * tmp_ej;\n\t\t   
-      float3 tmp_ge = tmp_gd * tmp_ej;\n\t\t    float3 tmp_gf = tmp_gb + tmp_ge;\n\t\t   
-      float4 tmp_gi = GeneratePerlinNoise(tmp_gf, float3(1, 0.313863188, 4).x, (int)4,
-      float3(1, 0.313863188, 4).y, float3(1, 0.313863188, 4).z);\n\t\t    float tmp_gj
-      = tmp_gi[1];\n\t\t    float tmp_gl = tmp_gj * (float)0.200000003;\n\t\t   
-      float tmp_gm = tmp_gi[2];\n\t\t    float tmp_gn = tmp_gm * (float)0.200000003;\n\t\t   
-      float tmp_go = tmp_gi[3];\n\t\t    float tmp_gp = tmp_go * (float)0.200000003;\n\t\t   
-      float3 tmp_gq = float3(tmp_gl, tmp_gn, tmp_gp);\n\t\t    float3 tmp_gr = tmp_gf
-      + tmp_gq;\n\t\t    SetAttribute_CAC29747( /*inout */attributes.position, tmp_gr);\n\t\t}\n\t\tAge(
+      float tmp_bp = max(tmp_bo, (float)0);\n\t\t    float tmp_bq = min(tmp_bp, (float)1);\n\t\t   
+      float tmp_br = (float)1 - tmp_bq;\n\t\t    float3 tmp_bs = float3(tmp_br, tmp_br,
+      tmp_br);\n\t\t    float3 tmp_bt = tmp_bm * tmp_bs;\n\t\t    float3 tmp_bu =
+      tmp_bt * tmp_bs;\n\t\t    float3 tmp_bv = tmp_bu * tmp_bs;\n\t\t    int tmp_bx
+      = (int)tmp_bb;\n\t\t    int tmp_bz = tmp_bx + (int)1;\n\t\t    int tmp_cb =
+      max(tmp_bz, (int)0);\n\t\t    int tmp_cc = min(tmp_cb, asint(uniform_d));\n\t\t   
+      uint tmp_cd = (uint)tmp_cc;\n\t\t    float tmp_ce = (float)tmp_cd;\n\t\t   
+      float3 tmp_cf = float3(tmp_ce, (float)0, (float)0);\n\t\t    float4 tmp_cg
+      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_cf);\n\t\t    float tmp_ch =
+      tmp_cg[0];\n\t\t    float tmp_ci = tmp_cg[1];\n\t\t    float tmp_cj = tmp_cg[2];\n\t\t   
+      float3 tmp_ck = float3(tmp_ch, tmp_ci, tmp_cj);\n\t\t    uint tmp_cm = tmp_bb
+      + (uint)4294967295;\n\t\t    int tmp_cn = (int)tmp_cm;\n\t\t    int tmp_co
+      = max(tmp_cn, (int)0);\n\t\t    int tmp_cp = min(tmp_co, asint(uniform_d));\n\t\t   
+      uint tmp_cq = (uint)tmp_cp;\n\t\t    float tmp_cr = (float)tmp_cq;\n\t\t   
+      float3 tmp_cs = float3(tmp_cr, (float)0, (float)0);\n\t\t    float4 tmp_ct
+      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_cs);\n\t\t    float tmp_cu =
+      tmp_ct[0];\n\t\t    float tmp_cv = tmp_ct[1];\n\t\t    float tmp_cw = tmp_ct[2];\n\t\t   
+      float3 tmp_cx = float3(tmp_cu, tmp_cv, tmp_cw);\n\t\t    float3 tmp_cy = tmp_ck
+      - tmp_cx;\n\t\t    float3 tmp_cz = tmp_cy * tmp_cy;\n\t\t    float tmp_da =
+      tmp_cz[2];\n\t\t    float tmp_db = tmp_cz[1];\n\t\t    float tmp_dc = tmp_da
+      + tmp_db;\n\t\t    float tmp_dd = tmp_cz[0];\n\t\t    float tmp_de = tmp_dc
+      + tmp_dd;\n\t\t    float tmp_dg = pow(tmp_de, (float)0.5);\n\t\t    float tmp_dh
+      = (float)1 / tmp_dg;\n\t\t    float3 tmp_di = float3(tmp_dh, tmp_dh, tmp_dh);\n\t\t   
+      float3 tmp_dj = tmp_cy * tmp_di;\n\t\t    float3 tmp_dk = tmp_ck - tmp_bm;\n\t\t   
+      float3 tmp_dm = tmp_dk * float3(0.5, 0.5, 0.5);\n\t\t    float3 tmp_dn = tmp_dj
+      * tmp_dm;\n\t\t    float tmp_do = tmp_dn[2];\n\t\t    float tmp_dp = tmp_dn[1];\n\t\t   
+      float tmp_dq = tmp_do + tmp_dp;\n\t\t    float tmp_dr = tmp_dn[0];\n\t\t   
+      float tmp_ds = tmp_dq + tmp_dr;\n\t\t    float tmp_dt = abs(tmp_ds);\n\t\t   
+      float3 tmp_du = tmp_dk * tmp_dk;\n\t\t    float tmp_dv = tmp_du[2];\n\t\t   
+      float tmp_dw = tmp_du[1];\n\t\t    float tmp_dx = tmp_dv + tmp_dw;\n\t\t   
+      float tmp_dy = tmp_du[0];\n\t\t    float tmp_dz = tmp_dx + tmp_dy;\n\t\t   
+      float tmp_ea = pow(tmp_dz, (float)0.5);\n\t\t    float tmp_ec = tmp_ea * (float)0.25;\n\t\t   
+      float tmp_ed = max(tmp_dt, tmp_ec);\n\t\t    float3 tmp_ee = float3(tmp_ed,
+      tmp_ed, tmp_ed);\n\t\t    float3 tmp_ef = tmp_dj * tmp_ee;\n\t\t    float3
+      tmp_eg = tmp_bm + tmp_ef;\n\t\t    float3 tmp_eh = float3(3, 3, 3) * tmp_eg;\n\t\t   
+      float3 tmp_ei = tmp_eh * tmp_bs;\n\t\t    float3 tmp_ej = tmp_ei * tmp_bs;\n\t\t   
+      float3 tmp_ek = float3(tmp_bq, tmp_bq, tmp_bq);\n\t\t    float3 tmp_el = tmp_ej
+      * tmp_ek;\n\t\t    float3 tmp_em = tmp_bv + tmp_el;\n\t\t    uint tmp_eo =
+      tmp_bb + (uint)2;\n\t\t    int tmp_ep = (int)tmp_eo;\n\t\t    int tmp_eq =
+      max(tmp_ep, (int)0);\n\t\t    int tmp_er = min(tmp_eq, asint(uniform_d));\n\t\t   
+      uint tmp_es = (uint)tmp_er;\n\t\t    float tmp_et = (float)tmp_es;\n\t\t   
+      float3 tmp_eu = float3(tmp_et, (float)0, (float)0);\n\t\t    float4 tmp_ev
+      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_eu);\n\t\t    float tmp_ew =
+      tmp_ev[0];\n\t\t    float tmp_ex = tmp_ev[1];\n\t\t    float tmp_ey = tmp_ev[2];\n\t\t   
+      float3 tmp_ez = float3(tmp_ew, tmp_ex, tmp_ey);\n\t\t    float3 tmp_fa = tmp_ez
+      - tmp_bm;\n\t\t    float3 tmp_fb = tmp_fa * tmp_fa;\n\t\t    float tmp_fc =
+      tmp_fb[2];\n\t\t    float tmp_fd = tmp_fb[1];\n\t\t    float tmp_fe = tmp_fc
+      + tmp_fd;\n\t\t    float tmp_ff = tmp_fb[0];\n\t\t    float tmp_fg = tmp_fe
+      + tmp_ff;\n\t\t    float tmp_fh = pow(tmp_fg, (float)0.5);\n\t\t    float tmp_fi
+      = (float)1 / tmp_fh;\n\t\t    float3 tmp_fj = float3(tmp_fi, tmp_fi, tmp_fi);\n\t\t   
+      float3 tmp_fk = tmp_fa * tmp_fj;\n\t\t    float3 tmp_fl = tmp_dm * tmp_fk;\n\t\t   
+      float tmp_fm = tmp_fl[2];\n\t\t    float tmp_fn = tmp_fl[1];\n\t\t    float
+      tmp_fo = tmp_fm + tmp_fn;\n\t\t    float tmp_fp = tmp_fl[0];\n\t\t    float
+      tmp_fq = tmp_fo + tmp_fp;\n\t\t    float tmp_fr = abs(tmp_fq);\n\t\t    float
+      tmp_fs = max(tmp_ec, tmp_fr);\n\t\t    float3 tmp_ft = float3(tmp_fs, tmp_fs,
+      tmp_fs);\n\t\t    float3 tmp_fu = tmp_fk * tmp_ft;\n\t\t    float3 tmp_fw =
+      tmp_fu * float3(-1, -1, -1);\n\t\t    float3 tmp_fx = tmp_fw + tmp_ck;\n\t\t   
+      float3 tmp_fy = float3(3, 3, 3) * tmp_fx;\n\t\t    float3 tmp_fz = tmp_fy *
+      tmp_bs;\n\t\t    float3 tmp_ga = tmp_fz * tmp_ek;\n\t\t    float3 tmp_gb =
+      tmp_ga * tmp_ek;\n\t\t    float3 tmp_gc = tmp_em + tmp_gb;\n\t\t    float3
+      tmp_gd = tmp_ck * tmp_ek;\n\t\t    float3 tmp_ge = tmp_gd * tmp_ek;\n\t\t   
+      float3 tmp_gf = tmp_ge * tmp_ek;\n\t\t    float3 tmp_gg = tmp_gc + tmp_gf;\n\t\t   
+      float4 tmp_gj = GeneratePerlinNoise(tmp_gg, float3(1, 0.313863188, 4).x, (int)4,
+      float3(1, 0.313863188, 4).y, float3(1, 0.313863188, 4).z);\n\t\t    float tmp_gk
+      = tmp_gj[1];\n\t\t    float tmp_gm = tmp_gk * (float)0.200000003;\n\t\t   
+      float tmp_gn = tmp_gj[2];\n\t\t    float tmp_go = tmp_gn * (float)0.200000003;\n\t\t   
+      float tmp_gp = tmp_gj[3];\n\t\t    float tmp_gq = tmp_gp * (float)0.200000003;\n\t\t   
+      float3 tmp_gr = float3(tmp_gm, tmp_go, tmp_gq);\n\t\t    float3 tmp_gs = tmp_gg
+      + tmp_gr;\n\t\t    SetAttribute_CAC29747( /*inout */attributes.position, tmp_gs);\n\t\t}\n\t\tAge(
       /*inout */attributes.age, deltaTime_b);\n\t\tReap(attributes.age, attributes.lifetime, 
       /*inout */attributes.alive);\n\t\t\n\r\n\t\tattributeBuffer.Store3((index *
       0x4 + 0x800) << 2,asuint(attributes.position));\n\t\tattributeBuffer.Store((index
@@ -651,11 +652,12 @@ VisualEffectResource:
       = SampleCurve(uniform_a,tmp_bd);\n\t\t\t\t    float tmp_bg = tmp_be + (float)-0.0250000004;\n\t\t\t\t   
       float tmp_bh = attributes.stripProgress - tmp_bg;\n\t\t\t\t    float tmp_bj
       = tmp_be + (float)0.0250000004;\n\t\t\t\t    float tmp_bk = tmp_bj - tmp_bg;\n\t\t\t\t   
-      float tmp_bl = tmp_bh / tmp_bk;\n\t\t\t\t    float tmp_bm = saturate(tmp_bl);\n\t\t\t\t   
-      float tmp_bn = (float)2 * tmp_bm;\n\t\t\t\t    float tmp_bo = (float)3 - tmp_bn;\n\t\t\t\t   
-      float tmp_bp = tmp_bo * tmp_bm;\n\t\t\t\t    float tmp_bq = tmp_bp * tmp_bm;\n\t\t\t\t   
-      float tmp_br = (float)1 - tmp_bq;\n\t\t\t\t    SetAttribute_C7757136( /*inout
-      */attributes.alpha, tmp_br);\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t    float tmp_ba
+      float tmp_bl = tmp_bh / tmp_bk;\n\t\t\t\t    float tmp_bn = max(tmp_bl, (float)0);\n\t\t\t\t   
+      float tmp_bo = min(tmp_bn, (float)1);\n\t\t\t\t    float tmp_bp = (float)2
+      * tmp_bo;\n\t\t\t\t    float tmp_bq = (float)3 - tmp_bp;\n\t\t\t\t    float
+      tmp_br = tmp_bq * tmp_bo;\n\t\t\t\t    float tmp_bs = tmp_br * tmp_bo;\n\t\t\t\t   
+      float tmp_bt = (float)1 - tmp_bs;\n\t\t\t\t    SetAttribute_C7757136( /*inout
+      */attributes.alpha, tmp_bt);\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t    float tmp_ba
       = attributes.age / attributes.lifetime;\n\t\t\t\t    float tmp_bc = attributes.stripProgress
       * (float)0.200000003;\n\t\t\t\t    float tmp_bd = tmp_ba - tmp_bc;\n\t\t\t\t   
       float tmp_be = SampleCurve(uniform_b,tmp_bd);\n\t\t\t\t    float3 tmp_bf =
@@ -887,11 +889,12 @@ VisualEffectResource:
       = SampleCurve(uniform_a,tmp_bd);\n\t\t\t\t    float tmp_bg = tmp_be + (float)-0.0250000004;\n\t\t\t\t   
       float tmp_bh = attributes.stripProgress - tmp_bg;\n\t\t\t\t    float tmp_bj
       = tmp_be + (float)0.0250000004;\n\t\t\t\t    float tmp_bk = tmp_bj - tmp_bg;\n\t\t\t\t   
-      float tmp_bl = tmp_bh / tmp_bk;\n\t\t\t\t    float tmp_bm = saturate(tmp_bl);\n\t\t\t\t   
-      float tmp_bn = (float)2 * tmp_bm;\n\t\t\t\t    float tmp_bo = (float)3 - tmp_bn;\n\t\t\t\t   
-      float tmp_bp = tmp_bo * tmp_bm;\n\t\t\t\t    float tmp_bq = tmp_bp * tmp_bm;\n\t\t\t\t   
-      float tmp_br = (float)1 - tmp_bq;\n\t\t\t\t    SetAttribute_C7757136( /*inout
-      */attributes.alpha, tmp_br);\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t    float tmp_ba
+      float tmp_bl = tmp_bh / tmp_bk;\n\t\t\t\t    float tmp_bn = max(tmp_bl, (float)0);\n\t\t\t\t   
+      float tmp_bo = min(tmp_bn, (float)1);\n\t\t\t\t    float tmp_bp = (float)2
+      * tmp_bo;\n\t\t\t\t    float tmp_bq = (float)3 - tmp_bp;\n\t\t\t\t    float
+      tmp_br = tmp_bq * tmp_bo;\n\t\t\t\t    float tmp_bs = tmp_br * tmp_bo;\n\t\t\t\t   
+      float tmp_bt = (float)1 - tmp_bs;\n\t\t\t\t    SetAttribute_C7757136( /*inout
+      */attributes.alpha, tmp_bt);\n\t\t\t\t}\n\t\t\t\t{\n\t\t\t\t    float tmp_ba
       = attributes.age / attributes.lifetime;\n\t\t\t\t    float tmp_bc = attributes.stripProgress
       * (float)0.200000003;\n\t\t\t\t    float tmp_bd = tmp_ba - tmp_bc;\n\t\t\t\t   
       float tmp_be = SampleCurve(uniform_b,tmp_bd);\n\t\t\t\t    float3 tmp_bf =
@@ -1167,17 +1170,96 @@ VisualEffectResource:
       LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_x);\n\t\t\t    float tmp_z = tmp_y[0];\n\t\t\t   
       float tmp_ba = tmp_y[1];\n\t\t\t    float tmp_bb = tmp_y[2];\n\t\t\t    float3
       tmp_bc = float3(tmp_z, tmp_ba, tmp_bb);\n\t\t\t    float tmp_be = frac(tmp_q);\n\t\t\t   
-      float tmp_bf = saturate(tmp_be);\n\t\t\t    float tmp_bg = (float)1 - tmp_bf;\n\t\t\t   
-      float3 tmp_bh = float3(tmp_bg, tmp_bg, tmp_bg);\n\t\t\t    float3 tmp_bi =
-      tmp_bc * tmp_bh;\n\t\t\t    float3 tmp_bj = tmp_bi * tmp_bh;\n\t\t\t    float3
-      tmp_bk = tmp_bj * tmp_bh;\n\t\t\t    int tmp_bm = (int)tmp_r;\n\t\t\t    int
-      tmp_bo = tmp_bm + (int)1;\n\t\t\t    int tmp_bq = max(tmp_bo, (int)0);\n\t\t\t   
-      int tmp_br = min(tmp_bq, asint(uniform_d));\n\t\t\t    uint tmp_bs = (uint)tmp_br;\n\t\t\t   
-      float tmp_bt = (float)tmp_bs;\n\t\t\t    float3 tmp_bu = float3(tmp_bt, (float)0,
-      (float)0);\n\t\t\t    float4 tmp_bv = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_bu);\n\t\t\t   
-      float tmp_bw = tmp_bv[0];\n\t\t\t    float tmp_bx = tmp_bv[1];\n\t\t\t    float
-      tmp_by = tmp_bv[2];\n\t\t\t    float3 tmp_bz = float3(tmp_bw, tmp_bx, tmp_by);\n\t\t\t   
-      uint tmp_cb = tmp_r + (uint)4294967295;\n\t\t\t    int tmp_cc = (int)tmp_cb;\n\t\t\t   
+      float tmp_bf = max(tmp_be, (float)0);\n\t\t\t    float tmp_bg = min(tmp_bf,
+      (float)1);\n\t\t\t    float tmp_bh = (float)1 - tmp_bg;\n\t\t\t    float3 tmp_bi
+      = float3(tmp_bh, tmp_bh, tmp_bh);\n\t\t\t    float3 tmp_bj = tmp_bc * tmp_bi;\n\t\t\t   
+      float3 tmp_bk = tmp_bj * tmp_bi;\n\t\t\t    float3 tmp_bl = tmp_bk * tmp_bi;\n\t\t\t   
+      int tmp_bn = (int)tmp_r;\n\t\t\t    int tmp_bp = tmp_bn + (int)1;\n\t\t\t   
+      int tmp_br = max(tmp_bp, (int)0);\n\t\t\t    int tmp_bs = min(tmp_br, asint(uniform_d));\n\t\t\t   
+      uint tmp_bt = (uint)tmp_bs;\n\t\t\t    float tmp_bu = (float)tmp_bt;\n\t\t\t   
+      float3 tmp_bv = float3(tmp_bu, (float)0, (float)0);\n\t\t\t    float4 tmp_bw
+      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_bv);\n\t\t\t    float tmp_bx
+      = tmp_bw[0];\n\t\t\t    float tmp_by = tmp_bw[1];\n\t\t\t    float tmp_bz =
+      tmp_bw[2];\n\t\t\t    float3 tmp_ca = float3(tmp_bx, tmp_by, tmp_bz);\n\t\t\t   
+      uint tmp_cc = tmp_r + (uint)4294967295;\n\t\t\t    int tmp_cd = (int)tmp_cc;\n\t\t\t   
+      int tmp_ce = max(tmp_cd, (int)0);\n\t\t\t    int tmp_cf = min(tmp_ce, asint(uniform_d));\n\t\t\t   
+      uint tmp_cg = (uint)tmp_cf;\n\t\t\t    float tmp_ch = (float)tmp_cg;\n\t\t\t   
+      float3 tmp_ci = float3(tmp_ch, (float)0, (float)0);\n\t\t\t    float4 tmp_cj
+      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_ci);\n\t\t\t    float tmp_ck
+      = tmp_cj[0];\n\t\t\t    float tmp_cl = tmp_cj[1];\n\t\t\t    float tmp_cm =
+      tmp_cj[2];\n\t\t\t    float3 tmp_cn = float3(tmp_ck, tmp_cl, tmp_cm);\n\t\t\t   
+      float3 tmp_co = tmp_ca - tmp_cn;\n\t\t\t    float3 tmp_cp = tmp_co * tmp_co;\n\t\t\t   
+      float tmp_cq = tmp_cp[2];\n\t\t\t    float tmp_cr = tmp_cp[1];\n\t\t\t    float
+      tmp_cs = tmp_cq + tmp_cr;\n\t\t\t    float tmp_ct = tmp_cp[0];\n\t\t\t    float
+      tmp_cu = tmp_cs + tmp_ct;\n\t\t\t    float tmp_cw = pow(tmp_cu, (float)0.5);\n\t\t\t   
+      float tmp_cx = (float)1 / tmp_cw;\n\t\t\t    float3 tmp_cy = float3(tmp_cx,
+      tmp_cx, tmp_cx);\n\t\t\t    float3 tmp_cz = tmp_co * tmp_cy;\n\t\t\t    float3
+      tmp_da = tmp_ca - tmp_bc;\n\t\t\t    float3 tmp_dc = tmp_da * float3(0.5, 0.5,
+      0.5);\n\t\t\t    float3 tmp_dd = tmp_cz * tmp_dc;\n\t\t\t    float tmp_de =
+      tmp_dd[2];\n\t\t\t    float tmp_df = tmp_dd[1];\n\t\t\t    float tmp_dg = tmp_de
+      + tmp_df;\n\t\t\t    float tmp_dh = tmp_dd[0];\n\t\t\t    float tmp_di = tmp_dg
+      + tmp_dh;\n\t\t\t    float tmp_dj = abs(tmp_di);\n\t\t\t    float3 tmp_dk =
+      tmp_da * tmp_da;\n\t\t\t    float tmp_dl = tmp_dk[2];\n\t\t\t    float tmp_dm
+      = tmp_dk[1];\n\t\t\t    float tmp_dn = tmp_dl + tmp_dm;\n\t\t\t    float tmp_do
+      = tmp_dk[0];\n\t\t\t    float tmp_dp = tmp_dn + tmp_do;\n\t\t\t    float tmp_dq
+      = pow(tmp_dp, (float)0.5);\n\t\t\t    float tmp_ds = tmp_dq * (float)0.25;\n\t\t\t   
+      float tmp_dt = max(tmp_dj, tmp_ds);\n\t\t\t    float3 tmp_du = float3(tmp_dt,
+      tmp_dt, tmp_dt);\n\t\t\t    float3 tmp_dv = tmp_cz * tmp_du;\n\t\t\t    float3
+      tmp_dw = tmp_bc + tmp_dv;\n\t\t\t    float3 tmp_dx = float3(3, 3, 3) * tmp_dw;\n\t\t\t   
+      float3 tmp_dy = tmp_dx * tmp_bi;\n\t\t\t    float3 tmp_dz = tmp_dy * tmp_bi;\n\t\t\t   
+      float3 tmp_ea = float3(tmp_bg, tmp_bg, tmp_bg);\n\t\t\t    float3 tmp_eb =
+      tmp_dz * tmp_ea;\n\t\t\t    float3 tmp_ec = tmp_bl + tmp_eb;\n\t\t\t    uint
+      tmp_ee = tmp_r + (uint)2;\n\t\t\t    int tmp_ef = (int)tmp_ee;\n\t\t\t    int
+      tmp_eg = max(tmp_ef, (int)0);\n\t\t\t    int tmp_eh = min(tmp_eg, asint(uniform_d));\n\t\t\t   
+      uint tmp_ei = (uint)tmp_eh;\n\t\t\t    float tmp_ej = (float)tmp_ei;\n\t\t\t   
+      float3 tmp_ek = float3(tmp_ej, (float)0, (float)0);\n\t\t\t    float4 tmp_el
+      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_ek);\n\t\t\t    float tmp_em
+      = tmp_el[0];\n\t\t\t    float tmp_en = tmp_el[1];\n\t\t\t    float tmp_eo =
+      tmp_el[2];\n\t\t\t    float3 tmp_ep = float3(tmp_em, tmp_en, tmp_eo);\n\t\t\t   
+      float3 tmp_eq = tmp_ep - tmp_bc;\n\t\t\t    float3 tmp_er = tmp_eq * tmp_eq;\n\t\t\t   
+      float tmp_es = tmp_er[2];\n\t\t\t    float tmp_et = tmp_er[1];\n\t\t\t    float
+      tmp_eu = tmp_es + tmp_et;\n\t\t\t    float tmp_ev = tmp_er[0];\n\t\t\t    float
+      tmp_ew = tmp_eu + tmp_ev;\n\t\t\t    float tmp_ex = pow(tmp_ew, (float)0.5);\n\t\t\t   
+      float tmp_ey = (float)1 / tmp_ex;\n\t\t\t    float3 tmp_ez = float3(tmp_ey,
+      tmp_ey, tmp_ey);\n\t\t\t    float3 tmp_fa = tmp_eq * tmp_ez;\n\t\t\t    float3
+      tmp_fb = tmp_dc * tmp_fa;\n\t\t\t    float tmp_fc = tmp_fb[2];\n\t\t\t    float
+      tmp_fd = tmp_fb[1];\n\t\t\t    float tmp_fe = tmp_fc + tmp_fd;\n\t\t\t    float
+      tmp_ff = tmp_fb[0];\n\t\t\t    float tmp_fg = tmp_fe + tmp_ff;\n\t\t\t    float
+      tmp_fh = abs(tmp_fg);\n\t\t\t    float tmp_fi = max(tmp_ds, tmp_fh);\n\t\t\t   
+      float3 tmp_fj = float3(tmp_fi, tmp_fi, tmp_fi);\n\t\t\t    float3 tmp_fk =
+      tmp_fa * tmp_fj;\n\t\t\t    float3 tmp_fm = tmp_fk * float3(-1, -1, -1);\n\t\t\t   
+      float3 tmp_fn = tmp_fm + tmp_ca;\n\t\t\t    float3 tmp_fo = float3(3, 3, 3)
+      * tmp_fn;\n\t\t\t    float3 tmp_fp = tmp_fo * tmp_bi;\n\t\t\t    float3 tmp_fq
+      = tmp_fp * tmp_ea;\n\t\t\t    float3 tmp_fr = tmp_fq * tmp_ea;\n\t\t\t    float3
+      tmp_fs = tmp_ec + tmp_fr;\n\t\t\t    float3 tmp_ft = tmp_ca * tmp_ea;\n\t\t\t   
+      float3 tmp_fu = tmp_ft * tmp_ea;\n\t\t\t    float3 tmp_fv = tmp_fu * tmp_ea;\n\t\t\t   
+      float3 tmp_fw = tmp_fs + tmp_fv;\n\t\t\t    float4 tmp_fz = GeneratePerlinNoise(tmp_fw,
+      float3(1, 0.313863188, 4).x, (int)4, float3(1, 0.313863188, 4).y, float3(1,
+      0.313863188, 4).z);\n\t\t\t    float tmp_ga = tmp_fz[1];\n\t\t\t    float tmp_gc
+      = tmp_ga * (float)0.200000003;\n\t\t\t    float tmp_gd = tmp_fz[2];\n\t\t\t   
+      float tmp_ge = tmp_gd * (float)0.200000003;\n\t\t\t    float tmp_gf = tmp_fz[3];\n\t\t\t   
+      float tmp_gg = tmp_gf * (float)0.200000003;\n\t\t\t    float3 tmp_gh = float3(tmp_gc,
+      tmp_ge, tmp_gg);\n\t\t\t    float3 tmp_gi = tmp_fw + tmp_gh;\n\t\t\t    SetAttribute_CAC29747(
+      /*inout */attributes.position, tmp_gi);\n\t\t\t}\n\t\t\t{\n\t\t\t    float
+      tmp_s = attributes.stripProgress * uniform_b;\n\t\t\t    float tmp_t = frac(tmp_s);\n\t\t\t   
+      float tmp_v = max(tmp_t, (float)0);\n\t\t\t    float tmp_w = min(tmp_v, (float)1);\n\t\t\t   
+      float tmp_x = (float)1 - tmp_w;\n\t\t\t    float3 tmp_y = float3(tmp_x, tmp_x,
+      tmp_x);\n\t\t\t    float3 tmp_z = float3(3, 3, 3) * tmp_y;\n\t\t\t    float3
+      tmp_ba = tmp_z * tmp_y;\n\t\t\t    uint tmp_bb = (uint)tmp_s;\n\t\t\t    uint
+      tmp_bd = tmp_bb > (uint)0 ? tmp_bb : (uint)0;\n\t\t\t    uint tmp_be = tmp_bd
+      < asuint(uniform_c) ? tmp_bd : asuint(uniform_c);\n\t\t\t    float tmp_bf =
+      (float)tmp_be;\n\t\t\t    float3 tmp_bg = float3(tmp_bf, (float)0, (float)0);\n\t\t\t   
+      float4 tmp_bh = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_bg);\n\t\t\t   
+      float tmp_bi = tmp_bh[0];\n\t\t\t    float tmp_bj = tmp_bh[1];\n\t\t\t    float
+      tmp_bk = tmp_bh[2];\n\t\t\t    float3 tmp_bl = float3(tmp_bi, tmp_bj, tmp_bk);\n\t\t\t   
+      int tmp_bm = (int)tmp_bb;\n\t\t\t    int tmp_bo = tmp_bm + (int)1;\n\t\t\t   
+      int tmp_bq = max(tmp_bo, (int)0);\n\t\t\t    int tmp_br = min(tmp_bq, asint(uniform_d));\n\t\t\t   
+      uint tmp_bs = (uint)tmp_br;\n\t\t\t    float tmp_bt = (float)tmp_bs;\n\t\t\t   
+      float3 tmp_bu = float3(tmp_bt, (float)0, (float)0);\n\t\t\t    float4 tmp_bv
+      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_bu);\n\t\t\t    float tmp_bw
+      = tmp_bv[0];\n\t\t\t    float tmp_bx = tmp_bv[1];\n\t\t\t    float tmp_by =
+      tmp_bv[2];\n\t\t\t    float3 tmp_bz = float3(tmp_bw, tmp_bx, tmp_by);\n\t\t\t   
+      uint tmp_cb = tmp_bb + (uint)4294967295;\n\t\t\t    int tmp_cc = (int)tmp_cb;\n\t\t\t   
       int tmp_cd = max(tmp_cc, (int)0);\n\t\t\t    int tmp_ce = min(tmp_cd, asint(uniform_d));\n\t\t\t   
       uint tmp_cf = (uint)tmp_ce;\n\t\t\t    float tmp_cg = (float)tmp_cf;\n\t\t\t   
       float3 tmp_ch = float3(tmp_cg, (float)0, (float)0);\n\t\t\t    float4 tmp_ci
@@ -1190,7 +1272,7 @@ VisualEffectResource:
       tmp_ct = tmp_cr + tmp_cs;\n\t\t\t    float tmp_cv = pow(tmp_ct, (float)0.5);\n\t\t\t   
       float tmp_cw = (float)1 / tmp_cv;\n\t\t\t    float3 tmp_cx = float3(tmp_cw,
       tmp_cw, tmp_cw);\n\t\t\t    float3 tmp_cy = tmp_cn * tmp_cx;\n\t\t\t    float3
-      tmp_cz = tmp_bz - tmp_bc;\n\t\t\t    float3 tmp_db = tmp_cz * float3(0.5, 0.5,
+      tmp_cz = tmp_bz - tmp_bl;\n\t\t\t    float3 tmp_db = tmp_cz * float3(0.5, 0.5,
       0.5);\n\t\t\t    float3 tmp_dc = tmp_cy * tmp_db;\n\t\t\t    float tmp_dd =
       tmp_dc[2];\n\t\t\t    float tmp_de = tmp_dc[1];\n\t\t\t    float tmp_df = tmp_dd
       + tmp_de;\n\t\t\t    float tmp_dg = tmp_dc[0];\n\t\t\t    float tmp_dh = tmp_df
@@ -1201,18 +1283,17 @@ VisualEffectResource:
       = pow(tmp_do, (float)0.5);\n\t\t\t    float tmp_dr = tmp_dp * (float)0.25;\n\t\t\t   
       float tmp_ds = max(tmp_di, tmp_dr);\n\t\t\t    float3 tmp_dt = float3(tmp_ds,
       tmp_ds, tmp_ds);\n\t\t\t    float3 tmp_du = tmp_cy * tmp_dt;\n\t\t\t    float3
-      tmp_dv = tmp_bc + tmp_du;\n\t\t\t    float3 tmp_dw = float3(3, 3, 3) * tmp_dv;\n\t\t\t   
-      float3 tmp_dx = tmp_dw * tmp_bh;\n\t\t\t    float3 tmp_dy = tmp_dx * tmp_bh;\n\t\t\t   
-      float3 tmp_dz = float3(tmp_bf, tmp_bf, tmp_bf);\n\t\t\t    float3 tmp_ea =
-      tmp_dy * tmp_dz;\n\t\t\t    float3 tmp_eb = tmp_bk + tmp_ea;\n\t\t\t    uint
-      tmp_ed = tmp_r + (uint)2;\n\t\t\t    int tmp_ee = (int)tmp_ed;\n\t\t\t    int
-      tmp_ef = max(tmp_ee, (int)0);\n\t\t\t    int tmp_eg = min(tmp_ef, asint(uniform_d));\n\t\t\t   
-      uint tmp_eh = (uint)tmp_eg;\n\t\t\t    float tmp_ei = (float)tmp_eh;\n\t\t\t   
-      float3 tmp_ej = float3(tmp_ei, (float)0, (float)0);\n\t\t\t    float4 tmp_ek
-      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_ej);\n\t\t\t    float tmp_el
-      = tmp_ek[0];\n\t\t\t    float tmp_em = tmp_ek[1];\n\t\t\t    float tmp_en =
-      tmp_ek[2];\n\t\t\t    float3 tmp_eo = float3(tmp_el, tmp_em, tmp_en);\n\t\t\t   
-      float3 tmp_ep = tmp_eo - tmp_bc;\n\t\t\t    float3 tmp_eq = tmp_ep * tmp_ep;\n\t\t\t   
+      tmp_dv = tmp_bl + tmp_du;\n\t\t\t    float3 tmp_dw = tmp_dv - tmp_bl;\n\t\t\t   
+      float3 tmp_dx = tmp_ba * tmp_dw;\n\t\t\t    float3 tmp_dz = float3(6, 6, 6)
+      * tmp_y;\n\t\t\t    float3 tmp_ea = float3(tmp_w, tmp_w, tmp_w);\n\t\t\t   
+      float3 tmp_eb = tmp_dz * tmp_ea;\n\t\t\t    uint tmp_ed = tmp_bb + (uint)2;\n\t\t\t   
+      int tmp_ee = (int)tmp_ed;\n\t\t\t    int tmp_ef = max(tmp_ee, (int)0);\n\t\t\t   
+      int tmp_eg = min(tmp_ef, asint(uniform_d));\n\t\t\t    uint tmp_eh = (uint)tmp_eg;\n\t\t\t   
+      float tmp_ei = (float)tmp_eh;\n\t\t\t    float3 tmp_ej = float3(tmp_ei, (float)0,
+      (float)0);\n\t\t\t    float4 tmp_ek = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_ej);\n\t\t\t   
+      float tmp_el = tmp_ek[0];\n\t\t\t    float tmp_em = tmp_ek[1];\n\t\t\t    float
+      tmp_en = tmp_ek[2];\n\t\t\t    float3 tmp_eo = float3(tmp_el, tmp_em, tmp_en);\n\t\t\t   
+      float3 tmp_ep = tmp_eo - tmp_bl;\n\t\t\t    float3 tmp_eq = tmp_ep * tmp_ep;\n\t\t\t   
       float tmp_er = tmp_eq[2];\n\t\t\t    float tmp_es = tmp_eq[1];\n\t\t\t    float
       tmp_et = tmp_er + tmp_es;\n\t\t\t    float tmp_eu = tmp_eq[0];\n\t\t\t    float
       tmp_ev = tmp_et + tmp_eu;\n\t\t\t    float tmp_ew = pow(tmp_ev, (float)0.5);\n\t\t\t   
@@ -1224,89 +1305,13 @@ VisualEffectResource:
       tmp_fg = abs(tmp_ff);\n\t\t\t    float tmp_fh = max(tmp_dr, tmp_fg);\n\t\t\t   
       float3 tmp_fi = float3(tmp_fh, tmp_fh, tmp_fh);\n\t\t\t    float3 tmp_fj =
       tmp_ez * tmp_fi;\n\t\t\t    float3 tmp_fl = tmp_fj * float3(-1, -1, -1);\n\t\t\t   
-      float3 tmp_fm = tmp_fl + tmp_bz;\n\t\t\t    float3 tmp_fn = float3(3, 3, 3)
-      * tmp_fm;\n\t\t\t    float3 tmp_fo = tmp_fn * tmp_bh;\n\t\t\t    float3 tmp_fp
-      = tmp_fo * tmp_dz;\n\t\t\t    float3 tmp_fq = tmp_fp * tmp_dz;\n\t\t\t    float3
-      tmp_fr = tmp_eb + tmp_fq;\n\t\t\t    float3 tmp_fs = tmp_bz * tmp_dz;\n\t\t\t   
-      float3 tmp_ft = tmp_fs * tmp_dz;\n\t\t\t    float3 tmp_fu = tmp_ft * tmp_dz;\n\t\t\t   
-      float3 tmp_fv = tmp_fr + tmp_fu;\n\t\t\t    float4 tmp_fy = GeneratePerlinNoise(tmp_fv,
-      float3(1, 0.313863188, 4).x, (int)4, float3(1, 0.313863188, 4).y, float3(1,
-      0.313863188, 4).z);\n\t\t\t    float tmp_fz = tmp_fy[1];\n\t\t\t    float tmp_gb
-      = tmp_fz * (float)0.200000003;\n\t\t\t    float tmp_gc = tmp_fy[2];\n\t\t\t   
-      float tmp_gd = tmp_gc * (float)0.200000003;\n\t\t\t    float tmp_ge = tmp_fy[3];\n\t\t\t   
-      float tmp_gf = tmp_ge * (float)0.200000003;\n\t\t\t    float3 tmp_gg = float3(tmp_gb,
-      tmp_gd, tmp_gf);\n\t\t\t    float3 tmp_gh = tmp_fv + tmp_gg;\n\t\t\t    SetAttribute_CAC29747(
-      /*inout */attributes.position, tmp_gh);\n\t\t\t}\n\t\t\t{\n\t\t\t    float
-      tmp_s = attributes.stripProgress * uniform_b;\n\t\t\t    float tmp_t = frac(tmp_s);\n\t\t\t   
-      float tmp_u = saturate(tmp_t);\n\t\t\t    float tmp_v = (float)1 - tmp_u;\n\t\t\t   
-      float3 tmp_w = float3(tmp_v, tmp_v, tmp_v);\n\t\t\t    float3 tmp_x = float3(3,
-      3, 3) * tmp_w;\n\t\t\t    float3 tmp_y = tmp_x * tmp_w;\n\t\t\t    uint tmp_z
-      = (uint)tmp_s;\n\t\t\t    uint tmp_bb = tmp_z > (uint)0 ? tmp_z : (uint)0;\n\t\t\t   
-      uint tmp_bc = tmp_bb < asuint(uniform_c) ? tmp_bb : asuint(uniform_c);\n\t\t\t   
-      float tmp_bd = (float)tmp_bc;\n\t\t\t    float3 tmp_bf = float3(tmp_bd, (float)0,
-      (float)0);\n\t\t\t    float4 tmp_bg = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_bf);\n\t\t\t   
-      float tmp_bh = tmp_bg[0];\n\t\t\t    float tmp_bi = tmp_bg[1];\n\t\t\t    float
-      tmp_bj = tmp_bg[2];\n\t\t\t    float3 tmp_bk = float3(tmp_bh, tmp_bi, tmp_bj);\n\t\t\t   
-      int tmp_bl = (int)tmp_z;\n\t\t\t    int tmp_bn = tmp_bl + (int)1;\n\t\t\t   
-      int tmp_bp = max(tmp_bn, (int)0);\n\t\t\t    int tmp_bq = min(tmp_bp, asint(uniform_d));\n\t\t\t   
-      uint tmp_br = (uint)tmp_bq;\n\t\t\t    float tmp_bs = (float)tmp_br;\n\t\t\t   
-      float3 tmp_bt = float3(tmp_bs, (float)0, (float)0);\n\t\t\t    float4 tmp_bu
-      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_bt);\n\t\t\t    float tmp_bv
-      = tmp_bu[0];\n\t\t\t    float tmp_bw = tmp_bu[1];\n\t\t\t    float tmp_bx =
-      tmp_bu[2];\n\t\t\t    float3 tmp_by = float3(tmp_bv, tmp_bw, tmp_bx);\n\t\t\t   
-      uint tmp_ca = tmp_z + (uint)4294967295;\n\t\t\t    int tmp_cb = (int)tmp_ca;\n\t\t\t   
-      int tmp_cc = max(tmp_cb, (int)0);\n\t\t\t    int tmp_cd = min(tmp_cc, asint(uniform_d));\n\t\t\t   
-      uint tmp_ce = (uint)tmp_cd;\n\t\t\t    float tmp_cf = (float)tmp_ce;\n\t\t\t   
-      float3 tmp_cg = float3(tmp_cf, (float)0, (float)0);\n\t\t\t    float4 tmp_ch
-      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_cg);\n\t\t\t    float tmp_ci
-      = tmp_ch[0];\n\t\t\t    float tmp_cj = tmp_ch[1];\n\t\t\t    float tmp_ck =
-      tmp_ch[2];\n\t\t\t    float3 tmp_cl = float3(tmp_ci, tmp_cj, tmp_ck);\n\t\t\t   
-      float3 tmp_cm = tmp_by - tmp_cl;\n\t\t\t    float3 tmp_cn = tmp_cm * tmp_cm;\n\t\t\t   
-      float tmp_co = tmp_cn[2];\n\t\t\t    float tmp_cp = tmp_cn[1];\n\t\t\t    float
-      tmp_cq = tmp_co + tmp_cp;\n\t\t\t    float tmp_cr = tmp_cn[0];\n\t\t\t    float
-      tmp_cs = tmp_cq + tmp_cr;\n\t\t\t    float tmp_cu = pow(tmp_cs, (float)0.5);\n\t\t\t   
-      float tmp_cv = (float)1 / tmp_cu;\n\t\t\t    float3 tmp_cw = float3(tmp_cv,
-      tmp_cv, tmp_cv);\n\t\t\t    float3 tmp_cx = tmp_cm * tmp_cw;\n\t\t\t    float3
-      tmp_cy = tmp_by - tmp_bk;\n\t\t\t    float3 tmp_da = tmp_cy * float3(0.5, 0.5,
-      0.5);\n\t\t\t    float3 tmp_db = tmp_cx * tmp_da;\n\t\t\t    float tmp_dc =
-      tmp_db[2];\n\t\t\t    float tmp_dd = tmp_db[1];\n\t\t\t    float tmp_de = tmp_dc
-      + tmp_dd;\n\t\t\t    float tmp_df = tmp_db[0];\n\t\t\t    float tmp_dg = tmp_de
-      + tmp_df;\n\t\t\t    float tmp_dh = abs(tmp_dg);\n\t\t\t    float3 tmp_di =
-      tmp_cy * tmp_cy;\n\t\t\t    float tmp_dj = tmp_di[2];\n\t\t\t    float tmp_dk
-      = tmp_di[1];\n\t\t\t    float tmp_dl = tmp_dj + tmp_dk;\n\t\t\t    float tmp_dm
-      = tmp_di[0];\n\t\t\t    float tmp_dn = tmp_dl + tmp_dm;\n\t\t\t    float tmp_do
-      = pow(tmp_dn, (float)0.5);\n\t\t\t    float tmp_dq = tmp_do * (float)0.25;\n\t\t\t   
-      float tmp_dr = max(tmp_dh, tmp_dq);\n\t\t\t    float3 tmp_ds = float3(tmp_dr,
-      tmp_dr, tmp_dr);\n\t\t\t    float3 tmp_dt = tmp_cx * tmp_ds;\n\t\t\t    float3
-      tmp_du = tmp_bk + tmp_dt;\n\t\t\t    float3 tmp_dv = tmp_du - tmp_bk;\n\t\t\t   
-      float3 tmp_dw = tmp_y * tmp_dv;\n\t\t\t    float3 tmp_dy = float3(6, 6, 6)
-      * tmp_w;\n\t\t\t    float3 tmp_dz = float3(tmp_u, tmp_u, tmp_u);\n\t\t\t   
-      float3 tmp_ea = tmp_dy * tmp_dz;\n\t\t\t    uint tmp_ec = tmp_z + (uint)2;\n\t\t\t   
-      int tmp_ed = (int)tmp_ec;\n\t\t\t    int tmp_ee = max(tmp_ed, (int)0);\n\t\t\t   
-      int tmp_ef = min(tmp_ee, asint(uniform_d));\n\t\t\t    uint tmp_eg = (uint)tmp_ef;\n\t\t\t   
-      float tmp_eh = (float)tmp_eg;\n\t\t\t    float3 tmp_ei = float3(tmp_eh, (float)0,
-      (float)0);\n\t\t\t    float4 tmp_ej = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_ei);\n\t\t\t   
-      float tmp_ek = tmp_ej[0];\n\t\t\t    float tmp_el = tmp_ej[1];\n\t\t\t    float
-      tmp_em = tmp_ej[2];\n\t\t\t    float3 tmp_en = float3(tmp_ek, tmp_el, tmp_em);\n\t\t\t   
-      float3 tmp_eo = tmp_en - tmp_bk;\n\t\t\t    float3 tmp_ep = tmp_eo * tmp_eo;\n\t\t\t   
-      float tmp_eq = tmp_ep[2];\n\t\t\t    float tmp_er = tmp_ep[1];\n\t\t\t    float
-      tmp_es = tmp_eq + tmp_er;\n\t\t\t    float tmp_et = tmp_ep[0];\n\t\t\t    float
-      tmp_eu = tmp_es + tmp_et;\n\t\t\t    float tmp_ev = pow(tmp_eu, (float)0.5);\n\t\t\t   
-      float tmp_ew = (float)1 / tmp_ev;\n\t\t\t    float3 tmp_ex = float3(tmp_ew,
-      tmp_ew, tmp_ew);\n\t\t\t    float3 tmp_ey = tmp_eo * tmp_ex;\n\t\t\t    float3
-      tmp_ez = tmp_da * tmp_ey;\n\t\t\t    float tmp_fa = tmp_ez[2];\n\t\t\t    float
-      tmp_fb = tmp_ez[1];\n\t\t\t    float tmp_fc = tmp_fa + tmp_fb;\n\t\t\t    float
-      tmp_fd = tmp_ez[0];\n\t\t\t    float tmp_fe = tmp_fc + tmp_fd;\n\t\t\t    float
-      tmp_ff = abs(tmp_fe);\n\t\t\t    float tmp_fg = max(tmp_dq, tmp_ff);\n\t\t\t   
-      float3 tmp_fh = float3(tmp_fg, tmp_fg, tmp_fg);\n\t\t\t    float3 tmp_fi =
-      tmp_ey * tmp_fh;\n\t\t\t    float3 tmp_fk = tmp_fi * float3(-1, -1, -1);\n\t\t\t   
-      float3 tmp_fl = tmp_fk + tmp_by;\n\t\t\t    float3 tmp_fm = tmp_fl - tmp_du;\n\t\t\t   
-      float3 tmp_fn = tmp_ea * tmp_fm;\n\t\t\t    float3 tmp_fo = tmp_dw + tmp_fn;\n\t\t\t   
-      float3 tmp_fp = float3(3, 3, 3) * tmp_dz;\n\t\t\t    float3 tmp_fq = tmp_fp
-      * tmp_dz;\n\t\t\t    float3 tmp_fr = tmp_by - tmp_fl;\n\t\t\t    float3 tmp_fs
-      = tmp_fq * tmp_fr;\n\t\t\t    float3 tmp_ft = tmp_fo + tmp_fs;\n\t\t\t    float3
-      tmp_fu = mul((float3x3)uniform_e, tmp_ft);\n\t\t\t    SetAttribute_595BA547(
-      /*inout */attributes.direction, tmp_fu);\n\t\t\t}\n\t\t\t{\n\t\t\t    attributes.eventCount
+      float3 tmp_fm = tmp_fl + tmp_bz;\n\t\t\t    float3 tmp_fn = tmp_fm - tmp_dv;\n\t\t\t   
+      float3 tmp_fo = tmp_eb * tmp_fn;\n\t\t\t    float3 tmp_fp = tmp_dx + tmp_fo;\n\t\t\t   
+      float3 tmp_fq = float3(3, 3, 3) * tmp_ea;\n\t\t\t    float3 tmp_fr = tmp_fq
+      * tmp_ea;\n\t\t\t    float3 tmp_fs = tmp_bz - tmp_fm;\n\t\t\t    float3 tmp_ft
+      = tmp_fr * tmp_fs;\n\t\t\t    float3 tmp_fu = tmp_fp + tmp_ft;\n\t\t\t    float3
+      tmp_fv = mul((float3x3)uniform_e, tmp_fu);\n\t\t\t    SetAttribute_595BA547(
+      /*inout */attributes.direction, tmp_fv);\n\t\t\t}\n\t\t\t{\n\t\t\t    attributes.eventCount
       = 0u;\n\t\t\t    GPUEventRate_1( /*inout */attributes.rateCount_d,  /*inout
       */attributes.eventCount, (float)10, deltaTime_d);\n\t\t\t    eventCount_a +=
       attributes.eventCount;\n\t\t\t}\n\t\t\tEulerIntegration( /*inout */attributes.position,
@@ -1353,19 +1358,93 @@ VisualEffectResource:
       float3 tmp_x = float3(tmp_v, (float)0, (float)0);\n\t\t    float4 tmp_y = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_x);\n\t\t   
       float tmp_z = tmp_y[0];\n\t\t    float tmp_ba = tmp_y[1];\n\t\t    float tmp_bb
       = tmp_y[2];\n\t\t    float3 tmp_bc = float3(tmp_z, tmp_ba, tmp_bb);\n\t\t   
-      float tmp_be = frac(tmp_q);\n\t\t    float tmp_bf = saturate(tmp_be);\n\t\t   
-      float tmp_bg = (float)1 - tmp_bf;\n\t\t    float3 tmp_bh = float3(tmp_bg, tmp_bg,
-      tmp_bg);\n\t\t    float3 tmp_bi = tmp_bc * tmp_bh;\n\t\t    float3 tmp_bj =
-      tmp_bi * tmp_bh;\n\t\t    float3 tmp_bk = tmp_bj * tmp_bh;\n\t\t    int tmp_bm
-      = (int)tmp_r;\n\t\t    int tmp_bo = tmp_bm + (int)1;\n\t\t    int tmp_bq =
-      max(tmp_bo, (int)0);\n\t\t    int tmp_br = min(tmp_bq, asint(uniform_d));\n\t\t   
-      uint tmp_bs = (uint)tmp_br;\n\t\t    float tmp_bt = (float)tmp_bs;\n\t\t   
-      float3 tmp_bu = float3(tmp_bt, (float)0, (float)0);\n\t\t    float4 tmp_bv
-      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_bu);\n\t\t    float tmp_bw =
-      tmp_bv[0];\n\t\t    float tmp_bx = tmp_bv[1];\n\t\t    float tmp_by = tmp_bv[2];\n\t\t   
-      float3 tmp_bz = float3(tmp_bw, tmp_bx, tmp_by);\n\t\t    uint tmp_cb = tmp_r
-      + (uint)4294967295;\n\t\t    int tmp_cc = (int)tmp_cb;\n\t\t    int tmp_cd
-      = max(tmp_cc, (int)0);\n\t\t    int tmp_ce = min(tmp_cd, asint(uniform_d));\n\t\t   
+      float tmp_be = frac(tmp_q);\n\t\t    float tmp_bf = max(tmp_be, (float)0);\n\t\t   
+      float tmp_bg = min(tmp_bf, (float)1);\n\t\t    float tmp_bh = (float)1 - tmp_bg;\n\t\t   
+      float3 tmp_bi = float3(tmp_bh, tmp_bh, tmp_bh);\n\t\t    float3 tmp_bj = tmp_bc
+      * tmp_bi;\n\t\t    float3 tmp_bk = tmp_bj * tmp_bi;\n\t\t    float3 tmp_bl
+      = tmp_bk * tmp_bi;\n\t\t    int tmp_bn = (int)tmp_r;\n\t\t    int tmp_bp =
+      tmp_bn + (int)1;\n\t\t    int tmp_br = max(tmp_bp, (int)0);\n\t\t    int tmp_bs
+      = min(tmp_br, asint(uniform_d));\n\t\t    uint tmp_bt = (uint)tmp_bs;\n\t\t   
+      float tmp_bu = (float)tmp_bt;\n\t\t    float3 tmp_bv = float3(tmp_bu, (float)0,
+      (float)0);\n\t\t    float4 tmp_bw = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_bv);\n\t\t   
+      float tmp_bx = tmp_bw[0];\n\t\t    float tmp_by = tmp_bw[1];\n\t\t    float
+      tmp_bz = tmp_bw[2];\n\t\t    float3 tmp_ca = float3(tmp_bx, tmp_by, tmp_bz);\n\t\t   
+      uint tmp_cc = tmp_r + (uint)4294967295;\n\t\t    int tmp_cd = (int)tmp_cc;\n\t\t   
+      int tmp_ce = max(tmp_cd, (int)0);\n\t\t    int tmp_cf = min(tmp_ce, asint(uniform_d));\n\t\t   
+      uint tmp_cg = (uint)tmp_cf;\n\t\t    float tmp_ch = (float)tmp_cg;\n\t\t   
+      float3 tmp_ci = float3(tmp_ch, (float)0, (float)0);\n\t\t    float4 tmp_cj
+      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_ci);\n\t\t    float tmp_ck =
+      tmp_cj[0];\n\t\t    float tmp_cl = tmp_cj[1];\n\t\t    float tmp_cm = tmp_cj[2];\n\t\t   
+      float3 tmp_cn = float3(tmp_ck, tmp_cl, tmp_cm);\n\t\t    float3 tmp_co = tmp_ca
+      - tmp_cn;\n\t\t    float3 tmp_cp = tmp_co * tmp_co;\n\t\t    float tmp_cq =
+      tmp_cp[2];\n\t\t    float tmp_cr = tmp_cp[1];\n\t\t    float tmp_cs = tmp_cq
+      + tmp_cr;\n\t\t    float tmp_ct = tmp_cp[0];\n\t\t    float tmp_cu = tmp_cs
+      + tmp_ct;\n\t\t    float tmp_cw = pow(tmp_cu, (float)0.5);\n\t\t    float tmp_cx
+      = (float)1 / tmp_cw;\n\t\t    float3 tmp_cy = float3(tmp_cx, tmp_cx, tmp_cx);\n\t\t   
+      float3 tmp_cz = tmp_co * tmp_cy;\n\t\t    float3 tmp_da = tmp_ca - tmp_bc;\n\t\t   
+      float3 tmp_dc = tmp_da * float3(0.5, 0.5, 0.5);\n\t\t    float3 tmp_dd = tmp_cz
+      * tmp_dc;\n\t\t    float tmp_de = tmp_dd[2];\n\t\t    float tmp_df = tmp_dd[1];\n\t\t   
+      float tmp_dg = tmp_de + tmp_df;\n\t\t    float tmp_dh = tmp_dd[0];\n\t\t   
+      float tmp_di = tmp_dg + tmp_dh;\n\t\t    float tmp_dj = abs(tmp_di);\n\t\t   
+      float3 tmp_dk = tmp_da * tmp_da;\n\t\t    float tmp_dl = tmp_dk[2];\n\t\t   
+      float tmp_dm = tmp_dk[1];\n\t\t    float tmp_dn = tmp_dl + tmp_dm;\n\t\t   
+      float tmp_do = tmp_dk[0];\n\t\t    float tmp_dp = tmp_dn + tmp_do;\n\t\t   
+      float tmp_dq = pow(tmp_dp, (float)0.5);\n\t\t    float tmp_ds = tmp_dq * (float)0.25;\n\t\t   
+      float tmp_dt = max(tmp_dj, tmp_ds);\n\t\t    float3 tmp_du = float3(tmp_dt,
+      tmp_dt, tmp_dt);\n\t\t    float3 tmp_dv = tmp_cz * tmp_du;\n\t\t    float3
+      tmp_dw = tmp_bc + tmp_dv;\n\t\t    float3 tmp_dx = float3(3, 3, 3) * tmp_dw;\n\t\t   
+      float3 tmp_dy = tmp_dx * tmp_bi;\n\t\t    float3 tmp_dz = tmp_dy * tmp_bi;\n\t\t   
+      float3 tmp_ea = float3(tmp_bg, tmp_bg, tmp_bg);\n\t\t    float3 tmp_eb = tmp_dz
+      * tmp_ea;\n\t\t    float3 tmp_ec = tmp_bl + tmp_eb;\n\t\t    uint tmp_ee =
+      tmp_r + (uint)2;\n\t\t    int tmp_ef = (int)tmp_ee;\n\t\t    int tmp_eg = max(tmp_ef,
+      (int)0);\n\t\t    int tmp_eh = min(tmp_eg, asint(uniform_d));\n\t\t    uint
+      tmp_ei = (uint)tmp_eh;\n\t\t    float tmp_ej = (float)tmp_ei;\n\t\t    float3
+      tmp_ek = float3(tmp_ej, (float)0, (float)0);\n\t\t    float4 tmp_el = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_ek);\n\t\t   
+      float tmp_em = tmp_el[0];\n\t\t    float tmp_en = tmp_el[1];\n\t\t    float
+      tmp_eo = tmp_el[2];\n\t\t    float3 tmp_ep = float3(tmp_em, tmp_en, tmp_eo);\n\t\t   
+      float3 tmp_eq = tmp_ep - tmp_bc;\n\t\t    float3 tmp_er = tmp_eq * tmp_eq;\n\t\t   
+      float tmp_es = tmp_er[2];\n\t\t    float tmp_et = tmp_er[1];\n\t\t    float
+      tmp_eu = tmp_es + tmp_et;\n\t\t    float tmp_ev = tmp_er[0];\n\t\t    float
+      tmp_ew = tmp_eu + tmp_ev;\n\t\t    float tmp_ex = pow(tmp_ew, (float)0.5);\n\t\t   
+      float tmp_ey = (float)1 / tmp_ex;\n\t\t    float3 tmp_ez = float3(tmp_ey, tmp_ey,
+      tmp_ey);\n\t\t    float3 tmp_fa = tmp_eq * tmp_ez;\n\t\t    float3 tmp_fb =
+      tmp_dc * tmp_fa;\n\t\t    float tmp_fc = tmp_fb[2];\n\t\t    float tmp_fd =
+      tmp_fb[1];\n\t\t    float tmp_fe = tmp_fc + tmp_fd;\n\t\t    float tmp_ff =
+      tmp_fb[0];\n\t\t    float tmp_fg = tmp_fe + tmp_ff;\n\t\t    float tmp_fh =
+      abs(tmp_fg);\n\t\t    float tmp_fi = max(tmp_ds, tmp_fh);\n\t\t    float3 tmp_fj
+      = float3(tmp_fi, tmp_fi, tmp_fi);\n\t\t    float3 tmp_fk = tmp_fa * tmp_fj;\n\t\t   
+      float3 tmp_fm = tmp_fk * float3(-1, -1, -1);\n\t\t    float3 tmp_fn = tmp_fm
+      + tmp_ca;\n\t\t    float3 tmp_fo = float3(3, 3, 3) * tmp_fn;\n\t\t    float3
+      tmp_fp = tmp_fo * tmp_bi;\n\t\t    float3 tmp_fq = tmp_fp * tmp_ea;\n\t\t   
+      float3 tmp_fr = tmp_fq * tmp_ea;\n\t\t    float3 tmp_fs = tmp_ec + tmp_fr;\n\t\t   
+      float3 tmp_ft = tmp_ca * tmp_ea;\n\t\t    float3 tmp_fu = tmp_ft * tmp_ea;\n\t\t   
+      float3 tmp_fv = tmp_fu * tmp_ea;\n\t\t    float3 tmp_fw = tmp_fs + tmp_fv;\n\t\t   
+      float4 tmp_fz = GeneratePerlinNoise(tmp_fw, float3(1, 0.313863188, 4).x, (int)4,
+      float3(1, 0.313863188, 4).y, float3(1, 0.313863188, 4).z);\n\t\t    float tmp_ga
+      = tmp_fz[1];\n\t\t    float tmp_gc = tmp_ga * (float)0.200000003;\n\t\t   
+      float tmp_gd = tmp_fz[2];\n\t\t    float tmp_ge = tmp_gd * (float)0.200000003;\n\t\t   
+      float tmp_gf = tmp_fz[3];\n\t\t    float tmp_gg = tmp_gf * (float)0.200000003;\n\t\t   
+      float3 tmp_gh = float3(tmp_gc, tmp_ge, tmp_gg);\n\t\t    float3 tmp_gi = tmp_fw
+      + tmp_gh;\n\t\t    SetAttribute_CAC29747( /*inout */attributes.position, tmp_gi);\n\t\t}\n\t\t{\n\t\t   
+      float tmp_s = attributes.stripProgress * uniform_b;\n\t\t    float tmp_t =
+      frac(tmp_s);\n\t\t    float tmp_v = max(tmp_t, (float)0);\n\t\t    float tmp_w
+      = min(tmp_v, (float)1);\n\t\t    float tmp_x = (float)1 - tmp_w;\n\t\t    float3
+      tmp_y = float3(tmp_x, tmp_x, tmp_x);\n\t\t    float3 tmp_z = float3(3, 3, 3)
+      * tmp_y;\n\t\t    float3 tmp_ba = tmp_z * tmp_y;\n\t\t    uint tmp_bb = (uint)tmp_s;\n\t\t   
+      uint tmp_bd = tmp_bb > (uint)0 ? tmp_bb : (uint)0;\n\t\t    uint tmp_be = tmp_bd
+      < asuint(uniform_c) ? tmp_bd : asuint(uniform_c);\n\t\t    float tmp_bf = (float)tmp_be;\n\t\t   
+      float3 tmp_bg = float3(tmp_bf, (float)0, (float)0);\n\t\t    float4 tmp_bh
+      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_bg);\n\t\t    float tmp_bi =
+      tmp_bh[0];\n\t\t    float tmp_bj = tmp_bh[1];\n\t\t    float tmp_bk = tmp_bh[2];\n\t\t   
+      float3 tmp_bl = float3(tmp_bi, tmp_bj, tmp_bk);\n\t\t    int tmp_bm = (int)tmp_bb;\n\t\t   
+      int tmp_bo = tmp_bm + (int)1;\n\t\t    int tmp_bq = max(tmp_bo, (int)0);\n\t\t   
+      int tmp_br = min(tmp_bq, asint(uniform_d));\n\t\t    uint tmp_bs = (uint)tmp_br;\n\t\t   
+      float tmp_bt = (float)tmp_bs;\n\t\t    float3 tmp_bu = float3(tmp_bt, (float)0,
+      (float)0);\n\t\t    float4 tmp_bv = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_bu);\n\t\t   
+      float tmp_bw = tmp_bv[0];\n\t\t    float tmp_bx = tmp_bv[1];\n\t\t    float
+      tmp_by = tmp_bv[2];\n\t\t    float3 tmp_bz = float3(tmp_bw, tmp_bx, tmp_by);\n\t\t   
+      uint tmp_cb = tmp_bb + (uint)4294967295;\n\t\t    int tmp_cc = (int)tmp_cb;\n\t\t   
+      int tmp_cd = max(tmp_cc, (int)0);\n\t\t    int tmp_ce = min(tmp_cd, asint(uniform_d));\n\t\t   
       uint tmp_cf = (uint)tmp_ce;\n\t\t    float tmp_cg = (float)tmp_cf;\n\t\t   
       float3 tmp_ch = float3(tmp_cg, (float)0, (float)0);\n\t\t    float4 tmp_ci
       = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_ch);\n\t\t    float tmp_cj =
@@ -1376,7 +1455,7 @@ VisualEffectResource:
       + tmp_cq;\n\t\t    float tmp_cs = tmp_co[0];\n\t\t    float tmp_ct = tmp_cr
       + tmp_cs;\n\t\t    float tmp_cv = pow(tmp_ct, (float)0.5);\n\t\t    float tmp_cw
       = (float)1 / tmp_cv;\n\t\t    float3 tmp_cx = float3(tmp_cw, tmp_cw, tmp_cw);\n\t\t   
-      float3 tmp_cy = tmp_cn * tmp_cx;\n\t\t    float3 tmp_cz = tmp_bz - tmp_bc;\n\t\t   
+      float3 tmp_cy = tmp_cn * tmp_cx;\n\t\t    float3 tmp_cz = tmp_bz - tmp_bl;\n\t\t   
       float3 tmp_db = tmp_cz * float3(0.5, 0.5, 0.5);\n\t\t    float3 tmp_dc = tmp_cy
       * tmp_db;\n\t\t    float tmp_dd = tmp_dc[2];\n\t\t    float tmp_de = tmp_dc[1];\n\t\t   
       float tmp_df = tmp_dd + tmp_de;\n\t\t    float tmp_dg = tmp_dc[0];\n\t\t   
@@ -1387,17 +1466,17 @@ VisualEffectResource:
       float tmp_dp = pow(tmp_do, (float)0.5);\n\t\t    float tmp_dr = tmp_dp * (float)0.25;\n\t\t   
       float tmp_ds = max(tmp_di, tmp_dr);\n\t\t    float3 tmp_dt = float3(tmp_ds,
       tmp_ds, tmp_ds);\n\t\t    float3 tmp_du = tmp_cy * tmp_dt;\n\t\t    float3
-      tmp_dv = tmp_bc + tmp_du;\n\t\t    float3 tmp_dw = float3(3, 3, 3) * tmp_dv;\n\t\t   
-      float3 tmp_dx = tmp_dw * tmp_bh;\n\t\t    float3 tmp_dy = tmp_dx * tmp_bh;\n\t\t   
-      float3 tmp_dz = float3(tmp_bf, tmp_bf, tmp_bf);\n\t\t    float3 tmp_ea = tmp_dy
-      * tmp_dz;\n\t\t    float3 tmp_eb = tmp_bk + tmp_ea;\n\t\t    uint tmp_ed =
-      tmp_r + (uint)2;\n\t\t    int tmp_ee = (int)tmp_ed;\n\t\t    int tmp_ef = max(tmp_ee,
-      (int)0);\n\t\t    int tmp_eg = min(tmp_ef, asint(uniform_d));\n\t\t    uint
-      tmp_eh = (uint)tmp_eg;\n\t\t    float tmp_ei = (float)tmp_eh;\n\t\t    float3
-      tmp_ej = float3(tmp_ei, (float)0, (float)0);\n\t\t    float4 tmp_ek = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_ej);\n\t\t   
+      tmp_dv = tmp_bl + tmp_du;\n\t\t    float3 tmp_dw = tmp_dv - tmp_bl;\n\t\t   
+      float3 tmp_dx = tmp_ba * tmp_dw;\n\t\t    float3 tmp_dz = float3(6, 6, 6) *
+      tmp_y;\n\t\t    float3 tmp_ea = float3(tmp_w, tmp_w, tmp_w);\n\t\t    float3
+      tmp_eb = tmp_dz * tmp_ea;\n\t\t    uint tmp_ed = tmp_bb + (uint)2;\n\t\t   
+      int tmp_ee = (int)tmp_ed;\n\t\t    int tmp_ef = max(tmp_ee, (int)0);\n\t\t   
+      int tmp_eg = min(tmp_ef, asint(uniform_d));\n\t\t    uint tmp_eh = (uint)tmp_eg;\n\t\t   
+      float tmp_ei = (float)tmp_eh;\n\t\t    float3 tmp_ej = float3(tmp_ei, (float)0,
+      (float)0);\n\t\t    float4 tmp_ek = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_ej);\n\t\t   
       float tmp_el = tmp_ek[0];\n\t\t    float tmp_em = tmp_ek[1];\n\t\t    float
       tmp_en = tmp_ek[2];\n\t\t    float3 tmp_eo = float3(tmp_el, tmp_em, tmp_en);\n\t\t   
-      float3 tmp_ep = tmp_eo - tmp_bc;\n\t\t    float3 tmp_eq = tmp_ep * tmp_ep;\n\t\t   
+      float3 tmp_ep = tmp_eo - tmp_bl;\n\t\t    float3 tmp_eq = tmp_ep * tmp_ep;\n\t\t   
       float tmp_er = tmp_eq[2];\n\t\t    float tmp_es = tmp_eq[1];\n\t\t    float
       tmp_et = tmp_er + tmp_es;\n\t\t    float tmp_eu = tmp_eq[0];\n\t\t    float
       tmp_ev = tmp_et + tmp_eu;\n\t\t    float tmp_ew = pow(tmp_ev, (float)0.5);\n\t\t   
@@ -1409,86 +1488,12 @@ VisualEffectResource:
       abs(tmp_ff);\n\t\t    float tmp_fh = max(tmp_dr, tmp_fg);\n\t\t    float3 tmp_fi
       = float3(tmp_fh, tmp_fh, tmp_fh);\n\t\t    float3 tmp_fj = tmp_ez * tmp_fi;\n\t\t   
       float3 tmp_fl = tmp_fj * float3(-1, -1, -1);\n\t\t    float3 tmp_fm = tmp_fl
-      + tmp_bz;\n\t\t    float3 tmp_fn = float3(3, 3, 3) * tmp_fm;\n\t\t    float3
-      tmp_fo = tmp_fn * tmp_bh;\n\t\t    float3 tmp_fp = tmp_fo * tmp_dz;\n\t\t   
-      float3 tmp_fq = tmp_fp * tmp_dz;\n\t\t    float3 tmp_fr = tmp_eb + tmp_fq;\n\t\t   
-      float3 tmp_fs = tmp_bz * tmp_dz;\n\t\t    float3 tmp_ft = tmp_fs * tmp_dz;\n\t\t   
-      float3 tmp_fu = tmp_ft * tmp_dz;\n\t\t    float3 tmp_fv = tmp_fr + tmp_fu;\n\t\t   
-      float4 tmp_fy = GeneratePerlinNoise(tmp_fv, float3(1, 0.313863188, 4).x, (int)4,
-      float3(1, 0.313863188, 4).y, float3(1, 0.313863188, 4).z);\n\t\t    float tmp_fz
-      = tmp_fy[1];\n\t\t    float tmp_gb = tmp_fz * (float)0.200000003;\n\t\t   
-      float tmp_gc = tmp_fy[2];\n\t\t    float tmp_gd = tmp_gc * (float)0.200000003;\n\t\t   
-      float tmp_ge = tmp_fy[3];\n\t\t    float tmp_gf = tmp_ge * (float)0.200000003;\n\t\t   
-      float3 tmp_gg = float3(tmp_gb, tmp_gd, tmp_gf);\n\t\t    float3 tmp_gh = tmp_fv
-      + tmp_gg;\n\t\t    SetAttribute_CAC29747( /*inout */attributes.position, tmp_gh);\n\t\t}\n\t\t{\n\t\t   
-      float tmp_s = attributes.stripProgress * uniform_b;\n\t\t    float tmp_t =
-      frac(tmp_s);\n\t\t    float tmp_u = saturate(tmp_t);\n\t\t    float tmp_v =
-      (float)1 - tmp_u;\n\t\t    float3 tmp_w = float3(tmp_v, tmp_v, tmp_v);\n\t\t   
-      float3 tmp_x = float3(3, 3, 3) * tmp_w;\n\t\t    float3 tmp_y = tmp_x * tmp_w;\n\t\t   
-      uint tmp_z = (uint)tmp_s;\n\t\t    uint tmp_bb = tmp_z > (uint)0 ? tmp_z :
-      (uint)0;\n\t\t    uint tmp_bc = tmp_bb < asuint(uniform_c) ? tmp_bb : asuint(uniform_c);\n\t\t   
-      float tmp_bd = (float)tmp_bc;\n\t\t    float3 tmp_bf = float3(tmp_bd, (float)0,
-      (float)0);\n\t\t    float4 tmp_bg = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_bf);\n\t\t   
-      float tmp_bh = tmp_bg[0];\n\t\t    float tmp_bi = tmp_bg[1];\n\t\t    float
-      tmp_bj = tmp_bg[2];\n\t\t    float3 tmp_bk = float3(tmp_bh, tmp_bi, tmp_bj);\n\t\t   
-      int tmp_bl = (int)tmp_z;\n\t\t    int tmp_bn = tmp_bl + (int)1;\n\t\t    int
-      tmp_bp = max(tmp_bn, (int)0);\n\t\t    int tmp_bq = min(tmp_bp, asint(uniform_d));\n\t\t   
-      uint tmp_br = (uint)tmp_bq;\n\t\t    float tmp_bs = (float)tmp_br;\n\t\t   
-      float3 tmp_bt = float3(tmp_bs, (float)0, (float)0);\n\t\t    float4 tmp_bu
-      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_bt);\n\t\t    float tmp_bv =
-      tmp_bu[0];\n\t\t    float tmp_bw = tmp_bu[1];\n\t\t    float tmp_bx = tmp_bu[2];\n\t\t   
-      float3 tmp_by = float3(tmp_bv, tmp_bw, tmp_bx);\n\t\t    uint tmp_ca = tmp_z
-      + (uint)4294967295;\n\t\t    int tmp_cb = (int)tmp_ca;\n\t\t    int tmp_cc
-      = max(tmp_cb, (int)0);\n\t\t    int tmp_cd = min(tmp_cc, asint(uniform_d));\n\t\t   
-      uint tmp_ce = (uint)tmp_cd;\n\t\t    float tmp_cf = (float)tmp_ce;\n\t\t   
-      float3 tmp_cg = float3(tmp_cf, (float)0, (float)0);\n\t\t    float4 tmp_ch
-      = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_cg);\n\t\t    float tmp_ci =
-      tmp_ch[0];\n\t\t    float tmp_cj = tmp_ch[1];\n\t\t    float tmp_ck = tmp_ch[2];\n\t\t   
-      float3 tmp_cl = float3(tmp_ci, tmp_cj, tmp_ck);\n\t\t    float3 tmp_cm = tmp_by
-      - tmp_cl;\n\t\t    float3 tmp_cn = tmp_cm * tmp_cm;\n\t\t    float tmp_co =
-      tmp_cn[2];\n\t\t    float tmp_cp = tmp_cn[1];\n\t\t    float tmp_cq = tmp_co
-      + tmp_cp;\n\t\t    float tmp_cr = tmp_cn[0];\n\t\t    float tmp_cs = tmp_cq
-      + tmp_cr;\n\t\t    float tmp_cu = pow(tmp_cs, (float)0.5);\n\t\t    float tmp_cv
-      = (float)1 / tmp_cu;\n\t\t    float3 tmp_cw = float3(tmp_cv, tmp_cv, tmp_cv);\n\t\t   
-      float3 tmp_cx = tmp_cm * tmp_cw;\n\t\t    float3 tmp_cy = tmp_by - tmp_bk;\n\t\t   
-      float3 tmp_da = tmp_cy * float3(0.5, 0.5, 0.5);\n\t\t    float3 tmp_db = tmp_cx
-      * tmp_da;\n\t\t    float tmp_dc = tmp_db[2];\n\t\t    float tmp_dd = tmp_db[1];\n\t\t   
-      float tmp_de = tmp_dc + tmp_dd;\n\t\t    float tmp_df = tmp_db[0];\n\t\t   
-      float tmp_dg = tmp_de + tmp_df;\n\t\t    float tmp_dh = abs(tmp_dg);\n\t\t   
-      float3 tmp_di = tmp_cy * tmp_cy;\n\t\t    float tmp_dj = tmp_di[2];\n\t\t   
-      float tmp_dk = tmp_di[1];\n\t\t    float tmp_dl = tmp_dj + tmp_dk;\n\t\t   
-      float tmp_dm = tmp_di[0];\n\t\t    float tmp_dn = tmp_dl + tmp_dm;\n\t\t   
-      float tmp_do = pow(tmp_dn, (float)0.5);\n\t\t    float tmp_dq = tmp_do * (float)0.25;\n\t\t   
-      float tmp_dr = max(tmp_dh, tmp_dq);\n\t\t    float3 tmp_ds = float3(tmp_dr,
-      tmp_dr, tmp_dr);\n\t\t    float3 tmp_dt = tmp_cx * tmp_ds;\n\t\t    float3
-      tmp_du = tmp_bk + tmp_dt;\n\t\t    float3 tmp_dv = tmp_du - tmp_bk;\n\t\t   
-      float3 tmp_dw = tmp_y * tmp_dv;\n\t\t    float3 tmp_dy = float3(6, 6, 6) *
-      tmp_w;\n\t\t    float3 tmp_dz = float3(tmp_u, tmp_u, tmp_u);\n\t\t    float3
-      tmp_ea = tmp_dy * tmp_dz;\n\t\t    uint tmp_ec = tmp_z + (uint)2;\n\t\t   
-      int tmp_ed = (int)tmp_ec;\n\t\t    int tmp_ee = max(tmp_ed, (int)0);\n\t\t   
-      int tmp_ef = min(tmp_ee, asint(uniform_d));\n\t\t    uint tmp_eg = (uint)tmp_ef;\n\t\t   
-      float tmp_eh = (float)tmp_eg;\n\t\t    float3 tmp_ei = float3(tmp_eh, (float)0,
-      (float)0);\n\t\t    float4 tmp_ej = LoadTexture(VFX_SAMPLER(texture_a),(int3)tmp_ei);\n\t\t   
-      float tmp_ek = tmp_ej[0];\n\t\t    float tmp_el = tmp_ej[1];\n\t\t    float
-      tmp_em = tmp_ej[2];\n\t\t    float3 tmp_en = float3(tmp_ek, tmp_el, tmp_em);\n\t\t   
-      float3 tmp_eo = tmp_en - tmp_bk;\n\t\t    float3 tmp_ep = tmp_eo * tmp_eo;\n\t\t   
-      float tmp_eq = tmp_ep[2];\n\t\t    float tmp_er = tmp_ep[1];\n\t\t    float
-      tmp_es = tmp_eq + tmp_er;\n\t\t    float tmp_et = tmp_ep[0];\n\t\t    float
-      tmp_eu = tmp_es + tmp_et;\n\t\t    float tmp_ev = pow(tmp_eu, (float)0.5);\n\t\t   
-      float tmp_ew = (float)1 / tmp_ev;\n\t\t    float3 tmp_ex = float3(tmp_ew, tmp_ew,
-      tmp_ew);\n\t\t    float3 tmp_ey = tmp_eo * tmp_ex;\n\t\t    float3 tmp_ez =
-      tmp_da * tmp_ey;\n\t\t    float tmp_fa = tmp_ez[2];\n\t\t    float tmp_fb =
-      tmp_ez[1];\n\t\t    float tmp_fc = tmp_fa + tmp_fb;\n\t\t    float tmp_fd =
-      tmp_ez[0];\n\t\t    float tmp_fe = tmp_fc + tmp_fd;\n\t\t    float tmp_ff =
-      abs(tmp_fe);\n\t\t    float tmp_fg = max(tmp_dq, tmp_ff);\n\t\t    float3 tmp_fh
-      = float3(tmp_fg, tmp_fg, tmp_fg);\n\t\t    float3 tmp_fi = tmp_ey * tmp_fh;\n\t\t   
-      float3 tmp_fk = tmp_fi * float3(-1, -1, -1);\n\t\t    float3 tmp_fl = tmp_fk
-      + tmp_by;\n\t\t    float3 tmp_fm = tmp_fl - tmp_du;\n\t\t    float3 tmp_fn
-      = tmp_ea * tmp_fm;\n\t\t    float3 tmp_fo = tmp_dw + tmp_fn;\n\t\t    float3
-      tmp_fp = float3(3, 3, 3) * tmp_dz;\n\t\t    float3 tmp_fq = tmp_fp * tmp_dz;\n\t\t   
-      float3 tmp_fr = tmp_by - tmp_fl;\n\t\t    float3 tmp_fs = tmp_fq * tmp_fr;\n\t\t   
-      float3 tmp_ft = tmp_fo + tmp_fs;\n\t\t    float3 tmp_fu = mul((float3x3)uniform_e,
-      tmp_ft);\n\t\t    SetAttribute_595BA547( /*inout */attributes.direction, tmp_fu);\n\t\t}\n\t\t{\n\t\t   
+      + tmp_bz;\n\t\t    float3 tmp_fn = tmp_fm - tmp_dv;\n\t\t    float3 tmp_fo
+      = tmp_eb * tmp_fn;\n\t\t    float3 tmp_fp = tmp_dx + tmp_fo;\n\t\t    float3
+      tmp_fq = float3(3, 3, 3) * tmp_ea;\n\t\t    float3 tmp_fr = tmp_fq * tmp_ea;\n\t\t   
+      float3 tmp_fs = tmp_bz - tmp_fm;\n\t\t    float3 tmp_ft = tmp_fr * tmp_fs;\n\t\t   
+      float3 tmp_fu = tmp_fp + tmp_ft;\n\t\t    float3 tmp_fv = mul((float3x3)uniform_e,
+      tmp_fu);\n\t\t    SetAttribute_595BA547( /*inout */attributes.direction, tmp_fv);\n\t\t}\n\t\t{\n\t\t   
       attributes.eventCount = 0u;\n\t\t    GPUEventRate_1( /*inout */attributes.rateCount_d, 
       /*inout */attributes.eventCount, (float)10, deltaTime_d);\n\t\t    eventCount_a
       += attributes.eventCount;\n\t\t}\n\t\tEulerIntegration( /*inout */attributes.position,
