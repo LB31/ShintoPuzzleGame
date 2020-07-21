@@ -73,6 +73,7 @@ public class PuzzleManagerSusanno : MonoBehaviour
         }
 
         if (gameState[1] && gameState[4])
+        //if(gameState[0])
         {
             puzzleSolved = true;
             pollerLinks.transform.GetChild(0).gameObject.SetActive(true);
@@ -85,8 +86,8 @@ public class PuzzleManagerSusanno : MonoBehaviour
             plattformRechts.GetComponent<PlatformController>().plattformDoesMove = true;
             plattformMitte.GetComponent<PlatformController>().plattformDoesMove = true;
 
-            Material M = tempel.GetComponent<MeshRenderer>().materials[1];
-            Destroy(M);
+            Destroy(tempel);
+            
 
         }
 
@@ -138,6 +139,15 @@ public class PuzzleManagerSusanno : MonoBehaviour
     {
 
         gameState = new bool[5];
+        anzahlLichter = 3;
+        lightMangaer.transform.GetChild(0).gameObject.SetActive(true);
+        lightMangaer.transform.GetChild(1).gameObject.SetActive(true);
+        lightMangaer.transform.GetChild(2).gameObject.SetActive(true);
+        pollerLinks.transform.GetChild(0).gameObject.SetActive(false);
+        pollerMitte1.transform.GetChild(0).gameObject.SetActive(false);
+        pollerMitte2.transform.GetChild(0).gameObject.SetActive(false);
+        pollerRechts.transform.GetChild(0).gameObject.SetActive(false);
+        pollerStart.transform.GetChild(0).gameObject.SetActive(false);
         plattformMitte.GetComponent<PlatformController>().transform.position = plattformMitte.GetComponent<PlatformController>().start.position;
         plattformLinks.GetComponent<PlatformController>().transform.position = plattformLinks.GetComponent<PlatformController>().start.position;
         plattformRechts.GetComponent<PlatformController>().transform.position = plattformRechts.GetComponent<PlatformController>().start.position;
