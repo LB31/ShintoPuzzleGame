@@ -37,16 +37,17 @@ public class PuzzleManagerKappa : MonoBehaviour
 
     private void SelectBucket()
     {
+       
         // select bucket
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit = Physics.RaycastAll(ray).
-                FirstOrDefault(element => element.transform.name.Contains("Bucket"));
+                FirstOrDefault(element => element.transform.name.Contains("sara"));
 
             if (!hit.transform) return;
            
-            if (hit.transform.name.Contains("Bucket"))
+            if (hit.transform.name.Contains("sara"))
             {
                 //select second bucket
                 if (selectedBucket != hit.transform.gameObject && bucketIsSelected)
@@ -114,20 +115,20 @@ public class PuzzleManagerKappa : MonoBehaviour
     private bool CheckWinCondition()
     {
         //ONLY FOR DEBUG
-        if (mediumBucket.GetWaterAmount() == 9)
-        {
-            return true;
-        }
-        return false;
-        
         /*
-        if (bigBucket.GetWaterAmount() == 8 && mediumBucket.GetWaterAmount() == 8)
+        if (mediumBucket.GetWaterAmount() == 9)
         {
             return true;
         }
         return false;
         */
         
+        //The real thing
+        if (bigBucket.GetWaterAmount() == 8 && mediumBucket.GetWaterAmount() == 8)
+        {
+            return true;
+        }
+        return false;
     }
     public void PuzzleDescription(GameManager.KamiType selectedKami)
     {
