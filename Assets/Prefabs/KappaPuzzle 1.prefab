@@ -2715,6 +2715,68 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.11343993, y: 0.14509901, z: 0.09912724}
   m_Center: {x: -6.768097e-11, y: 0.076514214, z: 0.0051547596}
+--- !u!64 &340280063157031418
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610663517209652391}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9098242729251323177, guid: babca37d7c7b4274cb5a9da0c7370fd8, type: 3}
+--- !u!114 &340280063157031419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610663517209652391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee76b84ed86d2cb44930cea5d5a3ab27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterBlock: {fileID: 340280063112020757}
+  bucketGround: {fileID: 340280062905076192}
+  waterBlockHeight: 0.0116
+  startWaterAmount: 0
+  maxWaterAmount: 7
+--- !u!64 &340280062783371817
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610663517337344666}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9098242729251323177, guid: babca37d7c7b4274cb5a9da0c7370fd8, type: 3}
+--- !u!114 &340280062783371818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610663517337344666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee76b84ed86d2cb44930cea5d5a3ab27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterBlock: {fileID: 340280064035970764}
+  bucketGround: {fileID: 340280063886670004}
+  waterBlockHeight: 0.013
+  startWaterAmount: 16
+  maxWaterAmount: 16
 --- !u!1 &610663517502807998
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,6 +2822,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.11343993, y: 0.14509901, z: 0.09912724}
   m_Center: {x: -6.768097e-11, y: 0.076514214, z: 0.0051547596}
+--- !u!64 &340280063581915744
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610663517636245293}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9098242729251323177, guid: babca37d7c7b4274cb5a9da0c7370fd8, type: 3}
+--- !u!114 &340280063581915745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610663517636245293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee76b84ed86d2cb44930cea5d5a3ab27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterBlock: {fileID: 340280064142473453}
+  bucketGround: {fileID: 340280063390735526}
+  waterBlockHeight: 0.013
+  startWaterAmount: 0
+  maxWaterAmount: 9
 --- !u!1 &610663518178912646
 GameObject:
   m_ObjectHideFlags: 0
@@ -2771,6 +2864,7 @@ GameObject:
   - component: {fileID: 230338440647439164}
   - component: {fileID: 786564273251638592}
   - component: {fileID: 786564273251638593}
+  - component: {fileID: 7121771248041183511}
   m_Layer: 0
   m_Name: kappaBig
   m_TagString: Untagged
@@ -5784,7 +5878,7 @@ MonoBehaviour:
     locked: 0
     manualUpdate: 0
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     RestartOnEnable: 1
     EnableDebugFlow: 0
@@ -5811,14 +5905,28 @@ MonoBehaviour:
     handleJointBreak2D: 0
     handleOnGUI: 0
     handleFixedUpdate: 0
-    handleLateUpdate: 0
+    handleLateUpdate: 1
     handleApplicationEvents: 0
     handleUiEvents: 0
     handleLegacyNetworking: 0
     handleAnimatorMove: 0
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
-  eventHandlerComponentsAdded: 0
+  eventHandlerComponentsAdded: 1
+--- !u!114 &7121771248041183511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610663518178912646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1079068393, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetFSMs:
+  - {fileID: 786564273251638593}
 --- !u!1 &889906106688653175
 GameObject:
   m_ObjectHideFlags: 0
@@ -7648,99 +7756,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &340280062783371817
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610663517337344666}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 9098242729251323177, guid: babca37d7c7b4274cb5a9da0c7370fd8, type: 3}
---- !u!114 &340280062783371818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610663517337344666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee76b84ed86d2cb44930cea5d5a3ab27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waterBlock: {fileID: 340280064035970764}
-  bucketGround: {fileID: 340280063886670004}
-  waterBlockHeight: 0.013
-  startWaterAmount: 16
-  maxWaterAmount: 16
---- !u!64 &340280063157031418
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610663517209652391}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 9098242729251323177, guid: babca37d7c7b4274cb5a9da0c7370fd8, type: 3}
---- !u!114 &340280063157031419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610663517209652391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee76b84ed86d2cb44930cea5d5a3ab27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waterBlock: {fileID: 340280063112020757}
-  bucketGround: {fileID: 340280062905076192}
-  waterBlockHeight: 0.0116
-  startWaterAmount: 0
-  maxWaterAmount: 7
---- !u!64 &340280063581915744
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610663517636245293}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 9098242729251323177, guid: babca37d7c7b4274cb5a9da0c7370fd8, type: 3}
---- !u!114 &340280063581915745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610663517636245293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee76b84ed86d2cb44930cea5d5a3ab27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waterBlock: {fileID: 340280064142473453}
-  bucketGround: {fileID: 340280063390735526}
-  waterBlockHeight: 0.013
-  startWaterAmount: 0
-  maxWaterAmount: 9
 --- !u!1 &7537883667548003604
 GameObject:
   m_ObjectHideFlags: 0
@@ -8629,15 +8644,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: babca37d7c7b4274cb5a9da0c7370fd8, type: 3}
---- !u!4 &230338440150904215 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: babca37d7c7b4274cb5a9da0c7370fd8,
-    type: 3}
-  m_PrefabInstance: {fileID: 340280063581915772}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &610663517636245293 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: babca37d7c7b4274cb5a9da0c7370fd8,
+    type: 3}
+  m_PrefabInstance: {fileID: 340280063581915772}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &230338440150904215 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: babca37d7c7b4274cb5a9da0c7370fd8,
     type: 3}
   m_PrefabInstance: {fileID: 340280063581915772}
   m_PrefabAsset: {fileID: 0}
