@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MenuController : MonoBehaviour
 {
-    
+
 
     public void Play()
     {
@@ -26,15 +26,6 @@ public class MenuController : MonoBehaviour
         Application.Quit();
     }
 
-    public void Controls()
-    {
-
-    }
-
-    public void About()
-    {
-
-    }
 
     public void Back()
     {
@@ -49,6 +40,7 @@ public class MenuController : MonoBehaviour
     // true: lock, false: unlock
     private void TriggerMouseInteraction(bool trigger)
     {
+        if (GameManager.Instance.Mobile) return;
         Cursor.lockState = trigger ? CursorLockMode.Locked : CursorLockMode.None;
     }
 
