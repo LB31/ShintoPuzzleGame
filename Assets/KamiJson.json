@@ -38,7 +38,7 @@
             ]
         },
         {
-        "id": 2,
+            "id": 2,
             "kamiName": "Amabie",
             "dialogs": [
                 "I'm Amabie, the beautiful queen of harvest and pandemics. Since the last big pandemic finally the small humans understand my value!",
@@ -46,6 +46,19 @@
                 "But you, little thing, look like you know what you are doing. Offer me some tasty apples to stop this pandemic!"
             ],
             "puzzleText": "Bla bla bla Mr. Freeman",
+            "puzzleAnswer": "2",
+            "dialogsAfterPuzzle": [
+                "Don't look so smug! Did you really thought that you small human can stop a world wide pandemic? Muhahaha",
+                "Nevertheless, I will reward your efforts. Go to Susanno's shrine and help this old bastard to restore the balance in this world. At least a bit ;)"
+            ]
+		},
+         {
+            "id": 4,
+            "kamiName": "Kappa",
+            "dialogs": [
+                "I'm Kappa"
+            ],
+            "puzzleText": "You have one 16 litre pitcher full of water, one empty 9 litre pitcher, and one empty 7 litre pitcher. Using nothing but these three pitchers, can you divide the water evenly so that the 16 and 9 litre pitchers are each holding exactly 8 litres of water?",
             "puzzleAnswer": "2",
             "dialogsAfterPuzzle": [
                 "Don't look so smug! Did you really thought that you small human can stop a world wide pandemic? Muhahaha",
