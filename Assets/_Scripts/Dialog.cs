@@ -26,7 +26,7 @@ public class Dialog : MonoBehaviour
         fsm = sendingFSM;
         foreach (Kami kami in GameManager.Instance.kamis)
         {
-            if (kami.kamiName == selectedKami.ToString())
+            if (kami.id == (int)selectedKami)
             {
                 dialogSequence = 0;
                 currentKami = kami;

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     public enum KamiType
     {
-        Ametarasu = 0,
+        Inari = 0,
         Susanno = 1,
         Amabie = 2,
         Futakuchi_onna = 3,
