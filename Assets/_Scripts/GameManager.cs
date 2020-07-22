@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         Susanno = 1,
         Amabie = 2,
         Futakuchi_onna = 3,
+        Kappa = 4,
     }
     //public KamiType selectedKamiType;
 
