@@ -88,10 +88,14 @@ public class PuzzleManagerKappa : MonoBehaviour
         int bucketFirstAmount = bucketFirst.GetWaterAmount();
         int bucketSecondAmount = bucketSecond.GetWaterAmount();
 
+        float temp = 1;
+
         while(!bucketFirst.IsEmpty() && !bucketSecond.IsFull())
         {
             bucketFirst.PopWater();
-            bucketSecond.PushWater();
+            bucketSecond.PushWater(temp);
+
+            temp += 0.05f;
         }
         if (CheckWinCondition())
         {
@@ -115,20 +119,22 @@ public class PuzzleManagerKappa : MonoBehaviour
     private bool CheckWinCondition()
     {
         //ONLY FOR DEBUG
-        /*
+        
         if (mediumBucket.GetWaterAmount() == 9)
         {
             return true;
         }
         return false;
-        */
+        
         
         //The real thing
+        /*
         if (bigBucket.GetWaterAmount() == 8 && mediumBucket.GetWaterAmount() == 8)
         {
             return true;
         }
         return false;
+        */
     }
     public void PuzzleDescription(GameManager.KamiType selectedKami)
     {

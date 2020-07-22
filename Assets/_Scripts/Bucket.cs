@@ -30,6 +30,8 @@ public class Bucket : MonoBehaviour
 
             newWaterBlock.SetActive(true);
             newWaterBlock.transform.position = new Vector3(waterBlock.transform.position.x, offsetY, waterBlock.transform.position.z);
+            Vector3 tempVec = newWaterBlock.transform.localScale;
+            newWaterBlock.transform.localScale = new Vector3(tempVec.x * ((i * 0.025f) + 1), tempVec.y, tempVec.z);
 
             waters.Push(newWaterBlock);
 
@@ -60,7 +62,7 @@ public class Bucket : MonoBehaviour
     }
 
     //add water
-    public void PushWater()
+    public void PushWater(float temp)
     {
         if (IsFull())
         {
@@ -69,6 +71,9 @@ public class Bucket : MonoBehaviour
  
         GameObject newWaterBlock = Instantiate(waterBlock, new Vector3(waterBlock.transform.position.x, offsetY, waterBlock.transform.position.z), waterBlock.transform.rotation, this.transform);
 
+        Vector3 tempVec = newWaterBlock.transform.localScale;
+
+        newWaterBlock.transform.localScale = new Vector3(tempVec.x * temp, tempVec.y, tempVec.z);
         newWaterBlock.SetActive(true);
         waters.Push(newWaterBlock);
         offsetY += waterBlockHeight;
