@@ -4,23 +4,19 @@ using UnityEngine;
 
 public class MenuController : MonoBehaviour
 {
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Exit();
-        }
-    }
+    
 
     public void Play()
     {
         Time.timeScale = 1;
+        TriggerMouseInteraction(true);
         gameObject.SetActive(false);
     }
 
     public void Pause()
     {
         Time.timeScale = 0;
+        TriggerMouseInteraction(false);
         gameObject.SetActive(true);
     }
 
@@ -38,6 +34,22 @@ public class MenuController : MonoBehaviour
     public void About()
     {
 
+    }
+
+    public void Back()
+    {
+        for (int i = 1; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+        // activate main menu again
+        transform.GetChild(1).gameObject.SetActive(true);
+    }
+
+    // true: lock, false: unlock
+    private void TriggerMouseInteraction(bool trigger)
+    {
+        Cursor.lockState = trigger ? CursorLockMode.Locked : CursorLockMode.None;
     }
 
 }
