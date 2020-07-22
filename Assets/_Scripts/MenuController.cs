@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class MenuController : MonoBehaviour
 {
+    public GameObject MobileUI;
 
+    private void Start()
+    {
+        Pause();
+    }
 
     public void Play()
     {
         Time.timeScale = 1;
+        if (GameManager.Instance.Mobile)
+            MobileUI.SetActive(true);
         TriggerMouseInteraction(true);
         gameObject.SetActive(false);
     }
@@ -16,6 +23,8 @@ public class MenuController : MonoBehaviour
     public void Pause()
     {
         Time.timeScale = 0;
+        if (GameManager.Instance.Mobile)
+            MobileUI.SetActive(false);
         TriggerMouseInteraction(false);
         gameObject.SetActive(true);
     }
