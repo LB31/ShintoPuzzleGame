@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Models/pancake.meta
+guid: 1b01cf11e2839ef4ab0acf1774cabd99
+folderAsset: yes
+=======
 guid: 673fd0ed3dfef6e43bb2fdf7c2d7dd42
+>>>>>>> master:Assets/_Scenes/MoreDetailedWorld.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

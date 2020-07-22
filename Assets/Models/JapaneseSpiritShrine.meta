@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/_Scenes/particle.unity.meta
+guid: 3cebb387e1779844b9e024d1f2e3cc45
+=======
 guid: 2cc52c8d4df6969469198e628a9425fb
 folderAsset: yes
+>>>>>>> master:Assets/Models/JapaneseSpiritShrine.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
