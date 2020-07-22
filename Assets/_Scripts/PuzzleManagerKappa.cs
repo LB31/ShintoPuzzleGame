@@ -74,9 +74,9 @@ public class PuzzleManagerKappa : MonoBehaviour
                     bucketIsSelected = false;
                 }
             }
-            Debug.Log(bucketIsSelected);
-            if (selectedBucket != null)
-                Debug.Log(selectedBucket.name);
+            //Debug.Log(bucketIsSelected);
+            //if (selectedBucket != null)
+                //Debug.Log(selectedBucket.name);
         }
     }
 
@@ -99,7 +99,7 @@ public class PuzzleManagerKappa : MonoBehaviour
         }
         if (CheckWinCondition())
         {
-            Debug.Log("WON!!");
+            //Debug.Log("WON!!");
             PlayMakerFSM.BroadcastEvent("PuzzleSolved");
         }
     }
@@ -119,22 +119,23 @@ public class PuzzleManagerKappa : MonoBehaviour
     private bool CheckWinCondition()
     {
         //ONLY FOR DEBUG
-        
+        /*
         if (mediumBucket.GetWaterAmount() == 9)
         {
             return true;
         }
         return false;
+        */
         
         
         //The real thing
-        /*
+        
         if (bigBucket.GetWaterAmount() == 8 && mediumBucket.GetWaterAmount() == 8)
         {
             return true;
         }
         return false;
-        */
+        
     }
     public void PuzzleDescription(GameManager.KamiType selectedKami)
     {
