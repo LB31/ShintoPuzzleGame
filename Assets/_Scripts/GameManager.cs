@@ -6,13 +6,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public bool Mobile;
     [SerializeField]
     private TextAsset json;
-
     public GameObject MobileUI;
     public GameObject ReticleUI;
     public FPSController fpsController;
-    public bool Mobile;
+    public MenuController MenuController;
 
     public enum KamiType
     {
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     public List<Kami> kamis;
 
-    
+
 
     //erstelen gamemanager als singleton
     private void Awake()
@@ -44,15 +44,14 @@ public class GameManager : MonoBehaviour
         ParseJson();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ExitGame();
-            print("exit");
+            MenuController.Pause();
         }
     }
+
 
     private void ParseJson()
     {
@@ -89,8 +88,4 @@ public class GameManager : MonoBehaviour
         Cursor.visible = isActive;
     }
 
-    public void ExitGame()
-    {
-        Application.Quit();
-    }
 }
