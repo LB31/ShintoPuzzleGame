@@ -2,7 +2,7 @@
     "kamis": [
         {
             "id": 0,
-            "kamiName": "Ametarasu",
+            "kamiName": "Inari",
             "dialogs": [
                 "Citizens of Dalaran! Raise your eyes to the skies and observe! Today our world's destruction has been averted in defiance of our very makers!",
                 "Algalon the Observer, herald of the titans, has been defeated by our brave comrades in the depths of the titan city of Ulduar.",
@@ -10,13 +10,10 @@
                 "Cold logic deemed our world not worth saving. Cold logic, however, does not account for the power of free will. It's up to each of us to prove this is a world worth saving. That our lives... our lives are worth living.",
                 "Do you want to start a puzzle?"
             ],
-            "puzzleText": "20 süße Kitsune verwandeln sich jeden Samstag in Menschen und genießen zusammen die in ihrem Schrein erbrachten Opfergaben. Diesmal tranken 10 von ihnen guten Sake, 15 aßen leckeren Reis und 3 von ihnen wollten sich lediglich unterhalten. Wie viele der Kitsune aßen Reis und tranken dazu Sake?",
-            "puzzleAnswer": "20",
+            "puzzleText": "",
+            "puzzleAnswer": "",
             "dialogsAfterPuzzle": [
-                "Did you think we had forgotten? Did you think we had forgiven?",
-                "Behold, now, the terrible vengeance of the Forsaken!",
-                "Death to the Scourge! And death to the living!",
-                "Now, all can see... this is the hour of the Forsaken."
+                ""
             ]
         },
         {
@@ -34,7 +31,7 @@
             ]
         },
         {
-        "id": 2,
+            "id": 2,
             "kamiName": "Amabie",
             "dialogs": [
                 "I'm Amabie, the beautiful queen of harvest and pandemics. Since the last big pandemic finally the small humans understand my value!",
@@ -42,6 +39,33 @@
                 "But you, little thing, look like you know what you are doing. Offer me some tasty apples to stop this pandemic!"
             ],
             "puzzleText": "Bla bla bla Mr. Freeman",
+            "puzzleAnswer": "2",
+            "dialogsAfterPuzzle": [
+                "Don't look so smug! Did you really thought that you small human can stop a world wide pandemic? Muhahaha",
+                "Nevertheless, I will reward your efforts. Go to Susanno's shrine and help this old bastard to restore the balance in this world. At least a bit ;)"
+            ]
+		},
+        {
+            "id": 3,
+            "kamiName": "Futakuchi-onna",
+            "dialogs": [
+                "I'm on the highway to hell",
+                "But in the end, it doesn't even matter",
+                "Ich bin Schnappi, das kleine Krokodil"
+            ],
+            "puzzleText": "What is bigger on the inside?",
+            "puzzleAnswer": "Trölf",
+            "dialogsAfterPuzzle": [
+                "I'm the eye of the storm",
+                "Gimme! Gimme! Gimme!"]
+        },
+        {
+            "id": 4,
+            "kamiName": "Kappa",
+            "dialogs": [
+                "I'm Kappa"
+            ],
+            "puzzleText": "You have one 16 litre pitcher full of water, one empty 9 litre pitcher, and one empty 7 litre pitcher. \nUsing nothing but these three pitchers, can you divide the water evenly so that the 16 and 9 litre pitchers are each holding exactly 8 litres of water?\nUsing nothing but these three pitchers, can you divide the water evenly so that the 16 and 9 litre pitchers are each holding exactly 8 litres of water?",
             "puzzleAnswer": "2",
             "dialogsAfterPuzzle": [
                 "Don't look so smug! Did you really thought that you small human can stop a world wide pandemic? Muhahaha",
