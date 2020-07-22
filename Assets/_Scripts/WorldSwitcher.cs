@@ -54,14 +54,6 @@ public class WorldSwitcher : MonoBehaviour
         //SecondScene.SetActive(false);
     }
 
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    StartCoroutine(VisualizeSceneChange(true));
-        //}
-    }
-
     private void SwitchWorld()
     {
         if (mainWorld)
@@ -84,9 +76,9 @@ public class WorldSwitcher : MonoBehaviour
 
             TriggerPlayerControls(true);
 
-            Player.GetComponent<FPSController>().WalkSpeed = 1.5f;
+            Player.GetComponent<FPSController>().WalkSpeed = 3f;
 
-            SecondScene.GetComponent<DreamWorldController>().enabled = true;
+            //SecondScene.GetComponent<DreamWorldController>().enabled = true;
         }
         else
         {
@@ -130,10 +122,6 @@ public class WorldSwitcher : MonoBehaviour
 
         if (kami)
             SwitchWorld();
-        else
-        {
-
-        }
 
         for (float i = 1; i >= 0; i -= Time.deltaTime * fadeDuration)
         {
@@ -143,6 +131,11 @@ public class WorldSwitcher : MonoBehaviour
         }
 
         SceneTransition.enabled = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        StartCoroutine(WorldSwitcher.Instance.VisualizeSceneChange(true));
     }
 
 

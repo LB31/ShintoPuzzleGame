@@ -131,7 +131,6 @@ public class FPSController : MonoBehaviour
         //await Task.Delay(500);
         if (other.name.Contains("Platt") && onPlattform == false)
         {
-            print("in");
 			onPlattform = true;
             transform.parent = other.transform;
             //other.GetComponent<PlatformController>().enabled = true;
@@ -143,7 +142,6 @@ public class FPSController : MonoBehaviour
 
         if (other.name.Contains("Platt") && onPlattform)
         {
-            print("out");
 			onPlattform = false;
             transform.parent = null;           
         }

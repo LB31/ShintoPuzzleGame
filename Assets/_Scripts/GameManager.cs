@@ -78,7 +78,6 @@ public class GameManager : MonoBehaviour
 
         ReticleUI.SetActive(!isActive);
         fpsController.enabled = !isActive;
-        print(!isActive + " is active");
         cc.enabled = !isActive;
         if (isActive)
         {
