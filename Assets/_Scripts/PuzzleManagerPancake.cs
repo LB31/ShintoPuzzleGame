@@ -12,7 +12,6 @@ public class PuzzleManagerPancake : MonoBehaviour
     public List<Transform> Plates;
 
     public List<Transform> AllPancakes;
-    public List<Vector3> OriginPancakePosition;
 
     public Transform YokaiHead;
 
@@ -159,17 +158,6 @@ public class PuzzleManagerPancake : MonoBehaviour
         }
     }
 
-    [ContextMenu("Fill Fields")]
-    public void FillFields()
-    {
-        AllPancakes.Clear();
-        OriginPancakePosition.Clear();
-        foreach (Transform child in Plates[0])
-        {
-            AllPancakes.Add(child);
-            OriginPancakePosition.Add(child.position);
-        }
-    }
 
     private bool CheckIfPuzzleSolved()
     {

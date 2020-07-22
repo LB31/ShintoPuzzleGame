@@ -29,8 +29,6 @@ public class FPSController : MonoBehaviour
     public GameObject MobileUI;
     private bool MobileControll;
 
-    [SerializeField]
-    private GameObject canvasUi;
 
     // For puzzles
     public Vector3 additionalMovementSpeed = Vector3.zero;
@@ -64,14 +62,6 @@ public class FPSController : MonoBehaviour
 
     void Update()
     {
-
-
-        if (canvasUi && canvasUi.activeInHierarchy == false)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-
         // Gravity
 
         isGrounded = Physics.CheckSphere(GroundCheck.position, GroundDistance, GroundMask);
