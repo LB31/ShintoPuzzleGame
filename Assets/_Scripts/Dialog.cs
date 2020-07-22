@@ -26,7 +26,7 @@ public class Dialog : MonoBehaviour
         fsm = sendingFSM;
         foreach (Kami kami in GameManager.Instance.kamis)
         {
-            if (kami.kamiName == selectedKami.ToString())
+            if (kami.id == (int)selectedKami)
             {
                 dialogSequence = 0;
                 currentKami = kami;
@@ -44,7 +44,6 @@ public class Dialog : MonoBehaviour
     private IEnumerator BuildDialog()
     {
         string[] dialogs;
-        Debug.Log(fsm.FsmVariables.FindFsmBool("isPuzzleFinished").Value);
         if (fsm.FsmVariables.FindFsmBool("isPuzzleFinished").Value)
         {
             dialogs = currentKami.dialogsAfterPuzzle;
