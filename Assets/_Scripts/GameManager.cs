@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour
         kamis = new List<Kami>();
         foreach (Kami kami in kamisInJson.kamis)
         {
+            kami.puzzleText = kami.puzzleText.Replace("\\n", "\n");
+
             kamis.Add(kami);
         }
     }

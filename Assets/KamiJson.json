@@ -51,7 +51,7 @@
 		},
         {
             "id": 3,
-            "kamiName": "Futakuchi_onna",
+            "kamiName": "Futakuchi-onna",
             "dialogs": [
                 "I'm on the highway to hell",
                 "But in the end, it doesn't even matter",
@@ -69,7 +69,7 @@
             "dialogs": [
                 "I'm Kappa"
             ],
-            "puzzleText": "You have one 16 litre pitcher full of water, one empty 9 litre pitcher, and one empty 7 litre pitcher. Using nothing but these three pitchers, can you divide the water evenly so that the 16 and 9 litre pitchers are each holding exactly 8 litres of water?",
+            "puzzleText": "You have one 16 litre pitcher full of water, one empty 9 litre pitcher, and one empty 7 litre pitcher. \nUsing nothing but these three pitchers, can you divide the water evenly so that the 16 and 9 litre pitchers are each holding exactly 8 litres of water?\nUsing nothing but these three pitchers, can you divide the water evenly so that the 16 and 9 litre pitchers are each holding exactly 8 litres of water?",
             "puzzleAnswer": "2",
             "dialogsAfterPuzzle": [
                 "Don't look so smug! Did you really thought that you small human can stop a world wide pandemic? Muhahaha",
