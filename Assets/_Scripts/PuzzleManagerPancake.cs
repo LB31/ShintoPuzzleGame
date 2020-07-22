@@ -22,7 +22,7 @@ public class PuzzleManagerPancake : MonoBehaviour
 
     private int selectedPancake = -1;
 
-
+    public float zDistance = 1;
 
     // Puzzle Information
     public GameObject TaskPanel;
@@ -60,7 +60,7 @@ public class PuzzleManagerPancake : MonoBehaviour
     private void GrabElement()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit = Physics.RaycastAll(ray).FirstOrDefault(element => element.transform.name.Contains(collectableName));
+        RaycastHit hit = Physics.RaycastAll(ray).OrderByDescending(obj => obj.transform.name).FirstOrDefault(element => element.transform.name.Contains(collectableName));
 
         if (!hit.transform || hit.transform.tag != "selectable") return;
         //Debug.Log(hit.transform.name, hit.transform);
@@ -76,7 +76,7 @@ public class PuzzleManagerPancake : MonoBehaviour
     {
         if (selectedPancake == -1) return;
         Vector3 mp = Input.mousePosition;
-        mp.z = 1.55f;
+        mp.z = zDistance;
         // change the offset for fat fingers
         if (GameManager.Instance.Mobile)
             mp.y += 100;
@@ -115,23 +115,10 @@ public class PuzzleManagerPancake : MonoBehaviour
         selectedPancake = -1;
 
 
-        //// return to origin position (e.g. apple tree)
-        //if (!SnapToBasket())
-        //{
-        //    if (selectedPancake != AllPancakes.Count - 1)
-        //        AllPancakes[selectedPancake].parent = AppleTree;
-        //    else
-        //        AllPancakes[selectedPancake].parent = Plates[0].parent;
-        //    AllPancakes[selectedPancake].localScale = OriginAppleScale[selectedPancake];
-        //    AllPancakes[selectedPancake].position = OriginPancakePosition[selectedPancake];
-
-        //}
-
-
-        //if (CheckIfPuzzleSolved())
-        //{
-        //    PlayMakerFSM.BroadcastEvent("PuzzleSolved");
-        //}
+        if (CheckIfPuzzleSolved())
+        {
+            PlayMakerFSM.BroadcastEvent("PuzzleSolved");
+        }
     }
 
     private bool SnapToPlate()

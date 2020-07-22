@@ -51,6 +51,21 @@
                 "Don't look so smug! Did you really thought that you small human can stop a world wide pandemic? Muhahaha",
                 "Nevertheless, I will reward your efforts. Go to Susanno's shrine and help this old bastard to restore the balance in this world. At least a bit ;)"
             ]
+		},
+        {
+        "id": 3,
+            "kamiName": "Futakuchi_onna",
+            "dialogs": [
+                "I'm on the highway to hell",
+                "But in the end, it doesn't even matter",
+                "Ich bin Schnappi, das kleine Krokodil"
+            ],
+            "puzzleText": "What is bigger on the inside?",
+            "puzzleAnswer": "Trölf",
+            "dialogsAfterPuzzle": [
+                "I'm the eye of the storm",
+                "Gimme! Gimme! Gimme!"
+            ]
 		}
     ]
 }

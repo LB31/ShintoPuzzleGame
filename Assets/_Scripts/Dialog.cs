@@ -44,7 +44,6 @@ public class Dialog : MonoBehaviour
     private IEnumerator BuildDialog()
     {
         string[] dialogs;
-        Debug.Log(fsm.FsmVariables.FindFsmBool("isPuzzleFinished").Value);
         if (fsm.FsmVariables.FindFsmBool("isPuzzleFinished").Value)
         {
             dialogs = currentKami.dialogsAfterPuzzle;
