@@ -6,9 +6,20 @@ public class MenuController : MonoBehaviour
 {
     public GameObject MobileUI;
 
+    // 0 = PC, 1 = Mobile
+    public GameObject[] Controls;
+
     private void Start()
     {
         Pause();
+        if (GameManager.Instance.Mobile)
+        {
+            Controls[1].SetActive(true);
+        }
+        else
+        {
+            Controls[0].SetActive(true);
+        }
     }
 
     public void Play()
