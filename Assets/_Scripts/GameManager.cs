@@ -15,8 +15,6 @@ public class GameManager : MonoBehaviour
     public FPSController fpsController;
     public MenuController MenuController;
 
-    private bool inMenu;
-
     public enum KamiType
     {
         Inari = 0,
@@ -51,16 +49,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (inMenu)
-            {
-                MenuController.Pause();
-            }
-            else
-            {
-                MenuController.Play();
-            }
-
-            inMenu = !inMenu;
+            MenuController.Pause();
         }
     }
 
