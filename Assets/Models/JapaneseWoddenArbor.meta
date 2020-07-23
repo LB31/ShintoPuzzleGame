@@ -1,12 +1,20 @@
 fileFormatVersion: 2
 <<<<<<< HEAD:Assets/Prefabs/SusannosObjectFinal.prefab.meta
+<<<<<<< HEAD
 guid: b671625950c8fe443a191f043db39511
+=======
+guid: d37c430a7eca74a49a70585f32bed304
+>>>>>>> master
 PrefabImporter:
 =======
 guid: fdf1b23cd0a9bc74a80177e3eb4d88ed
 folderAsset: yes
 DefaultImporter:
+<<<<<<< HEAD
 >>>>>>> master:Assets/Models/JapaneseWoddenArbor.meta
+=======
+>>>>>>> ff4b1193d2459c218bcbf2211db919112d167ad4:Assets/Models/JapaneseWoddenArbor.meta
+>>>>>>> master
   externalObjects: {}
   userData: 
   assetBundleName: 

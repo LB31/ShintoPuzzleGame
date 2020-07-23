@@ -1,23 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class DeathHandler : MonoBehaviour
 {
-    public GameObject player;
+    public WorldSwitcher ws;
     public GameObject spawn;
     public GameObject puzzleManager;
+    public Transform player;
 
-    private void OnTriggerEnter(Collider other)
+    private async void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player)
-        {
-            CharacterController cc = player.GetComponent<CharacterController>();
-            cc.enabled = false;
-            player.transform.position = spawn.transform.position;
-            cc.enabled = true;
-            puzzleManager.GetComponent<PuzzleManagerSusanno>().PuzzleStart();
-        }
+        ws.TriggerPlayerControls(false);
+        StartCoroutine(ws.VisualizeSceneChange(false));
+        await Task.Delay(1000);
+        player.position = spawn.transform.position;
+        ws.TriggerPlayerControls(true);
+        puzzleManager.GetComponent<PuzzleManagerSusanno>().PuzzleStart();
     }
 
 }

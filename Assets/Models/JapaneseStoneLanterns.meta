@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 <<<<<<< HEAD:Assets/_Scenes/Main.meta
+<<<<<<< HEAD
 guid: 466a1b4b819068a4883e0648c89480e0
 =======
 guid: 4e9b926e1277630438b3c09a81704fd2
 >>>>>>> master:Assets/Models/JapaneseStoneLanterns.meta
+=======
+guid: ea1644a41cc7fa6428f99c81463319ba
+=======
+guid: 4e9b926e1277630438b3c09a81704fd2
+>>>>>>> ff4b1193d2459c218bcbf2211db919112d167ad4:Assets/Models/JapaneseStoneLanterns.meta
+>>>>>>> master
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

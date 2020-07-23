@@ -1,12 +1,20 @@
 fileFormatVersion: 2
 <<<<<<< HEAD:Assets/Animations/Orb0.controller.meta
+<<<<<<< HEAD
 guid: f291c0c7129cb7c46aa70d52c261e654
+=======
+guid: 5d5aa475521b9d247baf04b036d87b57
+>>>>>>> master
 NativeFormatImporter:
 =======
 guid: 1d9e884eed56ede4faa1d570f990827c
 folderAsset: yes
 DefaultImporter:
+<<<<<<< HEAD
 >>>>>>> master:Assets/Models/JapaneseWoddenArbor/textures.meta
+=======
+>>>>>>> ff4b1193d2459c218bcbf2211db919112d167ad4:Assets/Models/JapaneseWoddenArbor/textures.meta
+>>>>>>> master
   externalObjects: {}
   mainObjectFileID: 0
   userData: 

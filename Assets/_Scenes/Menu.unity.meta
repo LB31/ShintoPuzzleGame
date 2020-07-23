@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 <<<<<<< HEAD:Assets/_Scenes/MainEric.unity.meta
+<<<<<<< HEAD
 guid: b55cbecf142efe640acd282f4754e916
 =======
 guid: 6dce5c58025983a44a1bbe185964104e
 >>>>>>> master:Assets/_Scenes/Menu.unity.meta
+=======
+guid: 43f4b21f57b2bf94daa5adae0ffb2112
+=======
+guid: 6dce5c58025983a44a1bbe185964104e
+>>>>>>> ff4b1193d2459c218bcbf2211db919112d167ad4:Assets/_Scenes/Menu.unity.meta
+>>>>>>> master
 DefaultImporter:
   externalObjects: {}
   userData: 
