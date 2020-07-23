@@ -49,7 +49,7 @@ public class MenuController : MonoBehaviour
 
     public void Back()
     {
-        for (int i = 1; i < transform.childCount; i++)
+        for (int i = 1; i < transform.childCount-1; i++)
         {
             transform.GetChild(i).gameObject.SetActive(false);
         }
