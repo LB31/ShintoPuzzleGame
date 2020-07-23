@@ -74,7 +74,7 @@ public class FPSController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            //velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+            velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
         }
 
         velocity.y += Gravity * Time.deltaTime;

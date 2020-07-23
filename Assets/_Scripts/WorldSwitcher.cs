@@ -102,7 +102,7 @@ public class WorldSwitcher : MonoBehaviour
         mainWorld = !mainWorld;
     }
 
-    private void TriggerPlayerControls(bool on)
+    public void TriggerPlayerControls(bool on)
     {
         Player.GetComponent<CharacterController>().enabled = on;
         Player.GetComponent<FPSController>().enabled = on;
