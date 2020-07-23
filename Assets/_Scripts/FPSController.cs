@@ -28,6 +28,7 @@ public class FPSController : MonoBehaviour
     public GameObject ReticleUI;
     public GameObject MobileUI;
     private bool MobileControll;
+	private bool onPlattform = false;
 
 
     // For puzzles
@@ -73,7 +74,7 @@ public class FPSController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            //velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+            velocity.y = Mathf.Sqrt(JumpHeight * -2f * Gravity);
         }
 
         velocity.y += Gravity * Time.deltaTime;
@@ -127,10 +128,10 @@ public class FPSController : MonoBehaviour
 
     private async void OnTriggerEnter(Collider other)
     {
-        await Task.Delay(500);
-        if (other.name.Contains("MovingPlane"))
+        //await Task.Delay(500);
+        if (other.name.Contains("Platt") && onPlattform == false)
         {
-            print("in");
+			onPlattform = true;
             transform.parent = other.transform;
             //other.GetComponent<PlatformController>().enabled = true;
         }
@@ -139,9 +140,9 @@ public class FPSController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
 
-        if (other.name.Contains("MovingPlane"))
+        if (other.name.Contains("Platt") && onPlattform)
         {
-            print("out");
+			onPlattform = false;
             transform.parent = null;           
         }
     }

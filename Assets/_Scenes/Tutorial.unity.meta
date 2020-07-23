@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Animations/Orb 1.controller.meta
+guid: 2556f864c428dff4cbb77159450ed375
+NativeFormatImporter:
+=======
 guid: ae78aeaeaf9d15f45a35f4644ad977d8
 DefaultImporter:
+>>>>>>> ff4b1193d2459c218bcbf2211db919112d167ad4:Assets/_Scenes/Tutorial.unity.meta
   externalObjects: {}
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
