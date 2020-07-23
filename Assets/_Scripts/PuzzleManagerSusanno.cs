@@ -120,7 +120,6 @@ public class PuzzleManagerSusanno : MonoBehaviour
                     if (gameState[result])
                     {
                         anzahlLichter++;
-                        Debug.Log(anzahlLichter);
                         lightMangaer.transform.GetChild(anzahlLichter - 1).gameObject.SetActive(true);
                     }
                     else
