@@ -6,9 +6,18 @@ using System.Linq;
 
 public class AudioController : MonoBehaviour
 {
+    public static AudioController Instance;
     public List<DictAudio> AllAudios;
     private AudioSource AudioSource;
-    
+
+    private void Awake()
+    {
+        if (Instance)
+        {
+            return;
+        }
+        Instance = this;
+    }
 
     void Start()
     {
