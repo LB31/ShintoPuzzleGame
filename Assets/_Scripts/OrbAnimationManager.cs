@@ -7,7 +7,6 @@ public class OrbAnimationManager : MonoBehaviour
     public Animator animator;
     public GameObject player;
 
-    public int yokaiDefeated;
     private bool isTriggered;
 
     private void OnTriggerEnter(Collider other)
