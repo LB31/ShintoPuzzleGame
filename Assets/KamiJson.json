@@ -4,30 +4,35 @@
             "id": 0,
             "kamiName": "Inari",
             "dialogs": [
-                "Citizens of Dalaran! Raise your eyes to the skies and observe! Today our world's destruction has been averted in defiance of our very makers!",
-                "Algalon the Observer, herald of the titans, has been defeated by our brave comrades in the depths of the titan city of Ulduar.",
-                "Algalon was sent here to judge the fate of our world. He found a planet whose races had deviated from the titans' blueprints. A planet where not everything had gone according to plan.",
-                "Cold logic deemed our world not worth saving. Cold logic, however, does not account for the power of free will. It's up to each of us to prove this is a world worth saving. That our lives... our lives are worth living.",
-                "Do you want to start a puzzle?"
+                "Konnichi wa, I've almost overlooked you in this darkness. I wish you could've seen our world as it was",
+                "Sadly, because the humans lost their faith in us Kamis, I don't have the power to manifest in this realm anymore.",
+                "At least, the Yokais, you would say spirits in your world, still have some energy left. Maybe they could help you.",
+                "But be warned: Some Yokais will demand a favor before they will listen to you",  
+                "Now go on your adventure. Sayounara."
             ],
             "puzzleText": "",
             "puzzleAnswer": "",
             "dialogsAfterPuzzle": [
-                ""
+                "Muh"
             ]
         },
         {
             "id": 1,
             "kamiName": "Susanno",
             "dialogs": [
-                "Deine Mudda"
+                "You litte human, how dare you to intrude in my sanctum. Did my stupid Yokais let you in?",
+                "I'm Susanno, the mightiest hero who ever lived. Yamata no Orochi, the most feared eight-headed dragon, was slayed only by myself.",
+                "Probably you've already noticed that all worlds became darker then ever before. Even with my endless powers I cannot make a difference.",
+                "However, there is a way to restore the balance. Behind you there is a shrine with a sacred treasure. Bring it to me and prove your faith.",
+                "Take care of the water"
             ],
             "puzzleText": "Beim Besuch ihres Hauptschreines Fushimi Inari-Taisha in Kyoto schaut sich Inari die an sie gerichteten Kiganbun (Wunsch-Briefe) an, als die Kitsune ihr plötzlich aufgeregt zurufen, dass eines der Schriftstücke vor ihr ein besonders schöner Liebesbrief ist. Um welchen davon handelt es sich wohl?",
             "puzzleAnswer": "2",
             "dialogsAfterPuzzle": [
-                "Don't look so smug! I know what you're thinking, but Tempest Keep was merely a set back.",
-                "Did you honestly believe I would trust the future to some blind, half-night elf mongrel?",
-                "Oh no, he was merely an instrument, a stepping stone to a much larger plan! It has all led to this... and this time you will not interfere!"
+                "You are more capable that you seem, mortal. I appreciate your eagerness to restore the harmony",
+                "The item that you have retrieved from the shrine belongs to my sister Amaterasu, our queen and Kami of the sun",
+                "She hid from the world once again, and now it lays in darkness. This is mirror, Yata-no-Kagami, that before was used to lure her out of the cave",
+                "If you wish to bring back the light, talk to my second sister Tsukuyomi and with her help and this mirror, maybe there is still hope"
             ]
         },
         {
@@ -49,27 +54,30 @@
             "id": 3,
             "kamiName": "Futakuchi-onna",
             "dialogs": [
-                "I'm on the highway to hell",
-                "But in the end, it doesn't even matter",
-                "Ich bin Schnappi, das kleine Krokodil"
+                "Welcome, child, I am Futakuchi-onna. I was afflicted with the curse and now I'm always hungry",
+                "Bring me those fine pancakes and maybe I will help you"
             ],
             "puzzleText": "What is bigger on the inside?",
             "puzzleAnswer": "Trölf",
             "dialogsAfterPuzzle": [
-                "I'm the eye of the storm",
-                "Gimme! Gimme! Gimme!"]
+                "Delicious! Thank you for satisfying a bit my unending hunger",
+                "I heard you are looking to bring harmony back? As my gratitude, I'll open gate to Susanno's shrine. Good luck!"
+            ]
         },
         {
             "id": 4,
             "kamiName": "Kappa",
             "dialogs": [
-                "I'm Kappa"
+                "Oh, a traveller! Very interesting! Let me introduce myself, I'm Kappa",
+                "We are seen by humans as tricksters. What's wrong with some fun?",
+                "But my youngest brother is crossing the line. He is attacking humans too often and too violently, he is showing a bad example of us as Yokais",
+                "Could you help split the water evenly between me and my middle brother, the youngest should learn his lesson!"
             ],
             "puzzleText": "You have one 16 litre pitcher full of water, one empty 9 litre pitcher, and one empty 7 litre pitcher. \nUsing nothing but these three pitchers, can you divide the water evenly so that the 16 and 9 litre pitchers are each holding exactly 8 litres of water?\nUsing nothing but these three pitchers, can you divide the water evenly so that the 16 and 9 litre pitchers are each holding exactly 8 litres of water?",
             "puzzleAnswer": "2",
             "dialogsAfterPuzzle": [
-                "Don't look so smug! Did you really thought that you small human can stop a world wide pandemic? Muhahaha",
-                "Nevertheless, I will reward your efforts. Go to Susanno's shrine and help this old bastard to restore the balance in this world. At least a bit ;)"
+                "Hahaha, he will no longer disrespect my authority! This should give him a lesson!",
+                "So you want my help in balancing the darkness? My gate is open to Susanno, there you will find your answers!"
             ]
 		}
     ]
