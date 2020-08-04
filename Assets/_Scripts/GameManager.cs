@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,8 +14,6 @@ public class GameManager : MonoBehaviour
     public GameObject ReticleUI;
     public FPSController fpsController;
     public MenuController MenuController;
-
-    private bool inMenu;
 
     public enum KamiType
     {
@@ -50,16 +49,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (inMenu)
-            {
-                MenuController.Pause();
-            }
-            else
-            {
-                MenuController.Play();
-            }
-
-            inMenu = !inMenu;
+            MenuController.Pause();
         }
     }
 
@@ -99,6 +89,11 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
         Cursor.visible = isActive;
+    }
+
+    public void ChangeScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
 }

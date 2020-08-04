@@ -34,6 +34,14 @@ public class PuzzleManagerSusanno : MonoBehaviour
 
     public Image puzzleObject;
 
+    public GameObject PuzzleUI;
+    private bool infoActive;
+
+    private void Start()
+    {
+        PuzzleUI.SetActive(false);
+    }
+
     void Update()
     {
         if (restart)
@@ -165,5 +173,14 @@ public class PuzzleManagerSusanno : MonoBehaviour
     public void activatePuzzle()
     {
         puzzleActivated = true;
+    }
+
+
+    
+    public void ShowInfo()
+    {
+        infoActive = !infoActive;
+        GameManager.Instance.TriggerUi(infoActive);
+        PuzzleUI.SetActive(infoActive);
     }
 }

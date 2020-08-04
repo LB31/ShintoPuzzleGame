@@ -1651,7 +1651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogUI: {fileID: 2354876074130812552}
-  dialogSpeed: 0.03
+  dialogSpeed: 0.02
   dialogSequence: 0
 --- !u!1 &5552819236424664713
 GameObject:
