@@ -401,6 +401,7 @@ GameObject:
   - component: {fileID: 5703847494890858283}
   - component: {fileID: 5703847494890858280}
   - component: {fileID: 5128373641748068445}
+  - component: {fileID: 2877807099879581446}
   m_Layer: 0
   m_Name: amabie
   m_TagString: Untagged
@@ -1978,7 +1979,7 @@ MonoBehaviour:
     EnableBreakpoints: 1
     editorFlags: 3
     activeStateName: 
-    mouseEvents: 0
+    mouseEvents: 1
     handleLevelLoaded: 0
     handleTriggerEnter2D: 0
     handleTriggerExit2D: 0
@@ -2016,6 +2017,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1079068393, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetFSMs:
+  - {fileID: 5703847494890858280}
+--- !u!114 &2877807099879581446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4893524669117793048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1775717093, guid: e743331561ef77147ae48cda9bcb8209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TargetFSMs:

@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/EndScene.unity
     guid: 74e362e07818d0c458bd634c86b65901
+  - enabled: 0
+    path: Assets/_Scenes/MainPerformanceTest.unity
+    guid: 19f653fcf258abc4590417de1c658302
   m_configObjects: {}
