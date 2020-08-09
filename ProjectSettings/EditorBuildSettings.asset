@@ -6,19 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/_Scenes/Demo_Scene_Polygon3D.unity
+    path: Assets/_Scenes/DevScenes/Demo_Scene_Polygon3D.unity
     guid: e120d0e37ab427a4cb1c20085b85c472
   - enabled: 0
-    path: Assets/_Scenes/FPS_Controller.unity
+    path: Assets/_Scenes/DevScenes/FPS_Controller.unity
     guid: e539f0fc626e88446beb89fbf9165941
   - enabled: 0
-    path: Assets/_Scenes/GameLevel.unity
+    path: Assets/_Scenes/DevScenes/WorldConstruction.unity
     guid: cb26b0e273418e74eb4aa78a7b1cfc44
   - enabled: 0
     path: Assets/_Scenes/Main.unity
     guid: ccf42b5fef7254548b3cd3967065ae69
   - enabled: 0
-    path: Assets/_Scenes/PancakePuzzle.unity
+    path: Assets/_Scenes/DevScenes/PancakePuzzle.unity
     guid: 6704732cf0d1c3b4bbed2d34b523dc71
   - enabled: 0
     path: Assets/_Scenes/EndScene.unity
@@ -27,6 +27,6 @@ EditorBuildSettings:
     path: Assets/_Scenes/MainPerformanceTest.unity
     guid: 19f653fcf258abc4590417de1c658302
   - enabled: 1
-    path: Assets/_Scenes/NewWorldTerrain.unity
+    path: Assets/_Scenes/DevScenes/NewWorldTerrain.unity
     guid: 33f1e749734bfa24294fcfa7ad996229
   m_configObjects: {}
