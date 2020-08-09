@@ -28,7 +28,7 @@ public class FPSController : MonoBehaviour
     public GameObject ReticleUI;
     public GameObject MobileUI;
     private bool MobileControll;
-	private bool onPlattform = false;
+	private bool onPlatform = false;
 
 
     // For puzzles
@@ -126,23 +126,21 @@ public class FPSController : MonoBehaviour
         Camera.main.transform.localRotation = Quaternion.Euler(refernce.eulerAngles.x, 0, 0);
     }
 
-    private async void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        //await Task.Delay(500);
-        if (other.name.Contains("Platt") && onPlattform == false)
+        if (other.name.Contains("Platt") && !onPlatform)
         {
-			onPlattform = true;
+			onPlatform = true;
             transform.parent = other.transform;
-            //other.GetComponent<PlatformController>().enabled = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
 
-        if (other.name.Contains("Platt") && onPlattform)
+        if (other.name.Contains("Platt") && onPlatform)
         {
-			onPlattform = false;
+			onPlatform = false;
             transform.parent = null;           
         }
     }
